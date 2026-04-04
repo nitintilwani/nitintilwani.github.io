@@ -218,6 +218,45 @@
     .cert-name{font-size:17px;font-weight:800;color:var(--text);margin-bottom:4px}
     .cert-sub{font-size:13px;color:var(--muted)}
 
+    /* ── Hobbies ── */
+    .hobby-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .hobby-card{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:30px 24px;text-align:center;transition:all 0.3s;position:relative;overflow:hidden}
+    .hobby-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,0.3)}
+    .hobby-card.hc-music:hover{border-color:rgba(168,85,247,0.35)}
+    .hobby-card.hc-tt:hover{border-color:rgba(34,197,94,0.35)}
+    .hobby-card.hc-funny:hover{border-color:rgba(249,115,22,0.35)}
+    .hobby-emoji{font-size:44px;margin-bottom:16px;display:block;transition:transform 0.3s}
+    .hobby-card:hover .hobby-emoji{transform:scale(1.15) rotate(-5deg)}
+    .hobby-title{font-size:17px;font-weight:800;color:var(--text);margin-bottom:8px}
+    .hobby-desc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:22px;min-height:60px}
+    .hobby-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.2s;text-decoration:none;border:1.5px solid transparent;background:none;font-family:inherit}
+    .hobby-btn.hb-music{background:rgba(168,85,247,0.1);border-color:rgba(168,85,247,0.3);color:#c084fc}
+    .hobby-btn.hb-music:hover{background:#a855f7;border-color:#a855f7;color:white;box-shadow:0 6px 20px rgba(168,85,247,0.4)}
+    .hobby-btn.hb-tt{background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.3);color:#4ade80}
+    .hobby-btn.hb-tt:hover{background:#22c55e;border-color:#22c55e;color:white;box-shadow:0 6px 20px rgba(34,197,94,0.4)}
+    .hobby-btn.hb-funny{background:rgba(249,115,22,0.1);border-color:rgba(249,115,22,0.3);color:var(--accent)}
+    .hobby-btn.hb-funny:hover{background:var(--accent);border-color:var(--accent);color:white;box-shadow:0 6px 20px rgba(249,115,22,0.4)}
+    .joke-box{background:var(--bg-card2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-top:14px;font-size:13px;color:var(--muted);line-height:1.6;text-align:left;display:none;animation:fadeUp 0.3s ease both}
+    .joke-box.show{display:block}
+
+    /* ── Testimonials ── */
+    .testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:40px}
+    .testi-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:26px;position:relative;overflow:hidden;transition:all 0.2s}
+    .testi-card:hover{border-color:rgba(249,115,22,0.2);transform:translateY(-2px)}
+    .testi-card::before{content:'"';position:absolute;top:-8px;right:16px;font-size:80px;color:var(--accent);opacity:0.08;font-family:Georgia,serif;line-height:1}
+    .testi-text{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:18px;font-style:italic;opacity:0.9}
+    .testi-author{display:flex;align-items:center;gap:10px}
+    .testi-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f97316,#ea580c);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:white;flex-shrink:0}
+    .testi-name{font-size:13.5px;font-weight:700;color:var(--text)}
+    .testi-role{font-size:12px;color:var(--muted)}
+    .testi-cta{background:var(--bg-card);border:2px dashed rgba(249,115,22,0.2);border-radius:16px;padding:32px;text-align:center;margin-bottom:28px;transition:border-color 0.2s}
+    .testi-cta:hover{border-color:rgba(249,115,22,0.4)}
+    .testi-cta-icon{font-size:32px;margin-bottom:12px}
+    .testi-cta-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px}
+    .testi-cta-sub{font-size:13px;color:var(--muted);margin-bottom:20px}
+    .testi-form{display:none;margin-top:20px;text-align:left}
+    .testi-form.open{display:block}
+
     /* ── Contact ── */
     .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .contact-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:18px;display:flex;align-items:center;gap:13px;transition:all 0.2s}
@@ -240,6 +279,8 @@
       h1{letter-spacing:-1.5px}
       .stats-wrap{grid-template-columns:repeat(2,1fr)}
       .skills-grid{grid-template-columns:1fr}
+      .hobby-grid{grid-template-columns:1fr}
+      .testi-grid{grid-template-columns:1fr}
       .connect-grid{grid-template-columns:1fr}
       .contact-grid{grid-template-columns:1fr 1fr}
       .form-row{grid-template-columns:1fr}
@@ -258,7 +299,8 @@
   <div class="nav-links">
     <a href="#experience" class="hide-sm">Experience</a>
     <a href="#skills" class="hide-sm">Skills</a>
-    <a href="#resume" class="hide-sm">Resume</a>
+    <a href="#hobbies" class="hide-sm">Hobbies</a>
+    <a href="#testimonials" class="hide-sm">Testimonials</a>
     <a href="#connect">Connect</a>
     <a href="#connect" class="nav-hire">Referral? →</a>
   </div>
@@ -485,6 +527,122 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       Download Resume (PDF)
     </a>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- Hobbies -->
+<section id="hobbies">
+  <div class="sec-label reveal">Off the Clock</div>
+  <h2 class="reveal">When I'm Not Deploying</h2>
+  <div class="hobby-grid">
+
+    <div class="hobby-card hc-music reveal-card">
+      <span class="hobby-emoji">🎵</span>
+      <div class="hobby-title">Music Addict</div>
+      <div class="hobby-desc">I live with earphones in. Good music is the best deployment pipeline — smooth, reliable, and always hits right.</div>
+      <a href="mailto:nitin.edu476@gmail.com?subject=Song%20Suggestion%20for%20Nitin&body=Hey%20Nitin%2C%0A%0AI%20think%20you%27ll%20love%20this%20song%3A%0A%0A%5BSong%20Name%5D%20by%20%5BArtist%5D%0A%0AWhy%20I%27m%20suggesting%20it%3A%0A" class="hobby-btn hb-music">🎧 Suggest Me a Song →</a>
+    </div>
+
+    <div class="hobby-card hc-tt reveal-card">
+      <span class="hobby-emoji">🏓</span>
+      <div class="hobby-title">Table Tennis Rival</div>
+      <div class="hobby-desc">Bring your paddle, I'll bring the smash. Based in DLF Cyber City area, Gurugram. Weekends are fair game.</div>
+      <a href="https://maps.google.com/?q=DLF+Cyber+City+Gurugram" target="_blank" rel="noopener" class="hobby-btn hb-tt">📍 Find Me on Maps →</a>
+    </div>
+
+    <div class="hobby-card hc-funny reveal-card">
+      <span class="hobby-emoji">😄</span>
+      <div class="hobby-title">DevOps Challenge</div>
+      <div class="hobby-desc">Think you know DevOps? Hit the button for a challenge. Honest answers only — no Googling.</div>
+      <button class="hobby-btn hb-funny" onclick="showChallenge()">⚡ Give Me a Challenge →</button>
+      <div class="joke-box" id="joke-box"></div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- Testimonials -->
+<section id="testimonials">
+  <div class="sec-label reveal">Word on the Street</div>
+  <h2 class="reveal">What People Say</h2>
+
+  <!-- ✏️ EDIT THESE MANUALLY — add/remove cards to approve/reject testimonials -->
+  <div class="testi-grid">
+
+    <div class="testi-card reveal-card">
+      <div class="testi-text">"Nitin single-handedly transformed our DevOps culture. The ECS to EKS migration was flawless — zero downtime, zero drama. That's rare."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">S</div>
+        <div>
+          <div class="testi-name">Sahil M.</div>
+          <div class="testi-role">Engineering Manager · CARS24</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal-card">
+      <div class="testi-text">"The guy obsesses over cost optimization like it's a sport. Cut our AWS bill by 20% in under 60 days. I've never seen someone move that fast on infra."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">R</div>
+        <div>
+          <div class="testi-name">Rahul K.</div>
+          <div class="testi-role">Senior Backend Engineer · CARS24</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal-card">
+      <div class="testi-text">"Got my Nykaa offer because Nitin gave me brutally honest interview prep advice. He doesn't sugarcoat, and that's exactly what you need."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">P</div>
+        <div>
+          <div class="testi-name">Priya S.</div>
+          <div class="testi-role">DevOps Engineer · Nykaa</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal-card">
+      <div class="testi-text">"Best TT player in the office — and somehow also the guy who fixes your CI pipeline at 2am. I don't know how he does it."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">A</div>
+        <div>
+          <div class="testi-name">Aman T.</div>
+          <div class="testi-role">SRE · CARS24</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END editable testimonials -->
+
+  <!-- Submit form -->
+  <div class="testi-cta reveal-card">
+    <div class="testi-cta-icon">✍️</div>
+    <div class="testi-cta-title">Have something to say?</div>
+    <div class="testi-cta-sub">If we've worked together or I've helped you in any way — I'd love to hear from you.</div>
+    <button class="hobby-btn hb-funny" onclick="toggleTestiForm()">Share Your Thoughts →</button>
+    <div class="testi-form" id="testi-form">
+      <div class="form-row" style="margin-top:18px">
+        <div>
+          <label class="fl">Your Name *</label>
+          <input class="fi" id="t-name" placeholder="Your Name" />
+        </div>
+        <div>
+          <label class="fl">Your Role</label>
+          <input class="fi" id="t-role" placeholder="e.g. SDE at Razorpay" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="fl">Your Testimonial *</label>
+        <textarea class="fi" id="t-msg" placeholder="What would you like to say about Nitin…" style="min-height:110px"></textarea>
+      </div>
+      <button class="submit-btn" onclick="submitTesti()" style="margin-top:8px">Send Testimonial →</button>
+    </div>
   </div>
 </section>
 
@@ -723,6 +881,43 @@
     setTimeout(type, deleting ? 40 : 70)
   }
   setTimeout(type, 1000)
+
+  // ── DevOps Challenge generator ──
+  const challenges = [
+    "⚡ Your Terraform apply just failed at 97% on a Friday evening. What's your first move? (\"rollback\" is not an answer.)",
+    "🤔 Explain Kubernetes to your grandma in under 2 sentences. Go.",
+    "🔥 Name 3 things you check before a Friday 5pm deployment. Hint: one of them is 'who's on-call'.",
+    "🕵️ Spot the bug: `if ENV == 'production': restart_all_servers()` — what happens and why is this terrifying?",
+    "😅 The pipeline is red. It was green 10 minutes ago and nothing changed. Name your top 3 suspects in order.",
+    "🚀 You have a 40% AWS bill spike. You have 1 hour and no dashboards. What do you check first?",
+    "🐛 'Works on my machine' — okay hotshot, name 3 root causes and how you prevent them in CI.",
+    "📉 Your container images jumped from 300MB to 2.8GB overnight. Walk me through the investigation.",
+  ]
+  let lastChallenge = -1
+  function showChallenge() {
+    let idx
+    do { idx = Math.floor(Math.random() * challenges.length) } while (idx === lastChallenge)
+    lastChallenge = idx
+    const box = document.getElementById('joke-box')
+    box.textContent = challenges[idx]
+    box.classList.add('show')
+  }
+
+  // ── Testimonial form toggle ──
+  function toggleTestiForm() {
+    const f = document.getElementById('testi-form')
+    f.classList.toggle('open')
+  }
+
+  function submitTesti() {
+    const name = document.getElementById('t-name').value.trim()
+    const role = document.getElementById('t-role').value.trim()
+    const msg = document.getElementById('t-msg').value.trim()
+    if (!name || !msg) { alert('Please fill in your name and testimonial.'); return }
+    const subject = `[Testimonial] from ${name}`
+    const body = `Name: ${name}\nRole: ${role || 'N/A'}\n\nTestimonial:\n${msg}`
+    window.location.href = `mailto:nitin.edu476@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  }
 
   // ── Form type selector ──
   function setType(btn, type) {
