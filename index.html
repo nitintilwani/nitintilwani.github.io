@@ -41,9 +41,16 @@
       --accent:#f97316;--accent2:#fb923c;
       --text:#f1f5f9;--muted:#94a3b8;--faint:#475569;
       --li:#0A66C2;--ig1:#833AB4;--ig2:#E1306C;--ig3:#F77737;
+      --nav-bg:rgba(13,13,22,0.8);
+    }
+    [data-theme="light"]{
+      --bg:#f4f3ef;--bg-card:#ffffff;--bg-card2:#ebebE7;
+      --border:rgba(0,0,0,0.09);--border2:rgba(0,0,0,0.17);
+      --text:#1a1a2e;--muted:#55627a;--faint:#8492a6;
+      --nav-bg:rgba(244,243,239,0.85);
     }
     html{scroll-behavior:smooth}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden;transition:background 0.3s,color 0.3s}
     a{color:var(--accent);text-decoration:none}
 
     /* ── Scroll Progress Bar ── */
@@ -77,7 +84,13 @@
     .reveal-card.visible{opacity:1;transform:translateY(0)}
 
     /* ── Nav ── */
-    nav{position:sticky;top:3px;z-index:100;margin:12px 20px 0;background:rgba(13,13,22,0.8);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:16px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:52px}
+    /* ── Theme button ── */
+    .theme-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--bg-card);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0}
+    .theme-btn:hover{border-color:var(--accent);transform:scale(1.15) rotate(20deg)}
+    @keyframes btnPop{0%{transform:scale(1)}40%{transform:scale(1.25) rotate(15deg)}100%{transform:scale(1) rotate(0deg)}}
+    .theme-btn.pop{animation:btnPop 0.3s ease both}
+
+    nav{position:sticky;top:3px;z-index:100;margin:12px 20px 0;background:var(--nav-bg);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:16px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:52px}
     .nav-brand{font-weight:800;font-size:15px;color:var(--text);letter-spacing:-0.3px}
     .nav-links{display:flex;gap:24px;align-items:center}
     .nav-links a{font-size:13px;color:var(--muted);font-weight:500;transition:color 0.15s}
@@ -299,11 +312,12 @@
   <div class="nav-links">
     <a href="#experience" class="hide-sm">Experience</a>
     <a href="#skills" class="hide-sm">Skills</a>
-    <a href="#hobbies" class="hide-sm">Hobbies</a>
+    <a href="hobbies.html" class="hide-sm">Hobbies</a>
     <a href="#testimonials" class="hide-sm">Testimonials</a>
     <a href="#connect">Connect</a>
     <a href="#connect" class="nav-hire">Referral? →</a>
   </div>
+  <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle theme">☀️</button>
 </nav>
 
 <!-- Hero -->
@@ -830,6 +844,42 @@
 </footer>
 
 <script>
+  // ── Theme ──
+  ;(function(){
+    const t = localStorage.getItem('nt-theme') || 'dark'
+    document.documentElement.setAttribute('data-theme', t)
+    window.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('theme-btn')
+      if (btn) btn.textContent = t === 'light' ? '🌙' : '☀️'
+    })
+  })()
+
+  function playClick() {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)()
+      const o = ctx.createOscillator(), g = ctx.createGain()
+      o.connect(g); g.connect(ctx.destination)
+      o.type = 'sine'
+      o.frequency.setValueAtTime(720, ctx.currentTime)
+      o.frequency.exponentialRampToValueAtTime(360, ctx.currentTime + 0.12)
+      g.gain.setValueAtTime(0.18, ctx.currentTime)
+      g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12)
+      o.start(ctx.currentTime); o.stop(ctx.currentTime + 0.12)
+    } catch(e) {}
+  }
+
+  function toggleTheme() {
+    playClick()
+    const html = document.documentElement
+    const btn = document.getElementById('theme-btn')
+    const isLight = html.getAttribute('data-theme') === 'light'
+    const next = isLight ? 'dark' : 'light'
+    html.setAttribute('data-theme', next)
+    btn.textContent = next === 'light' ? '🌙' : '☀️'
+    btn.classList.remove('pop'); void btn.offsetWidth; btn.classList.add('pop')
+    localStorage.setItem('nt-theme', next)
+  }
+
   // ── Scroll progress bar ──
   const bar = document.getElementById('progress')
   window.addEventListener('scroll', () => {
