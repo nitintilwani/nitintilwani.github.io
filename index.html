@@ -192,6 +192,24 @@
     .submit-btn{width:100%;padding:12px;background:linear-gradient(135deg,#f97316,#ea580c);color:white;font-weight:700;font-size:14px;border:none;border-radius:9px;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 16px rgba(249,115,22,0.3);margin-top:4px}
     .submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,0.45)}
     .form-success{display:none;text-align:center;padding:20px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:10px;color:#22c55e;font-weight:600;font-size:14px}
+    .field-group{display:none}.field-group.active{display:block}
+    .note-box{background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:8px;padding:10px 14px;font-size:12.5px;color:var(--muted);margin-bottom:14px;line-height:1.5}
+
+    /* ── Resume ── */
+    .resume-card{background:var(--bg-card);border:1px solid rgba(249,115,22,0.2);border-radius:16px;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+    .resume-info h3{font-size:20px;font-weight:800;color:var(--text);margin-bottom:6px}
+    .resume-info p{font-size:13.5px;color:var(--muted);line-height:1.6;max-width:480px}
+    .resume-btn{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;background:linear-gradient(135deg,#f97316,#ea580c);color:white;font-weight:700;font-size:14px;border-radius:10px;box-shadow:0 4px 16px rgba(249,115,22,0.3);transition:all 0.2s;white-space:nowrap}
+    .resume-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,0.45);text-decoration:none;color:white}
+
+    /* ── Education ── */
+    .edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .edu-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:22px 24px;position:relative;overflow:hidden;transition:all 0.2s}
+    .edu-card:hover{border-color:rgba(249,115,22,0.25);transform:translateY(-2px)}
+    .edu-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#f97316,#ea580c)}
+    .edu-name{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
+    .edu-degree{font-size:13px;color:var(--accent);font-weight:600;margin-bottom:4px}
+    .edu-meta{font-size:12.5px;color:var(--muted)}
 
     /* ── Cert ── */
     .cert-card{background:var(--bg-card);border:1px solid rgba(249,115,22,0.2);border-radius:16px;padding:28px;display:flex;align-items:center;gap:20px;transition:all 0.2s}
@@ -240,6 +258,7 @@
   <div class="nav-links">
     <a href="#experience" class="hide-sm">Experience</a>
     <a href="#skills" class="hide-sm">Skills</a>
+    <a href="#resume" class="hide-sm">Resume</a>
     <a href="#connect">Connect</a>
     <a href="#connect" class="nav-hire">Referral? →</a>
   </div>
@@ -428,6 +447,49 @@
 
 <hr class="divider" />
 
+<!-- Education -->
+<section id="education">
+  <div class="sec-label reveal">Academic</div>
+  <h2 class="reveal">Education</h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal-card">
+      <div class="edu-degree">B.Tech — Computer Science</div>
+      <div class="edu-name">Poornima Institute of Engineering &amp; Technology</div>
+      <div class="edu-meta">Jaipur, Rajasthan · Aug 2018 – Aug 2022 · CGPA: 8.06</div>
+    </div>
+    <div class="edu-card reveal-card">
+      <div class="edu-degree">Intermediate (12th)</div>
+      <div class="edu-name">Samrat Public School</div>
+      <div class="edu-meta">Ajmer, Rajasthan · 2016 – 2018</div>
+    </div>
+    <div class="edu-card reveal-card">
+      <div class="edu-degree">Matriculation (10th)</div>
+      <div class="edu-name">Maheshwari Public School</div>
+      <div class="edu-meta">Ajmer, Rajasthan · 2014 – 2016</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- Resume -->
+<section id="resume">
+  <div class="sec-label reveal">Download</div>
+  <h2 class="reveal">Resume</h2>
+  <div class="resume-card reveal-card">
+    <div class="resume-info">
+      <h3>Nitin Tilwani — Lead DevOps Engineer</h3>
+      <p>4+ years of experience in cloud infrastructure, Kubernetes, CI/CD, and platform engineering. Currently leading DevOps at CARS24. Available for the right opportunity.</p>
+    </div>
+    <a href="resume.pdf" download="Nitin_Tilwani_Resume.pdf" class="resume-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Resume (PDF)
+    </a>
+  </div>
+</section>
+
+<hr class="divider" />
+
 <!-- Connect / Referral -->
 <section id="connect">
   <div class="sec-label reveal">Let's Talk</div>
@@ -435,24 +497,31 @@
   <div class="connect-grid reveal">
     <div class="connect-info">
       <div class="connect-point">
-        <div class="connect-icon orange">🚀</div>
+        <div class="connect-icon orange">🎯</div>
         <div>
-          <div class="connect-point-title">Referral Request</div>
-          <div class="connect-point-desc">Applying to CARS24 or Nykaa? I'm happy to refer strong candidates. Fill the form with your details and I'll get back to you.</div>
+          <div class="connect-point-title">CARS24 Referral</div>
+          <div class="connect-point-desc">Applying to CARS24? I can refer strong candidates internally. Share your resume link and the role — I'll take it from there.</div>
         </div>
       </div>
       <div class="connect-point">
-        <div class="connect-icon blue">🤝</div>
+        <div class="connect-icon blue">💼</div>
         <div>
-          <div class="connect-point-title">Collaboration</div>
-          <div class="connect-point-desc">Want to collaborate on open source, infra tooling, or cloud architecture? Let's connect.</div>
+          <div class="connect-point-title">HR / Recruiter</div>
+          <div class="connect-point-desc">Interested in my profile for your team? Share the role details and company — open to the right opportunity.</div>
         </div>
       </div>
       <div class="connect-point">
-        <div class="connect-icon green">💬</div>
+        <div class="connect-icon green">💡</div>
         <div>
-          <div class="connect-point-title">Just Say Hi</div>
-          <div class="connect-point-desc">DevOps questions, career advice, or just want to talk cloud infrastructure — always open to a conversation.</div>
+          <div class="connect-point-title">Career Advice</div>
+          <div class="connect-point-desc">DevOps career guidance, cloud certifications, switching from dev to infra — happy to share my experience.</div>
+        </div>
+      </div>
+      <div class="connect-point">
+        <div class="connect-icon orange">🔧</div>
+        <div>
+          <div class="connect-point-title">Freelance / Consulting</div>
+          <div class="connect-point-desc">Need help with cloud infra, Kubernetes setup, CI/CD pipelines, or cost optimization? Let's discuss your project.</div>
         </div>
       </div>
     </div>
@@ -462,14 +531,15 @@
       <div class="form-sub">I'll respond within 24–48 hours.</div>
 
       <div class="form-type">
-        <div class="type-btn active" onclick="setType(this,'Referral Request')">🎯 Referral</div>
-        <div class="type-btn" onclick="setType(this,'Collaboration')">🤝 Collaborate</div>
-        <div class="type-btn" onclick="setType(this,'Career Advice')">💡 Advice</div>
-        <div class="type-btn" onclick="setType(this,'Just Saying Hi')">👋 Say Hi</div>
+        <div class="type-btn active" onclick="setType(this,'referral')">🎯 CARS24 Referral</div>
+        <div class="type-btn" onclick="setType(this,'hr')">💼 HR / Recruiter</div>
+        <div class="type-btn" onclick="setType(this,'advice')">💡 Career Advice</div>
+        <div class="type-btn" onclick="setType(this,'freelance')">🔧 Freelance</div>
       </div>
 
       <form id="connect-form" onsubmit="submitForm(event)">
-        <input type="hidden" id="msg-type" value="Referral Request" />
+        <input type="hidden" id="msg-type" value="referral" />
+
         <div class="form-row">
           <div>
             <label class="fl">Your Name *</label>
@@ -480,21 +550,77 @@
             <input class="fi" id="f-email" type="email" placeholder="you@company.com" required />
           </div>
         </div>
-        <div class="form-group">
-          <label class="fl">Company / Role (if referral)</label>
-          <input class="fi" id="f-company" placeholder="e.g. CARS24 — Backend Engineer" />
+
+        <!-- Referral fields -->
+        <div class="field-group active" id="fg-referral">
+          <div class="note-box">⚠️ Referrals are only for <strong>CARS24</strong> openings. Please check careers.cars24.com for active roles before submitting.</div>
+          <div class="form-group">
+            <label class="fl">Role Applying For *</label>
+            <input class="fi" id="f-role" placeholder="e.g. Senior Backend Engineer" />
+          </div>
+          <div class="form-group">
+            <label class="fl">Resume Link (Google Drive / LinkedIn) *</label>
+            <input class="fi" id="f-resume-link" placeholder="drive.google.com/file/... or linkedin.com/in/..." />
+          </div>
+          <div class="form-group">
+            <label class="fl">LinkedIn Profile</label>
+            <input class="fi" id="f-li" placeholder="linkedin.com/in/yourprofile" />
+          </div>
+          <div class="form-group">
+            <label class="fl">Why should I refer you?</label>
+            <textarea class="fi" id="f-why" placeholder="Brief intro — current role, years of experience, key skills…"></textarea>
+          </div>
         </div>
-        <div class="form-group">
-          <label class="fl">LinkedIn Profile</label>
-          <input class="fi" id="f-li" placeholder="linkedin.com/in/yourprofile" />
+
+        <!-- HR fields -->
+        <div class="field-group" id="fg-hr">
+          <div class="form-group">
+            <label class="fl">Company Name *</label>
+            <input class="fi" id="f-company" placeholder="e.g. Swiggy, Zepto, Razorpay" />
+          </div>
+          <div class="form-group">
+            <label class="fl">Role / JD Link *</label>
+            <input class="fi" id="f-jd" placeholder="Role title or link to job description" />
+          </div>
+          <div class="form-group">
+            <label class="fl">Message</label>
+            <textarea class="fi" id="f-hr-msg" placeholder="Share a bit about the team, stack, and comp range…"></textarea>
+          </div>
         </div>
-        <div class="form-group">
-          <label class="fl">Message *</label>
-          <textarea class="fi" id="f-msg" placeholder="Tell me a bit about yourself and what you're looking for…" required></textarea>
+
+        <!-- Advice fields -->
+        <div class="field-group" id="fg-advice">
+          <div class="form-group">
+            <label class="fl">Your Current Role</label>
+            <input class="fi" id="f-current-role" placeholder="e.g. Software Developer, 2 years" />
+          </div>
+          <div class="form-group">
+            <label class="fl">What would you like advice on? *</label>
+            <textarea class="fi" id="f-advice-msg" placeholder="e.g. How to transition into DevOps, which certs to pursue, how to crack interviews…"></textarea>
+          </div>
         </div>
+
+        <!-- Freelance fields -->
+        <div class="field-group" id="fg-freelance">
+          <div class="form-group">
+            <label class="fl">Project Description *</label>
+            <textarea class="fi" id="f-project" placeholder="What do you need? Cloud setup, Kubernetes, CI/CD, cost audit…"></textarea>
+          </div>
+          <div class="form-row">
+            <div>
+              <label class="fl">Budget Range</label>
+              <input class="fi" id="f-budget" placeholder="e.g. ₹50k–₹1L" />
+            </div>
+            <div>
+              <label class="fl">Timeline</label>
+              <input class="fi" id="f-timeline" placeholder="e.g. 2–4 weeks" />
+            </div>
+          </div>
+        </div>
+
         <button type="submit" class="submit-btn">Send Message →</button>
       </form>
-      <div class="form-success" id="form-success">✓ Message sent! I'll get back to you soon.</div>
+      <div class="form-success" id="form-success">✓ Message sent! I'll get back to you within 24–48 hours.</div>
     </div>
   </div>
 </section>
@@ -527,15 +653,15 @@
     </a>
     <div class="contact-card reveal-card">
       <div class="contact-ico ci-ph">📞</div>
-      <div><div class="contact-lbl">Primary</div><div class="contact-val">+91 83020 27845</div></div>
-    </div>
-    <div class="contact-card reveal-card">
-      <div class="contact-ico ci-ph">📱</div>
-      <div><div class="contact-lbl">Alternate</div><div class="contact-val">+91 96728 27365</div></div>
+      <div><div class="contact-lbl">Phone</div><div class="contact-val">+91 83020 27845 / +91 96728 27365</div></div>
     </div>
     <div class="contact-card reveal-card">
       <div class="contact-ico ci-loc">📍</div>
-      <div><div class="contact-lbl">Location</div><div class="contact-val">Gurugram, India</div></div>
+      <div><div class="contact-lbl">Current</div><div class="contact-val">Gurugram, Haryana</div></div>
+    </div>
+    <div class="contact-card reveal-card">
+      <div class="contact-ico" style="background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.2);font-size:16px">🏠</div>
+      <div><div class="contact-lbl">Hometown</div><div class="contact-val">Ajmer, Rajasthan</div></div>
     </div>
   </div>
 </section>
@@ -603,6 +729,9 @@
     document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'))
     btn.classList.add('active')
     document.getElementById('msg-type').value = type
+    document.querySelectorAll('.field-group').forEach(g => g.classList.remove('active'))
+    const fg = document.getElementById('fg-' + type)
+    if (fg) fg.classList.add('active')
   }
 
   // ── Form submit → mailto ──
@@ -611,14 +740,35 @@
     const type = document.getElementById('msg-type').value
     const name = document.getElementById('f-name').value
     const email = document.getElementById('f-email').value
-    const company = document.getElementById('f-company').value
-    const li = document.getElementById('f-li').value
-    const msg = document.getElementById('f-msg').value
-    const subject = encodeURIComponent(`[${type}] from ${name}`)
-    const body = encodeURIComponent(
-      `Type: ${type}\nName: ${name}\nEmail: ${email}\nCompany/Role: ${company || 'N/A'}\nLinkedIn: ${li || 'N/A'}\n\nMessage:\n${msg}`
-    )
-    window.location.href = `mailto:nitin.edu476@gmail.com?subject=${subject}&body=${body}`
+    let subject = '', body = ''
+
+    if (type === 'referral') {
+      const role = document.getElementById('f-role').value
+      const resumeLink = document.getElementById('f-resume-link').value
+      const li = document.getElementById('f-li').value
+      const why = document.getElementById('f-why').value
+      subject = `[CARS24 Referral] ${name} — ${role}`
+      body = `Type: CARS24 Referral\nName: ${name}\nEmail: ${email}\nRole: ${role}\nResume: ${resumeLink}\nLinkedIn: ${li || 'N/A'}\n\nWhy refer:\n${why}`
+    } else if (type === 'hr') {
+      const company = document.getElementById('f-company').value
+      const jd = document.getElementById('f-jd').value
+      const msg = document.getElementById('f-hr-msg').value
+      subject = `[HR Opportunity] ${company} — ${jd}`
+      body = `Type: HR/Recruiter\nName: ${name}\nEmail: ${email}\nCompany: ${company}\nRole/JD: ${jd}\n\nMessage:\n${msg}`
+    } else if (type === 'advice') {
+      const currentRole = document.getElementById('f-current-role').value
+      const adviceMsg = document.getElementById('f-advice-msg').value
+      subject = `[Career Advice] from ${name}`
+      body = `Type: Career Advice\nName: ${name}\nEmail: ${email}\nCurrent Role: ${currentRole || 'N/A'}\n\nQuestion:\n${adviceMsg}`
+    } else if (type === 'freelance') {
+      const project = document.getElementById('f-project').value
+      const budget = document.getElementById('f-budget').value
+      const timeline = document.getElementById('f-timeline').value
+      subject = `[Freelance] ${name}`
+      body = `Type: Freelance/Consulting\nName: ${name}\nEmail: ${email}\nBudget: ${budget || 'N/A'}\nTimeline: ${timeline || 'N/A'}\n\nProject:\n${project}`
+    }
+
+    window.location.href = `mailto:nitin.edu476@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
     document.getElementById('connect-form').style.display = 'none'
     document.getElementById('form-success').style.display = 'block'
   }
