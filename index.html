@@ -169,7 +169,7 @@
     .exp-ul li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:11px;top:3px}
 
     /* ── Skills ── */
-    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
     .skill-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:20px 22px;transition:all 0.2s}
     .skill-card:hover{border-color:rgba(249,115,22,0.25);transform:translateY(-3px)}
     .skill-title{font-size:11.5px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px}
@@ -231,6 +231,16 @@
     .cert-name{font-size:17px;font-weight:800;color:var(--text);margin-bottom:4px}
     .cert-sub{font-size:13px;color:var(--muted)}
 
+    /* ── Hobbies teaser ── */
+    .hobbies-teaser{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:32px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;transition:all 0.25s}
+    .hobbies-teaser:hover{border-color:rgba(249,115,22,0.3);transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,0.25)}
+    .hobbies-teaser-row{display:flex;gap:36px;flex-wrap:wrap}
+    .ht-hobby{display:flex;align-items:center;gap:10px}
+    .ht-emoji{font-size:28px}
+    .ht-label{font-size:16px;font-weight:700;color:var(--text)}
+    .ht-cta{font-size:14px;font-weight:700;color:var(--accent);white-space:nowrap}
+    .hobbies-teaser:hover .ht-cta{text-decoration:underline}
+
     /* ── Hobbies ── */
     .hobby-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
     .hobby-card{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:30px 24px;text-align:center;transition:all 0.3s;position:relative;overflow:hidden}
@@ -291,7 +301,7 @@
       .nav-links .hide-sm{display:none}
       h1{letter-spacing:-1.5px}
       .stats-wrap{grid-template-columns:repeat(2,1fr)}
-      .skills-grid{grid-template-columns:1fr}
+      .skills-grid{grid-template-columns:repeat(2,1fr)}
       .hobby-grid{grid-template-columns:1fr}
       .testi-grid{grid-template-columns:1fr}
       .connect-grid{grid-template-columns:1fr}
@@ -477,12 +487,14 @@
   <div class="sec-label reveal">Technical</div>
   <h2 class="reveal">Skills</h2>
   <div class="skills-grid">
-    <div class="skill-card reveal-card"><div class="skill-title">Cloud</div><div class="tags"><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">EKS</span><span class="tag">ECS</span><span class="tag">S3</span><span class="tag">RDS</span></div></div>
-    <div class="skill-card reveal-card"><div class="skill-title">Containers</div><div class="tags"><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Helm</span><span class="tag">GKE</span></div></div>
-    <div class="skill-card reveal-card"><div class="skill-title">CI / CD</div><div class="tags"><span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">TeamCity</span><span class="tag">BuildPiper</span></div></div>
-    <div class="skill-card reveal-card"><div class="skill-title">IaC</div><div class="tags"><span class="tag">Terraform</span><span class="tag">Terragrunt</span><span class="tag">Helm Charts</span></div></div>
-    <div class="skill-card reveal-card"><div class="skill-title">Scripting</div><div class="tags"><span class="tag">Bash</span><span class="tag">Python</span><span class="tag">Groovy</span></div></div>
-    <div class="skill-card reveal-card"><div class="skill-title">Observability</div><div class="tags"><span class="tag">Datadog</span><span class="tag">Grafana</span><span class="tag">CloudWatch</span></div></div>
+    <div class="skill-card reveal-card"><div class="skill-title">Cloud Platforms</div><div class="tags"><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">VPC</span><span class="tag">IAM</span><span class="tag">Route53</span><span class="tag">CloudFront</span></div></div>
+    <div class="skill-card reveal-card"><div class="skill-title">Compute &amp; Data</div><div class="tags"><span class="tag">EC2</span><span class="tag">EKS</span><span class="tag">ECS</span><span class="tag">Lambda</span><span class="tag">S3</span><span class="tag">RDS</span><span class="tag">Aurora</span></div></div>
+    <div class="skill-card reveal-card"><div class="skill-title">Containers</div><div class="tags"><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Helm</span><span class="tag">GKE</span><span class="tag">ArgoCD</span></div></div>
+    <div class="skill-card reveal-card"><div class="skill-title">CI / CD</div><div class="tags"><span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">TeamCity</span><span class="tag">BuildPiper</span><span class="tag">Bitbucket CI</span></div></div>
+    <div class="skill-card reveal-card"><div class="skill-title">IaC &amp; Automation</div><div class="tags"><span class="tag">Terraform</span><span class="tag">Terragrunt</span><span class="tag">Ansible</span><span class="tag">Helm Charts</span></div></div>
+    <div class="skill-card reveal-card"><div class="skill-title">Scripting</div><div class="tags"><span class="tag">Bash</span><span class="tag">Python</span><span class="tag">Groovy</span><span class="tag">YAML</span><span class="tag">Makefile</span></div></div>
+    <div class="skill-card reveal-card"><div class="skill-title">Observability</div><div class="tags"><span class="tag">Datadog</span><span class="tag">Grafana</span><span class="tag">Prometheus</span><span class="tag">CloudWatch</span><span class="tag">Logchef</span></div></div>
+    <div class="skill-card reveal-card"><div class="skill-title">Networking &amp; Security</div><div class="tags"><span class="tag">NLB</span><span class="tag">ALB</span><span class="tag">Nginx</span><span class="tag">Varnish</span><span class="tag">WAF</span><span class="tag">SSL/TLS</span></div></div>
   </div>
 </section>
 
@@ -546,35 +558,18 @@
 
 <hr class="divider" />
 
-<!-- Hobbies -->
+<!-- Hobbies teaser -->
 <section id="hobbies">
-  <div class="sec-label reveal">Off the Clock</div>
-  <h2 class="reveal">When I'm Not Deploying</h2>
-  <div class="hobby-grid">
-
-    <div class="hobby-card hc-music reveal-card">
-      <span class="hobby-emoji">🎵</span>
-      <div class="hobby-title">Music Addict</div>
-      <div class="hobby-desc">I live with earphones in. Good music is the best deployment pipeline — smooth, reliable, and always hits right.</div>
-      <a href="mailto:nitin.edu476@gmail.com?subject=Song%20Suggestion%20for%20Nitin&body=Hey%20Nitin%2C%0A%0AI%20think%20you%27ll%20love%20this%20song%3A%0A%0A%5BSong%20Name%5D%20by%20%5BArtist%5D%0A%0AWhy%20I%27m%20suggesting%20it%3A%0A" class="hobby-btn hb-music">🎧 Suggest Me a Song →</a>
+  <div class="sec-label reveal">Life Beyond Infra</div>
+  <h2 class="reveal">Hobbies</h2>
+  <a href="hobbies.html" class="hobbies-teaser reveal-card" style="text-decoration:none;display:block">
+    <div class="hobbies-teaser-row">
+      <div class="ht-hobby"><span class="ht-emoji">🏓</span><span class="ht-label">Table Tennis</span></div>
+      <div class="ht-hobby"><span class="ht-emoji">🎵</span><span class="ht-label">Music</span></div>
+      <div class="ht-hobby"><span class="ht-emoji">⚡</span><span class="ht-label">DevOps Challenges</span></div>
     </div>
-
-    <div class="hobby-card hc-tt reveal-card">
-      <span class="hobby-emoji">🏓</span>
-      <div class="hobby-title">Table Tennis Rival</div>
-      <div class="hobby-desc">Bring your paddle, I'll bring the smash. Based in DLF Cyber City area, Gurugram. Weekends are fair game.</div>
-      <a href="https://maps.google.com/?q=DLF+Cyber+City+Gurugram" target="_blank" rel="noopener" class="hobby-btn hb-tt">📍 Find Me on Maps →</a>
-    </div>
-
-    <div class="hobby-card hc-funny reveal-card">
-      <span class="hobby-emoji">😄</span>
-      <div class="hobby-title">DevOps Challenge</div>
-      <div class="hobby-desc">Think you know DevOps? Hit the button for a challenge. Honest answers only — no Googling.</div>
-      <button class="hobby-btn hb-funny" onclick="showChallenge()">⚡ Give Me a Challenge →</button>
-      <div class="joke-box" id="joke-box"></div>
-    </div>
-
-  </div>
+    <div class="ht-cta">See my hobbies page →</div>
+  </a>
 </section>
 
 <hr class="divider" />
@@ -584,55 +579,10 @@
   <div class="sec-label reveal">Word on the Street</div>
   <h2 class="reveal">What People Say</h2>
 
-  <!-- ✏️ EDIT THESE MANUALLY — add/remove cards to approve/reject testimonials -->
-  <div class="testi-grid">
-
-    <div class="testi-card reveal-card">
-      <div class="testi-text">"Nitin single-handedly transformed our DevOps culture. The ECS to EKS migration was flawless — zero downtime, zero drama. That's rare."</div>
-      <div class="testi-author">
-        <div class="testi-avatar">S</div>
-        <div>
-          <div class="testi-name">Sahil M.</div>
-          <div class="testi-role">Engineering Manager · CARS24</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testi-card reveal-card">
-      <div class="testi-text">"The guy obsesses over cost optimization like it's a sport. Cut our AWS bill by 20% in under 60 days. I've never seen someone move that fast on infra."</div>
-      <div class="testi-author">
-        <div class="testi-avatar">R</div>
-        <div>
-          <div class="testi-name">Rahul K.</div>
-          <div class="testi-role">Senior Backend Engineer · CARS24</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testi-card reveal-card">
-      <div class="testi-text">"Got my Nykaa offer because Nitin gave me brutally honest interview prep advice. He doesn't sugarcoat, and that's exactly what you need."</div>
-      <div class="testi-author">
-        <div class="testi-avatar">P</div>
-        <div>
-          <div class="testi-name">Priya S.</div>
-          <div class="testi-role">DevOps Engineer · Nykaa</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testi-card reveal-card">
-      <div class="testi-text">"Best TT player in the office — and somehow also the guy who fixes your CI pipeline at 2am. I don't know how he does it."</div>
-      <div class="testi-author">
-        <div class="testi-avatar">A</div>
-        <div>
-          <div class="testi-name">Aman T.</div>
-          <div class="testi-role">SRE · CARS24</div>
-        </div>
-      </div>
-    </div>
-
+  <!-- Dynamically loaded from testimonials.json — approve by setting "approved": true in that file -->
+  <div class="testi-grid" id="testi-cards">
+    <div style="grid-column:1/-1;text-align:center;padding:24px;color:var(--faint);font-size:14px">Loading testimonials…</div>
   </div>
-  <!-- END editable testimonials -->
 
   <!-- Submit form -->
   <div class="testi-cta reveal-card">
@@ -931,6 +881,36 @@
     setTimeout(type, deleting ? 40 : 70)
   }
   setTimeout(type, 1000)
+
+  // ── Dynamic Testimonials (from testimonials.json) ──
+  async function loadTestimonials() {
+    const grid = document.getElementById('testi-cards')
+    try {
+      const res = await fetch('testimonials.json?_=' + Date.now())
+      if (!res.ok) throw new Error('not found')
+      const all = await res.json()
+      const approved = all.filter(t => t.approved)
+      if (!approved.length) {
+        grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:24px;color:var(--faint);font-size:14px">No testimonials yet — be the first! 👇</div>'
+        return
+      }
+      grid.innerHTML = approved.map(t => `
+        <div class="testi-card visible">
+          <div class="testi-text">"${t.text}"</div>
+          <div class="testi-author">
+            <div class="testi-avatar">${t.name.charAt(0).toUpperCase()}</div>
+            <div>
+              <div class="testi-name">${t.name}</div>
+              <div class="testi-role">${t.role || ''}</div>
+            </div>
+          </div>
+        </div>
+      `).join('')
+    } catch(e) {
+      grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:24px;color:var(--faint);font-size:14px">Could not load testimonials.</div>'
+    }
+  }
+  loadTestimonials()
 
   // ── DevOps Challenge generator ──
   const challenges = [
