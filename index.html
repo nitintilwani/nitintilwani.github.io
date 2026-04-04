@@ -1,92 +1,492 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Nitin Tilwani | DevOps Engineer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #0f172a;
-      color: #e2e8f0;
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-    h1, h2 {
-      color: #38bdf8;
-    }
-    .card {
-      background: #1e293b;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 10px;
-    }
-    a {
-      color: #38bdf8;
-      text-decoration: none;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container">
-
-    <!-- HERO -->
-    <h1>Nitin Tilwani</h1>
-    <p><strong>Lead DevOps Engineer @ CARS24 | Ex-Nykaa</strong></p>
-    <p>Scaling cloud systems to handle millions of requests.</p>
-
-    <!-- PROJECTS -->
-    <div class="card">
-      <h2>🚀 Key Achievements</h2>
-
-      <p><strong>Scaling 200+ Microservices</strong><br>
-      Migrated 200+ services from ECS → EKS with zero downtime.</p>
-
-      <p><strong>Cloud Cost Optimization</strong><br>
-      Reduced infra cost by 30–40% using Graviton and optimization strategies.</p>
-
-      <p><strong>GCP → AWS Migration</strong><br>
-      Successfully migrated production infrastructure with no downtime.</p>
-    </div>
-
-    <!-- EXPERIENCE -->
-    <div class="card">
-      <h2>💼 Experience</h2>
-
-      <p><strong>CARS24</strong> — Lead DevOps Engineer (2025–Present)</p>
-      <ul>
-        <li>Built in-house DevOps team replacing vendors</li>
-        <li>Unified CI/CD pipelines across 4 systems</li>
-        <li>Reduced cloud cost by 20%+ in 60 days</li>
-      </ul>
-
-      <p><strong>Nykaa</strong> — Software Engineer (2023–2025)</p>
-      <ul>
-        <li>Optimized caching using Varnish</li>
-        <li>Built infra using Terraform + ECS</li>
-      </ul>
-
-    </div>
-
-    <!-- SKILLS -->
-    <div class="card">
-      <h2>🛠 Skills</h2>
-      <p>AWS • Kubernetes • Docker • Terraform • CI/CD • Linux</p>
-    </div>
-
-    <!-- CONTACT -->
-    <div class="card">
-      <h2>📬 Contact</h2>
-      <p>Email: nitin.edu476@gmail.com</p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/nitintilwani/">Profile</a></p>
-    </div>
-
-  </div>
-</body>
-</html>
+    2 <html lang="en">
+    3 <head>
+    4   <meta charset="UTF-8" />
+    5   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    6
+    7   <!-- SEO -->
+    8   <title>Nitin Tilwani — Senior DevOps Engineer</title>
+    9   <meta name="description" content="Nitin Tilwani is a Senior DevOps Engineer at CARS24, specializing in AWS, GCP, Kubernetes, CI/CD, and cloud infrastructure at enterprise scale." />
+   10   <meta name="keywords" content="Nitin Tilwani, DevOps Engineer, AWS, Kubernetes, GCP, CARS24, EKS, Terraform, CI/CD, Cloud Engineer, India" />
+   11   <meta name="author" content="Nitin Tilwani" />
+   12   <meta name="robots" content="index, follow" />
+   13   <link rel="canonical" href="https://nitintilwani.com/" />
+   14
+   15   <!-- Open Graph (LinkedIn, WhatsApp, Slack previews) -->
+   16   <meta property="og:type" content="profile" />
+   17   <meta property="og:title" content="Nitin Tilwani — Senior DevOps Engineer" />
+   18   <meta property="og:description" content="Senior DevOps Engineer at CARS24 specializing in AWS, Kubernetes, Terraform, and large-scale cloud infrastructure." />
+   19   <meta property="og:url" content="https://nitintilwani.com/" />
+   20   <meta property="og:site_name" content="Nitin Tilwani" />
+   21   <meta property="profile:first_name" content="Nitin" />
+   22   <meta property="profile:last_name" content="Tilwani" />
+   23
+   24   <!-- Twitter Card -->
+   25   <meta name="twitter:card" content="summary" />
+   26   <meta name="twitter:title" content="Nitin Tilwani — Senior DevOps Engineer" />
+   27   <meta name="twitter:description" content="Senior DevOps Engineer at CARS24 specializing in AWS, Kubernetes, Terraform, and large-scale cloud infrastructure." />
+   28
+   29   <!-- Schema.org structured data — makes Google show rich results -->
+   30   <script type="application/ld+json">
+   31   {
+   32     "@context": "https://schema.org",
+   33     "@type": "Person",
+   34     "name": "Nitin Tilwani",
+   35     "jobTitle": "Senior DevOps Engineer",
+   36     "worksFor": {
+   37       "@type": "Organization",
+   38       "name": "CARS24 Services Private Limited",
+   39       "url": "https://www.cars24.com"
+   40     },
+   41     "url": "https://nitintilwani.com",
+   42     "email": "nitin.edu476@gmail.com",
+   43     "telephone": "+91-8302027845",
+   44     "address": {
+   45       "@type": "PostalAddress",
+   46       "addressLocality": "Gurugram",
+   47       "addressCountry": "IN"
+   48     },
+   49     "sameAs": [
+   50       "https://www.linkedin.com/in/nitintilwani/"
+   51     ],
+   52     "alumniOf": {
+   53       "@type": "CollegeOrUniversity",
+   54       "name": "Poornima Institute of Engineering and Technology, Jaipur"
+   55     },
+   56     "hasCredential": {
+   57       "@type": "EducationalOccupationalCredential",
+   58       "name": "Red Hat Certified Engineer (RHCE) — EX294"
+   59     },
+   60     "knowsAbout": [
+   61       "AWS", "GCP", "Kubernetes", "EKS", "Docker", "Terraform",
+   62       "GitHub Actions", "Jenkins", "CI/CD", "DevOps", "Linux",
+   63       "Cloud Infrastructure", "Cost Optimization"
+   64     ]
+   65   }
+   66   </script>
+   67
+   68   <style>
+   69     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+   70
+   71     :root {
+   72       --bg: #0a0a0f;
+   73       --bg-card: #111118;
+   74       --border: rgba(255,255,255,0.06);
+   75       --accent: #f97316;
+   76       --accent2: #fb923c;
+   77       --text: #f1f5f9;
+   78       --muted: #94a3b8;
+   79       --faint: #475569;
+   80     }
+   81
+   82     html { scroll-behavior: smooth; }
+   83
+   84     body {
+   85       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+   86       background: var(--bg);
+   87       color: var(--text);
+   88       line-height: 1.6;
+   89       min-height: 100vh;
+   90     }
+   91
+   92     a { color: var(--accent); text-decoration: none; }
+   93     a:hover { text-decoration: underline; }
+   94
+   95     /* ── Nav ── */
+   96     nav {
+   97       position: sticky; top: 0; z-index: 100;
+   98       background: rgba(10,10,15,0.85);
+   99       backdrop-filter: blur(12px);
+  100       border-bottom: 1px solid var(--border);
+  101       padding: 0 40px;
+  102       display: flex; align-items: center; justify-content: space-between;
+  103       height: 56px;
+  104     }
+  105     .nav-brand { font-weight: 700; font-size: 15px; color: var(--text); letter-spacing: -0.3px; }
+  106     .nav-links { display: flex; gap: 28px; }
+  107     .nav-links a { font-size: 13px; color: var(--muted); font-weight: 500; }
+  108     .nav-links a:hover { color: var(--text); text-decoration: none; }
+  109
+  110     /* ── Hero ── */
+  111     .hero {
+  112       max-width: 780px; margin: 0 auto;
+  113       padding: 90px 24px 70px;
+  114       text-align: center;
+  115     }
+  116     .hero-badge {
+  117       display: inline-flex; align-items: center; gap: 7px;
+  118       background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.25);
+  119       color: var(--accent2); font-size: 12px; font-weight: 600;
+  120       padding: 5px 14px; border-radius: 20px; margin-bottom: 28px;
+  121       letter-spacing: 0.04em;
+  122     }
+  123     h1 {
+  124       font-size: clamp(36px, 6vw, 58px);
+  125       font-weight: 800; letter-spacing: -1.5px;
+  126       color: var(--text); line-height: 1.1;
+  127       margin-bottom: 18px;
+  128     }
+  129     h1 span { color: var(--accent); }
+  130     .hero-sub {
+  131       font-size: 17px; color: var(--muted);
+  132       max-width: 560px; margin: 0 auto 36px;
+  133       line-height: 1.65;
+  134     }
+  135     .hero-links {
+  136       display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  137     }
+  138     .btn {
+  139       display: inline-flex; align-items: center; gap: 7px;
+  140       padding: 10px 22px; border-radius: 8px;
+  141       font-size: 14px; font-weight: 600;
+  142       transition: all 0.15s;
+  143     }
+  144     .btn-primary {
+  145       background: linear-gradient(135deg, #f97316, #ea580c);
+  146       color: white;
+  147       box-shadow: 0 4px 16px rgba(249,115,22,0.3);
+  148     }
+  149     .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(249,115,22,0.4); text-decoration: none; }
+  150     .btn-ghost {
+  151       background: var(--bg-card); border: 1px solid var(--border);
+  152       color: var(--muted);
+  153     }
+  154     .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.12); text-decoration: none; }
+  155
+  156     /* ── Sections ── */
+  157     section { max-width: 860px; margin: 0 auto; padding: 60px 24px; }
+  158     .section-label {
+  159       font-size: 11px; font-weight: 700; color: var(--accent);
+  160       text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px;
+  161     }
+  162     h2 {
+  163       font-size: 26px; font-weight: 700; letter-spacing: -0.5px;
+  164       color: var(--text); margin-bottom: 32px;
+  165     }
+  166
+  167     /* ── Stats ── */
+  168     .stats {
+  169       display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  170       max-width: 860px; margin: 0 auto; padding: 0 24px 60px;
+  171     }
+  172     .stat-card {
+  173       background: var(--bg-card); border: 1px solid var(--border);
+  174       border-radius: 12px; padding: 22px 20px; text-align: center;
+  175     }
+  176     .stat-num { font-size: 30px; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
+  177     .stat-label { font-size: 12px; color: var(--muted); margin-top: 5px; font-weight: 500; }
+  178
+  179     /* ── Experience ── */
+  180     .exp-list { display: flex; flex-direction: column; gap: 24px; }
+  181     .exp-card {
+  182       background: var(--bg-card); border: 1px solid var(--border);
+  183       border-radius: 14px; padding: 28px 30px;
+  184       position: relative; overflow: hidden;
+  185     }
+  186     .exp-card::before {
+  187       content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  188       width: 3px; background: var(--accent); border-radius: 0 2px 2px 0;
+  189     }
+  190     .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+  191     .exp-company { font-size: 17px; font-weight: 700; color: var(--text); }
+  192     .exp-period {
+  193       font-size: 12px; font-weight: 600; color: var(--accent);
+  194       background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.2);
+  195       padding: 3px 10px; border-radius: 20px;
+  196     }
+  197     .exp-role { font-size: 13.5px; color: var(--muted); font-weight: 500; margin-bottom: 16px; }
+  198     .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  199     .exp-bullets li {
+  200       font-size: 13.5px; color: var(--muted); padding-left: 18px; position: relative; line-height: 1.55;
+  201     }
+  202     .exp-bullets li::before {
+  203       content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 700;
+  204     }
+  205
+  206     /* ── Skills ── */
+  207     .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  208     .skill-card {
+  209       background: var(--bg-card); border: 1px solid var(--border);
+  210       border-radius: 12px; padding: 20px 22px;
+  211     }
+  212     .skill-title { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+  213     .skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  214     .tag {
+  215       font-size: 12px; font-weight: 600; color: var(--muted);
+  216       background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+  217       padding: 4px 10px; border-radius: 6px;
+  218     }
+  219
+  220     /* ── Cert ── */
+  221     .cert-card {
+  222       background: var(--bg-card); border: 1px solid rgba(249,115,22,0.2);
+  223       border-radius: 14px; padding: 26px 28px;
+  224       display: flex; align-items: center; gap: 20px;
+  225     }
+  226     .cert-icon { font-size: 36px; flex-shrink: 0; }
+  227     .cert-name { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  228     .cert-sub { font-size: 13px; color: var(--muted); }
+  229
+  230     /* ── Contact ── */
+  231     .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  232     .contact-card {
+  233       background: var(--bg-card); border: 1px solid var(--border);
+  234       border-radius: 12px; padding: 18px 20px;
+  235       display: flex; align-items: center; gap: 14px;
+  236     }
+  237     .contact-icon { font-size: 20px; }
+  238     .contact-label { font-size: 11px; color: var(--faint); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
+  239     .contact-value { font-size: 13.5px; color: var(--text); font-weight: 500; }
+  240
+  241     /* ── Footer ── */
+  242     footer {
+  243       border-top: 1px solid var(--border);
+  244       text-align: center; padding: 28px 24px;
+  245       font-size: 12.5px; color: var(--faint);
+  246     }
+  247
+  248     /* ── Divider ── */
+  249     .divider { border: none; border-top: 1px solid var(--border); margin: 0 24px; }
+  250
+  251     @media (max-width: 640px) {
+  252       nav { padding: 0 20px; }
+  253       .nav-links { gap: 16px; }
+  254       .stats { grid-template-columns: repeat(2, 1fr); }
+  255       .skills-grid { grid-template-columns: 1fr; }
+  256       .contact-grid { grid-template-columns: 1fr; }
+  257       .exp-card { padding: 22px 20px; }
+  258     }
+  259   </style>
+  260 </head>
+  261 <body>
+  262
+  263   <!-- Nav -->
+  264   <nav>
+  265     <div class="nav-brand">Nitin Tilwani</div>
+  266     <div class="nav-links">
+  267       <a href="#experience">Experience</a>
+  268       <a href="#skills">Skills</a>
+  269       <a href="#contact">Contact</a>
+  270       <a href="https://www.linkedin.com/in/nitintilwani/" target="_blank" rel="noopener">LinkedIn ↗</a>
+  271     </div>
+  272   </nav>
+  273
+  274   <!-- Hero -->
+  275   <div class="hero">
+  276     <div class="hero-badge">🚀 Open to Senior DevOps / Platform Engineering Roles</div>
+  277     <h1>Nitin <span>Tilwani</span></h1>
+  278     <p class="hero-sub">
+  279       Senior DevOps Engineer at <strong style="color:var(--text)">CARS24</strong> — building resilient cloud infrastructure,
+  280       migrating large-scale systems to AWS &amp; Kubernetes, and driving engineering efficiency at scale.
+  281     </p>
+  282     <div class="hero-links">
+  283       <a href="https://www.linkedin.com/in/nitintilwani/" target="_blank" rel="noopener" class="btn btn-primary">
+  284         LinkedIn Profile ↗
+  285       </a>
+  286       <a href="mailto:nitin.edu476@gmail.com" class="btn btn-ghost">
+  287         nitin.edu476@gmail.com
+  288       </a>
+  289     </div>
+  290   </div>
+  291
+  292   <!-- Stats -->
+  293   <div class="stats">
+  294     <div class="stat-card">
+  295       <div class="stat-num">200+</div>
+  296       <div class="stat-label">Services migrated to EKS</div>
+  297     </div>
+  298     <div class="stat-card">
+  299       <div class="stat-num">20%+</div>
+  300       <div class="stat-label">AWS/GCP cost reduction</div>
+  301     </div>
+  302     <div class="stat-card">
+  303       <div class="stat-num">40%</div>
+  304       <div class="stat-label">Cost saved on RDS Graviton</div>
+  305     </div>
+  306     <div class="stat-card">
+  307       <div class="stat-num">4+</div>
+  308       <div class="stat-label">Years in DevOps</div>
+  309     </div>
+  310   </div>
+  311
+  312   <hr class="divider" />
+  313
+  314   <!-- Experience -->
+  315   <section id="experience">
+  316     <div class="section-label">Career</div>
+  317     <h2>Experience</h2>
+  318     <div class="exp-list">
+  319
+  320       <div class="exp-card">
+  321         <div class="exp-header">
+  322           <div class="exp-company">CARS24 Services Private Limited</div>
+  323           <div class="exp-period">Mar 2025 – Present</div>
+  324         </div>
+  325         <div class="exp-role">Software Engineer II — DevOps · Gurugram</div>
+  326         <ul class="exp-bullets">
+  327           <li>Built an in-house DevOps team, replacing third-party vendor entirely.</li>
+  328           <li>Led migration of CI/CD platforms (TeamCity, Jenkins, BuildPiper → GitHub Actions), unifying pipelines across 4 legacy systems.</li>
+  329           <li>Migrated core infrastructure from GCP to AWS with zero downtime, optimizing workloads across all services.</li>
+  330           <li>Migrated all RDS instances to Graviton, achieving 30–40% cost reduction and improved performance.</li>
+  331           <li>Migrated 200+ production services from ECS to EKS with no downtime, standardizing container orchestration.</li>
+  332           <li>Achieved &gt;20% AWS/GCP cost reduction in under 60 days through infra right-sizing and optimizations.</li>
+  333           <li>Enabled S3 Intelligent Tiering and introduced VPC Endpoints for Datadog to reduce egress costs.</li>
+  334           <li>Reduced container image sizes from 2.8GB → 300MB by switching from Ubuntu to Alpine base images.</li>
+  335           <li>Reduced EBS disk usage from 150GB → 50GB by implementing Docker log rotation.</li>
+  336         </ul>
+  337       </div>
+  338
+  339       <div class="exp-card">
+  340         <div class="exp-header">
+  341           <div class="exp-company">Nykaa E-Retail Private Limited</div>
+  342           <div class="exp-period">Jun 2023 – Feb 2025</div>
+  343         </div>
+  344         <div class="exp-role">Software Engineer I — DevOps · Gurugram</div>
+  345         <ul class="exp-bullets">
+  346           <li>Optimized web performance and caching by configuring and fine-tuning the Varnish server.</li>
+  347           <li>Streamlined infrastructure provisioning using Terraform to create and manage ECS React services.</li>
+  348           <li>Led migration of services to Graviton instances, optimizing resource utilization and reducing costs.</li>
+  349           <li>Routed all JavaScript chunks from CloudFront S3 to an ECS service, enhancing content delivery.</li>
+  350         </ul>
+  351       </div>
+  352
+  353       <div class="exp-card">
+  354         <div class="exp-header">
+  355           <div class="exp-company">Auriga IT Consulting Pvt. Ltd</div>
+  356           <div class="exp-period">Oct 2021 – Jun 2023</div>
+  357         </div>
+  358         <div class="exp-role">Associate Software Engineer · Jaipur</div>
+  359         <ul class="exp-bullets">
+  360           <li>Created UAT, development, and production environments, automating CI/CD pipelines in Bitbucket and GitHub.</li>
+  361           <li>Migrated the Salesforce PI database to Hadoop using Apache NiFi, resulting in cost savings and faster data processing.</li>
+  362         </ul>
+  363       </div>
+  364
+  365     </div>
+  366   </section>
+  367
+  368   <hr class="divider" />
+  369
+  370   <!-- Skills -->
+  371   <section id="skills">
+  372     <div class="section-label">Technical</div>
+  373     <h2>Skills</h2>
+  374     <div class="skills-grid">
+  375       <div class="skill-card">
+  376         <div class="skill-title">Cloud Platforms</div>
+  377         <div class="skill-tags">
+  378           <span class="tag">AWS</span>
+  379           <span class="tag">GCP</span>
+  380           <span class="tag">EKS</span>
+  381           <span class="tag">ECS</span>
+  382           <span class="tag">S3</span>
+  383           <span class="tag">RDS</span>
+  384         </div>
+  385       </div>
+  386       <div class="skill-card">
+  387         <div class="skill-title">Containerization</div>
+  388         <div class="skill-tags">
+  389           <span class="tag">Kubernetes</span>
+  390           <span class="tag">Docker</span>
+  391           <span class="tag">Helm</span>
+  392           <span class="tag">EKS</span>
+  393           <span class="tag">GKE</span>
+  394         </div>
+  395       </div>
+  396       <div class="skill-card">
+  397         <div class="skill-title">CI / CD</div>
+  398         <div class="skill-tags">
+  399           <span class="tag">GitHub Actions</span>
+  400           <span class="tag">Jenkins</span>
+  401           <span class="tag">TeamCity</span>
+  402           <span class="tag">BuildPiper</span>
+  403         </div>
+  404       </div>
+  405       <div class="skill-card">
+  406         <div class="skill-title">Infrastructure as Code</div>
+  407         <div class="skill-tags">
+  408           <span class="tag">Terraform</span>
+  409           <span class="tag">Terragrunt</span>
+  410           <span class="tag">Helm Charts</span>
+  411         </div>
+  412       </div>
+  413       <div class="skill-card">
+  414         <div class="skill-title">Scripting</div>
+  415         <div class="skill-tags">
+  416           <span class="tag">Bash</span>
+  417           <span class="tag">Python</span>
+  418           <span class="tag">Groovy</span>
+  419         </div>
+  420       </div>
+  421       <div class="skill-card">
+  422         <div class="skill-title">Observability</div>
+  423         <div class="skill-tags">
+  424           <span class="tag">Datadog</span>
+  425           <span class="tag">Grafana</span>
+  426           <span class="tag">CloudWatch</span>
+  427         </div>
+  428       </div>
+  429     </div>
+  430   </section>
+  431
+  432   <hr class="divider" />
+  433
+  434   <!-- Certification -->
+  435   <section id="certifications">
+  436     <div class="section-label">Certification</div>
+  437     <h2>Credentials</h2>
+  438     <div class="cert-card">
+  439       <div class="cert-icon">🎓</div>
+  440       <div>
+  441         <div class="cert-name">Red Hat Certified Engineer (RHCE)</div>
+  442         <div class="cert-sub">EX294 — Ansible Automation · Red Hat, Inc.</div>
+  443       </div>
+  444     </div>
+  445   </section>
+  446
+  447   <hr class="divider" />
+  448
+  449   <!-- Contact -->
+  450   <section id="contact">
+  451     <div class="section-label">Get in touch</div>
+  452     <h2>Contact</h2>
+  453     <div class="contact-grid">
+  454       <div class="contact-card">
+  455         <div class="contact-icon">✉️ </div>
+  456         <div>
+  457           <div class="contact-label">Email</div>
+  458           <div class="contact-value"><a href="mailto:nitin.edu476@gmail.com">nitin.edu476@gmail.com</a></div>
+  459         </div>
+  460       </div>
+  461       <div class="contact-card">
+  462         <div class="contact-icon">📞</div>
+  463         <div>
+  464           <div class="contact-label">Phone</div>
+  465           <div class="contact-value">+91 83020 27845</div>
+  466         </div>
+  467       </div>
+  468       <div class="contact-card">
+  469         <div class="contact-icon">💼</div>
+  470         <div>
+  471           <div class="contact-label">LinkedIn</div>
+  472           <div class="contact-value"><a href="https://www.linkedin.com/in/nitintilwani/" target="_blank" rel="noopener">linkedin.com/in/nitintilwani</a></div>
+  473         </div>
+  474       </div>
+  475       <div class="contact-card">
+  476         <div class="contact-icon">📍</div>
+  477         <div>
+  478           <div class="contact-label">Location</div>
+  479           <div class="contact-value">Gurugram, India</div>
+  480         </div>
+  481       </div>
+  482     </div>
+  483   </section>
+  484
+  485   <!-- Footer -->
+  486   <footer>
+  487     <p>© 2026 Nitin Tilwani · Senior DevOps Engineer · Gurugram, India</p>
+  488     <p style="margin-top:6px">nitintilwani.com</p>
+  489   </footer>
+  490
+  491 </body>
+  492 </html>
