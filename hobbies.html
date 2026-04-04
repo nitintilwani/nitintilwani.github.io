@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hobbies — Nitin Tilwani</title>
+  <meta name="description" content="What Nitin Tilwani does when the infrastructure is stable — Table Tennis, Music, and DevOps Challenges." />
+  <link rel="canonical" href="https://nitintilwani.com/hobbies.html" />
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#08080f;--bg-card:#0f0f18;--bg-card2:#13131e;
+      --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
+      --accent:#f97316;--accent2:#fb923c;
+      --text:#f1f5f9;--muted:#94a3b8;--faint:#475569;
+      --nav-bg:rgba(13,13,22,0.8);
+    }
+    [data-theme="light"]{
+      --bg:#f4f3ef;--bg-card:#ffffff;--bg-card2:#ebebE7;
+      --border:rgba(0,0,0,0.09);--border2:rgba(0,0,0,0.17);
+      --text:#1a1a2e;--muted:#55627a;--faint:#8492a6;
+      --nav-bg:rgba(244,243,239,0.85);
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden;transition:background 0.3s,color 0.3s}
+    a{color:var(--accent);text-decoration:none}
+
+    /* ── Scroll progress ── */
+    #progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#f97316,#fb923c,#fbbf24);z-index:9999;width:0%;transition:width 0.08s linear;border-radius:0 2px 2px 0;box-shadow:0 0 8px rgba(249,115,22,0.6)}
+
+    /* ── Animations ── */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @keyframes btnPop{0%{transform:scale(1)}40%{transform:scale(1.25) rotate(15deg)}100%{transform:scale(1) rotate(0deg)}}
+
+    /* ── Nav ── */
+    nav{position:sticky;top:3px;z-index:100;margin:12px 20px 0;background:var(--nav-bg);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:16px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:52px}
+    .nav-brand{font-weight:800;font-size:15px;color:var(--text);letter-spacing:-0.3px}
+    .nav-links{display:flex;gap:24px;align-items:center}
+    .nav-links a{font-size:13px;color:var(--muted);font-weight:500;transition:color 0.15s}
+    .nav-links a:hover,.nav-links a.active{color:var(--text)}
+    .nav-links a.active{color:var(--accent)}
+    .nav-hire{background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.3);color:var(--accent);padding:5px 14px;border-radius:8px;font-size:12px;font-weight:700;transition:all 0.2s}
+    .nav-hire:hover{background:var(--accent);color:white}
+    .theme-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--bg-card);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0}
+    .theme-btn:hover{border-color:var(--accent);transform:scale(1.15) rotate(20deg)}
+    .theme-btn.pop{animation:btnPop 0.3s ease both}
+
+    /* ── Hero ── */
+    .hobby-hero{max-width:860px;margin:0 auto;padding:90px 24px 50px;text-align:center}
+    .hobby-hero-sub{font-size:17px;color:var(--muted);font-weight:500;margin-bottom:20px;animation:fadeUp 0.6s ease 0.1s both}
+    .hobby-rotating{font-size:clamp(52px,9vw,100px);font-weight:900;letter-spacing:-3px;color:var(--text);line-height:1;margin-bottom:48px;animation:fadeUp 0.7s ease 0.25s both;min-height:1.15em}
+    .hobby-rotating .word{display:none;animation:fadeIn 0.4s ease both}
+    .hobby-rotating .word.active{display:block}
+
+    /* dot separator */
+    .dot-sep{display:flex;justify-content:center;gap:8px;margin-bottom:70px}
+    .dot-sep span{width:7px;height:7px;border-radius:50%;background:var(--faint);opacity:0.4}
+    .dot-sep span.active-dot{background:var(--accent);opacity:1}
+
+    /* ── Hobby Feature Sections ── */
+    .feature{max-width:900px;margin:0 auto;padding:0 24px 90px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .feature.reverse{grid-template-columns:1fr 1fr}
+    .feature-visual{display:flex;align-items:center;justify-content:center}
+    .feature-content{}
+    .feature-label{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.16em;margin-bottom:10px}
+    .feature-title{font-size:32px;font-weight:900;letter-spacing:-1px;color:var(--text);margin-bottom:12px;line-height:1.15}
+    .feature-desc{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:28px}
+    .feature-meta{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--faint);margin-bottom:24px}
+    .feature-meta svg{width:14px;height:14px;flex-shrink:0}
+
+    /* CTA buttons */
+    .cta-btn{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.25s;border:1.5px solid transparent;text-decoration:none;font-family:inherit}
+    .cta-green{background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.3);color:#4ade80}
+    .cta-green:hover{background:#22c55e;border-color:#22c55e;color:white;transform:translateY(-2px);box-shadow:0 8px 24px rgba(34,197,94,0.35)}
+    .cta-purple{background:rgba(168,85,247,0.1);border-color:rgba(168,85,247,0.3);color:#c084fc}
+    .cta-purple:hover{background:#a855f7;border-color:#a855f7;color:white;transform:translateY(-2px);box-shadow:0 8px 24px rgba(168,85,247,0.35)}
+    .cta-orange{background:rgba(249,115,22,0.1);border-color:rgba(249,115,22,0.3);color:var(--accent)}
+    .cta-orange:hover{background:var(--accent);border-color:var(--accent);color:white;transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,0.35)}
+
+    /* ── TT Arena ── */
+    .tt-arena-wrap{position:relative;width:280px;height:180px;display:flex;align-items:center;justify-content:center}
+    .tt-table{width:220px;height:140px;border:2px solid rgba(34,197,94,0.35);border-radius:6px;background:rgba(34,197,94,0.04);position:relative;box-shadow:0 0 30px rgba(34,197,94,0.07)}
+    .tt-net{position:absolute;left:50%;top:-6px;bottom:-6px;width:2px;background:rgba(34,197,94,0.4);transform:translateX(-50%)}
+    .tt-net::before,.tt-net::after{content:'';position:absolute;left:-4px;width:10px;height:6px;background:rgba(34,197,94,0.5);border-radius:2px}
+    .tt-net::before{top:0} .tt-net::after{bottom:0}
+    .tt-ball{position:absolute;width:13px;height:13px;background:#fff;border-radius:50%;box-shadow:0 0 10px rgba(255,255,255,0.7),0 0 20px rgba(255,255,255,0.3);animation:ttPath 1.8s cubic-bezier(0.45,0,0.55,1) infinite}
+    @keyframes ttPath{
+      0%  {left:10px;top:35px;transform:scale(1)}
+      25% {left:50%;top:10px;transform:scale(0.85) translateX(-50%)}
+      50% {left:calc(100% - 23px);top:35px;transform:scale(1)}
+      75% {left:50%;top:90px;transform:scale(0.85) translateX(-50%)}
+      100%{left:10px;top:35px;transform:scale(1)}
+    }
+    .tt-paddle-l{position:absolute;left:-24px;top:50%;transform:translateY(-50%);font-size:32px;animation:swingL 1.8s ease-in-out infinite;transform-origin:right center}
+    .tt-paddle-r{position:absolute;right:-24px;top:50%;transform:translateY(-50%) scaleX(-1);font-size:32px;animation:swingR 1.8s ease-in-out infinite;transform-origin:left center}
+    @keyframes swingL{0%,100%{transform:translateY(-50%) rotate(8deg)}46%,54%{transform:translateY(-50%) rotate(-22deg)}}
+    @keyframes swingR{0%,100%{transform:translateY(-50%) scaleX(-1) rotate(-8deg)}46%,54%{transform:translateY(-50%) scaleX(-1) rotate(22deg)}}
+
+    /* ── TT Modal (challenge accepted!) ── */
+    .challenge-modal{display:none;margin-top:20px;background:var(--bg-card2);border:1px solid rgba(34,197,94,0.2);border-radius:14px;padding:20px 22px;animation:fadeUp 0.3s ease both}
+    .challenge-modal.open{display:block}
+    .challenge-modal h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px}
+    .challenge-modal p{font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.6}
+    .challenge-btns{display:flex;gap:10px;flex-wrap:wrap}
+    .ch-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s;border:1px solid}
+    .ch-whatsapp{background:rgba(37,211,102,0.1);border-color:rgba(37,211,102,0.3);color:#25d366}
+    .ch-whatsapp:hover{background:#25d366;color:white}
+    .ch-maps{background:rgba(66,133,244,0.1);border-color:rgba(66,133,244,0.3);color:#4285f4}
+    .ch-maps:hover{background:#4285f4;color:white}
+
+    /* ── Music Visual ── */
+    .music-visual{position:relative;width:220px;height:180px;display:flex;align-items:center;justify-content:center}
+    .music-disc{width:130px;height:130px;border-radius:50%;background:conic-gradient(from 0deg,#a855f7,#ec4899,#f97316,#a855f7);animation:spin 4s linear infinite;box-shadow:0 0 30px rgba(168,85,247,0.3);position:relative}
+    .music-disc::after{content:'';position:absolute;inset:28%;border-radius:50%;background:var(--bg-card2);border:2px solid var(--bg)}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .music-note{position:absolute;font-size:22px;animation:floatNote 2s ease-in-out infinite;opacity:0.7}
+    .mn1{top:10px;left:10px;animation-delay:0s}
+    .mn2{top:20px;right:15px;animation-delay:0.5s}
+    .mn3{bottom:20px;left:20px;animation-delay:1s}
+    .mn4{bottom:10px;right:10px;animation-delay:1.5s}
+    @keyframes floatNote{0%,100%{transform:translateY(0) rotate(-10deg);opacity:0.5}50%{transform:translateY(-14px) rotate(10deg);opacity:1}}
+
+    /* ── DevOps Terminal ── */
+    .terminal{background:#0a0a0a;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;width:280px;font-family:'Courier New',monospace}
+    [data-theme="light"] .terminal{background:#1a1a2e;border-color:rgba(255,255,255,0.15)}
+    .terminal-header{display:flex;gap:6px;margin-bottom:16px}
+    .t-dot{width:10px;height:10px;border-radius:50%}
+    .td1{background:#ff5f57}.td2{background:#febc2e}.td3{background:#28c840}
+    .terminal-line{font-size:12px;margin-bottom:8px;line-height:1.5}
+    .t-prompt{color:#4ade80}
+    .t-cmd{color:#e2e8f0}
+    .t-out{color:#64748b;padding-left:12px}
+    .t-cursor{display:inline-block;width:7px;height:13px;background:#4ade80;animation:blink 1s step-end infinite;vertical-align:middle}
+    .challenge-out{display:none;margin-top:16px;background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:8px;padding:12px;font-size:12.5px;color:var(--muted);line-height:1.6;animation:fadeUp 0.3s ease both}
+    .challenge-out.show{display:block}
+
+    /* ── Divider ── */
+    hr.div{border:none;border-top:1px solid var(--border);margin:0 24px}
+
+    /* ── Footer ── */
+    footer{border-top:1px solid var(--border);text-align:center;padding:32px 24px;font-size:12.5px;color:var(--faint)}
+    footer span{color:var(--accent)}
+
+    @media(max-width:700px){
+      nav{margin:8px 12px 0;padding:0 18px}
+      .nav-links .hide-sm{display:none}
+      .feature{grid-template-columns:1fr;gap:36px;padding-bottom:60px}
+      .feature.reverse .feature-visual{order:-1}
+      .hobby-rotating{font-size:clamp(38px,10vw,72px)}
+      .tt-arena-wrap,.music-visual{margin:0 auto}
+      .terminal{width:100%}
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- Nav -->
+<nav>
+  <a href="index.html" class="nav-brand">NT</a>
+  <div class="nav-links">
+    <a href="index.html#experience" class="hide-sm">Experience</a>
+    <a href="index.html#skills" class="hide-sm">Skills</a>
+    <a href="hobbies.html" class="active">Hobbies</a>
+    <a href="index.html#testimonials" class="hide-sm">Testimonials</a>
+    <a href="index.html#connect">Connect</a>
+    <a href="index.html#connect" class="nav-hire">Referral? →</a>
+  </div>
+  <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle theme">☀️</button>
+</nav>
+
+<!-- Hero -->
+<div class="hobby-hero">
+  <p class="hobby-hero-sub">Here's what I do when the infra is stable 🚀</p>
+  <div class="hobby-rotating" id="hobby-word">
+    <span class="word active">Play TT</span>
+    <span class="word">Listen Music</span>
+    <span class="word">Take Challenges</span>
+  </div>
+  <div class="dot-sep">
+    <span class="active-dot"></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+</div>
+
+<!-- ── Table Tennis ── -->
+<section class="feature">
+  <div class="feature-visual">
+    <div class="tt-arena-wrap">
+      <div class="tt-table">
+        <div class="tt-net"></div>
+        <div class="tt-ball"></div>
+        <span class="tt-paddle-l">🏓</span>
+        <span class="tt-paddle-r">🏓</span>
+      </div>
+    </div>
+  </div>
+  <div class="feature-content">
+    <div class="feature-label">Hobby #1</div>
+    <div class="feature-title">Play Table Tennis<br>with me</div>
+    <div class="feature-desc">I'm as aggressive at the TT table as I am with Terraform plans. Smash first, ask questions later. Bring your A-game.</div>
+    <div class="feature-meta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      DLF Cyber City, Gurugram · Usually weekends
+    </div>
+    <button class="cta-btn cta-green" onclick="toggleChallenge()">🏓 Challenge me! →</button>
+    <div class="challenge-modal" id="tt-modal">
+      <h4>Game on! 🔥</h4>
+      <p>I play near DLF Cyber City, Gurugram on weekends. Ping me and we'll set up a match — loser buys coffee.</p>
+      <div class="challenge-btns">
+        <a href="https://wa.me/918302027845?text=Hey%20Nitin%2C%20I%27m%20up%20for%20a%20TT%20challenge!%20%F0%9F%8F%93" target="_blank" rel="noopener" class="ch-btn ch-whatsapp">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.116 1.527 5.845L.057 23.943l6.253-1.637A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.034-1.388l-.361-.214-3.713.973 1.001-3.606-.237-.378A9.818 9.818 0 1112 21.818z"/></svg>
+          WhatsApp me
+        </a>
+        <a href="https://maps.google.com/?q=DLF+Cyber+City+Gurugram+Haryana" target="_blank" rel="noopener" class="ch-btn ch-maps">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          View on Maps
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div" />
+
+<!-- ── Music ── -->
+<section class="feature reverse" style="padding-top:70px">
+  <div class="feature-content">
+    <div class="feature-label">Hobby #2</div>
+    <div class="feature-title">Always got<br>earphones in</div>
+    <div class="feature-desc">Music is my deployment pipeline — smooth, reliable, and it never fails on a Friday. Drop me a track and I'll add it to the rotation immediately.</div>
+    <div class="feature-meta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+      Currently listening: whatever hits right
+    </div>
+    <a href="mailto:nitin.edu476@gmail.com?subject=Song%20Suggestion%20for%20Nitin%20%F0%9F%8E%B5&body=Hey%20Nitin%2C%0A%0AHere's%20a%20song%20I%20think%20you'll%20love%3A%0A%0ASong%3A%0AArtist%3A%0AWhy%20you'll%20like%20it%3A%0A" class="cta-btn cta-purple">🎧 Suggest me a song →</a>
+  </div>
+  <div class="feature-visual">
+    <div class="music-visual">
+      <div class="music-disc"></div>
+      <span class="music-note mn1">🎵</span>
+      <span class="music-note mn2">🎶</span>
+      <span class="music-note mn3">🎵</span>
+      <span class="music-note mn4">🎶</span>
+    </div>
+  </div>
+</section>
+
+<hr class="div" />
+
+<!-- ── DevOps Challenge ── -->
+<section class="feature" style="padding-top:70px">
+  <div class="feature-visual">
+    <div class="terminal">
+      <div class="terminal-header">
+        <div class="t-dot td1"></div><div class="t-dot td2"></div><div class="t-dot td3"></div>
+      </div>
+      <div class="terminal-line"><span class="t-prompt">nitin@devops</span> <span style="color:#64748b">~</span> <span class="t-prompt">$</span> <span class="t-cmd"> challenge --random</span></div>
+      <div class="terminal-line t-out">Loading challenge...</div>
+      <div class="terminal-line t-out">Are you ready? 🔥</div>
+      <div class="terminal-line"><span class="t-cursor"></span></div>
+    </div>
+  </div>
+  <div class="feature-content">
+    <div class="feature-label">Hobby #3</div>
+    <div class="feature-title">Take the<br>DevOps Challenge</div>
+    <div class="feature-desc">Think you know your infra? Hit the button for a random DevOps brain-teaser. Honest answers only. No Googling. No Stack Overflow.</div>
+    <div class="feature-meta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      8 challenges · rotating randomly
+    </div>
+    <button class="cta-btn cta-orange" onclick="showChallenge()">⚡ Give me a challenge →</button>
+    <div class="challenge-out" id="challenge-out"></div>
+  </div>
+</section>
+
+<footer>
+  <p>← <a href="index.html" style="color:var(--accent)">Back to Portfolio</a></p>
+  <p style="margin-top:10px">Built by <span>Nitin Tilwani</span> · nitintilwani.com</p>
+</footer>
+
+<script>
+  // ── Theme (restore on load) ──
+  ;(function(){
+    const t = localStorage.getItem('nt-theme') || 'dark'
+    document.documentElement.setAttribute('data-theme', t)
+    window.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('theme-btn')
+      if (btn) btn.textContent = t === 'light' ? '🌙' : '☀️'
+    })
+  })()
+
+  function playClick() {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)()
+      const o = ctx.createOscillator(), g = ctx.createGain()
+      o.connect(g); g.connect(ctx.destination)
+      o.type = 'sine'
+      o.frequency.setValueAtTime(720, ctx.currentTime)
+      o.frequency.exponentialRampToValueAtTime(360, ctx.currentTime + 0.12)
+      g.gain.setValueAtTime(0.18, ctx.currentTime)
+      g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12)
+      o.start(ctx.currentTime); o.stop(ctx.currentTime + 0.12)
+    } catch(e) {}
+  }
+
+  function toggleTheme() {
+    playClick()
+    const html = document.documentElement
+    const btn = document.getElementById('theme-btn')
+    const isLight = html.getAttribute('data-theme') === 'light'
+    const next = isLight ? 'dark' : 'light'
+    html.setAttribute('data-theme', next)
+    btn.textContent = next === 'light' ? '🌙' : '☀️'
+    btn.classList.remove('pop'); void btn.offsetWidth; btn.classList.add('pop')
+    localStorage.setItem('nt-theme', next)
+  }
+
+  // ── Scroll progress ──
+  const bar = document.getElementById('progress')
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+    bar.style.width = Math.min(pct, 100) + '%'
+  }, { passive: true })
+
+  // ── Rotating hobby word ──
+  const words = document.querySelectorAll('#hobby-word .word')
+  const activeDots = document.querySelectorAll('.dot-sep span')
+  let wi = 0
+  setInterval(() => {
+    words[wi].classList.remove('active')
+    activeDots[wi]?.classList.remove('active-dot')
+    wi = (wi + 1) % words.length
+    words[wi].classList.add('active')
+    activeDots[wi]?.classList.add('active-dot')
+  }, 2200)
+
+  // ── TT challenge toggle ──
+  function toggleChallenge() {
+    playClick()
+    const m = document.getElementById('tt-modal')
+    m.classList.toggle('open')
+  }
+
+  // ── DevOps challenges ──
+  const challenges = [
+    "⚡ Your Terraform apply just failed at 97% on a Friday evening. What's your first move? (\"rollback\" is not an answer.)",
+    "🤔 Explain Kubernetes to your grandma in under 2 sentences. Go.",
+    "🔥 Name 3 things you check before a Friday 5pm deployment. Hint: one of them is who's on-call.",
+    "🕵️ Spot the bug → `if ENV == 'production': restart_all_servers()` — what happens and why is this terrifying?",
+    "😅 The pipeline is red. It was green 10 minutes ago and nothing changed. Name your top 3 suspects in order.",
+    "🚀 You have a 40% AWS bill spike. You have 1 hour and no dashboards. What do you check first?",
+    "🐛 'Works on my machine' — name 3 root causes and how you prevent them in CI.",
+    "📉 Your container images jumped from 300MB to 2.8GB overnight. Walk me through the investigation.",
+  ]
+  let lastIdx = -1
+  function showChallenge() {
+    playClick()
+    let idx
+    do { idx = Math.floor(Math.random() * challenges.length) } while (idx === lastIdx)
+    lastIdx = idx
+    const box = document.getElementById('challenge-out')
+    box.textContent = challenges[idx]
+    box.classList.add('show')
+  }
+</script>
+
+</body>
+</html>
