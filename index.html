@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nitin Tilwani — Lead DevOps Engineer</title>
   <meta name="description" content="Nitin Tilwani is a Lead DevOps Engineer at CARS24, specializing in AWS, GCP, Kubernetes, CI/CD, and cloud infrastructure at enterprise scale." />
-  <meta name="keywords" content="Nitin Tilwani, Lead DevOps Engineer, AWS, Kubernetes, GCP, CARS24, EKS, Terraform, CI/CD, Cloud Engineer, India" />
+  <meta name="keywords" content="Nitin Tilwani, Lead DevOps Engineer, AWS, Kubernetes, GCP, CARS24, EKS, Terraform, CI/CD, Platform Engineer, India" />
   <meta name="author" content="Nitin Tilwani" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://nitintilwani.com/" />
@@ -14,8 +14,6 @@
   <meta property="og:description" content="Lead DevOps Engineer at CARS24 specializing in AWS, Kubernetes, Terraform, and large-scale cloud infrastructure." />
   <meta property="og:url" content="https://nitintilwani.com/" />
   <meta property="og:site_name" content="Nitin Tilwani" />
-  <meta property="profile:first_name" content="Nitin" />
-  <meta property="profile:last_name" content="Tilwani" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Nitin Tilwani — Lead DevOps Engineer" />
   <meta name="twitter:description" content="Lead DevOps Engineer at CARS24 specializing in AWS, Kubernetes, Terraform, and large-scale cloud infrastructure." />
@@ -30,199 +28,367 @@
     "email": "nitin.edu476@gmail.com",
     "telephone": "+91-8302027845",
     "address": { "@type": "PostalAddress", "addressLocality": "Gurugram", "addressCountry": "IN" },
-    "sameAs": ["https://www.linkedin.com/in/nitintilwani/", "https://www.instagram.com/nitin.tilwani/"],
-    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Poornima Institute of Engineering and Technology, Jaipur" },
-    "hasCredential": { "@type": "EducationalOccupationalCredential", "name": "Red Hat Certified Engineer (RHCE) — EX294" },
-    "knowsAbout": ["AWS","GCP","Kubernetes","EKS","Docker","Terraform","GitHub Actions","Jenkins","CI/CD","DevOps","Linux","Cloud Infrastructure","Cost Optimization"]
+    "sameAs": ["https://www.linkedin.com/in/nitintilwani/", "https://www.instagram.com/_nitintilwani_/"],
+    "knowsAbout": ["AWS","GCP","Kubernetes","EKS","Docker","Terraform","GitHub Actions","Jenkins","CI/CD","DevOps","Linux"]
   }
   </script>
+
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#0a0a0f;--bg-card:#111118;--border:rgba(255,255,255,0.06);--accent:#f97316;--accent2:#fb923c;--text:#f1f5f9;--muted:#94a3b8;--faint:#475569}
+    :root{
+      --bg:#08080f;--bg-card:#0f0f18;--bg-card2:#13131e;
+      --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
+      --accent:#f97316;--accent2:#fb923c;
+      --text:#f1f5f9;--muted:#94a3b8;--faint:#475569;
+      --li:#0A66C2;--ig1:#833AB4;--ig2:#E1306C;--ig3:#F77737;
+    }
     html{scroll-behavior:smooth}
     body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
     a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
+
+    /* ── Scroll Progress Bar ── */
+    #progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#f97316,#fb923c,#fbbf24);z-index:9999;width:0%;transition:width 0.08s linear;border-radius:0 2px 2px 0;box-shadow:0 0 8px rgba(249,115,22,0.6)}
 
     /* ── Animations ── */
-    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-    @keyframes slideDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes glow{0%,100%{box-shadow:0 0 20px rgba(249,115,22,0.15)}50%{box-shadow:0 0 40px rgba(249,115,22,0.35)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes glow{0%,100%{box-shadow:0 0 16px rgba(249,115,22,0.2)}50%{box-shadow:0 0 32px rgba(249,115,22,0.5)}}
     @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-    @keyframes counterUp{from{opacity:0;transform:scale(0.7)}to{opacity:1;transform:scale(1)}}
-    @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+    @keyframes scaleIn{from{opacity:0;transform:scale(0.85)}to{opacity:1;transform:scale(1)}}
+    @keyframes orb{0%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(0.95)}100%{transform:translate(0,0) scale(1)}}
 
-    .anim-nav{animation:slideDown 0.5s ease both}
-    .anim-badge{animation:fadeUp 0.6s ease 0.1s both}
-    .anim-h1{animation:fadeUp 0.7s ease 0.2s both}
-    .anim-sub{animation:fadeUp 0.7s ease 0.35s both}
-    .anim-btns{animation:fadeUp 0.7s ease 0.5s both}
-    .anim-stat:nth-child(1){animation:counterUp 0.6s ease 0.6s both}
-    .anim-stat:nth-child(2){animation:counterUp 0.6s ease 0.75s both}
-    .anim-stat:nth-child(3){animation:counterUp 0.6s ease 0.9s both}
-    .anim-stat:nth-child(4){animation:counterUp 0.6s ease 1.05s both}
-    .anim-section{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease}
-    .anim-section.visible{opacity:1;transform:translateY(0)}
-    .anim-card{opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease}
-    .anim-card.visible{opacity:1;transform:translateY(0)}
+    .a-nav{animation:slideDown 0.5s ease both}
+    .a-badge{animation:fadeUp 0.6s ease 0.1s both}
+    .a-h1{animation:fadeUp 0.7s ease 0.2s both}
+    .a-role{animation:fadeUp 0.6s ease 0.35s both}
+    .a-sub{animation:fadeUp 0.6s ease 0.45s both}
+    .a-btns{animation:fadeUp 0.6s ease 0.6s both}
+    .a-stat{animation:scaleIn 0.6s ease both}
+    .a-stat:nth-child(1){animation-delay:0.7s}
+    .a-stat:nth-child(2){animation-delay:0.85s}
+    .a-stat:nth-child(3){animation-delay:1s}
+    .a-stat:nth-child(4){animation-delay:1.15s}
+
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-card{opacity:0;transform:translateY(18px);transition:opacity 0.5s ease,transform 0.5s ease}
+    .reveal-card.visible{opacity:1;transform:translateY(0)}
 
     /* ── Nav ── */
-    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:56px}
-    .nav-brand{font-weight:700;font-size:15px;color:var(--text);letter-spacing:-0.3px}
-    .nav-links{display:flex;gap:28px}
+    nav{position:sticky;top:3px;z-index:100;margin:12px 20px 0;background:rgba(13,13,22,0.8);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:16px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:52px}
+    .nav-brand{font-weight:800;font-size:15px;color:var(--text);letter-spacing:-0.3px}
+    .nav-links{display:flex;gap:24px;align-items:center}
     .nav-links a{font-size:13px;color:var(--muted);font-weight:500;transition:color 0.15s}
-    .nav-links a:hover{color:var(--text);text-decoration:none}
+    .nav-links a:hover{color:var(--text)}
+    .nav-hire{background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.3);color:var(--accent);padding:5px 14px;border-radius:8px;font-size:12px;font-weight:700;transition:all 0.2s}
+    .nav-hire:hover{background:var(--accent);color:white}
 
     /* ── Hero ── */
-    .hero{max-width:780px;margin:0 auto;padding:90px 24px 70px;text-align:center;position:relative}
-    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(249,115,22,0.08),transparent);pointer-events:none}
-    .hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);color:var(--accent2);font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;margin-bottom:28px;letter-spacing:0.04em;animation:glow 3s ease infinite}
-    h1{font-size:clamp(36px,6vw,58px);font-weight:800;letter-spacing:-1.5px;color:var(--text);line-height:1.1;margin-bottom:18px}
-    h1 span{background:linear-gradient(135deg,#f97316,#fb923c,#f97316);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradientShift 3s ease infinite}
-    .hero-sub{font-size:17px;color:var(--muted);max-width:560px;margin:0 auto 36px;line-height:1.65}
-    .hero-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;transition:all 0.2s}
-    .btn-primary{background:linear-gradient(135deg,#f97316,#ea580c);color:white;box-shadow:0 4px 16px rgba(249,115,22,0.3)}
-    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,0.45);text-decoration:none}
-    .btn-ghost{background:var(--bg-card);border:1px solid var(--border);color:var(--muted)}
-    .btn-ghost:hover{color:var(--text);border-color:rgba(255,255,255,0.15);transform:translateY(-2px);text-decoration:none}
+    .hero{max-width:860px;margin:0 auto;padding:100px 24px 80px;text-align:center;position:relative}
+    /* Floating orbs */
+    .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:orb 8s ease infinite}
+    .orb1{width:300px;height:300px;background:rgba(249,115,22,0.12);top:-60px;left:-80px;animation-duration:10s}
+    .orb2{width:200px;height:200px;background:rgba(139,92,246,0.08);top:100px;right:-60px;animation-duration:13s;animation-delay:-4s}
+    .orb3{width:150px;height:150px;background:rgba(249,115,22,0.06);bottom:-40px;left:30%;animation-duration:9s;animation-delay:-2s}
+
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,0.08);border:1px solid rgba(249,115,22,0.2);color:var(--accent2);font-size:12px;font-weight:600;padding:6px 16px;border-radius:20px;margin-bottom:32px;letter-spacing:0.04em;animation:glow 3s ease infinite}
+    .hero-badge .dot{width:6px;height:6px;background:#22c55e;border-radius:50%;animation:blink 2s ease infinite}
+
+    h1{font-size:clamp(42px,7vw,72px);font-weight:900;letter-spacing:-2px;color:var(--text);line-height:1.05;margin-bottom:14px}
+    h1 .grad{background:linear-gradient(135deg,#f97316,#fb923c,#fbbf24,#f97316);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradientShift 4s ease infinite}
+
+    .hero-role{font-size:18px;color:var(--muted);font-weight:500;margin-bottom:18px;letter-spacing:-0.2px}
+    .hero-role strong{color:var(--text)}
+    .cursor{display:inline-block;width:2px;height:1.1em;background:var(--accent);vertical-align:text-bottom;animation:blink 1s step-end infinite;margin-left:2px}
+
+    .hero-sub{font-size:16px;color:var(--faint);max-width:540px;margin:0 auto 44px;line-height:1.7}
+
+    /* ── Social Buttons ── */
+    .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .sbtn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:10px;font-size:14px;font-weight:600;transition:all 0.25s;border:1.5px solid transparent;cursor:pointer}
+    .sbtn svg{width:18px;height:18px;flex-shrink:0}
+
+    .sbtn-li{background:rgba(10,102,194,0.1);border-color:rgba(10,102,194,0.3);color:#60a5fa}
+    .sbtn-li:hover{background:#0A66C2;border-color:#0A66C2;color:white;transform:translateY(-2px);box-shadow:0 8px 24px rgba(10,102,194,0.4)}
+
+    .sbtn-ig{background:rgba(131,58,180,0.1);border-color:rgba(131,58,180,0.3);color:#c084fc}
+    .sbtn-ig:hover{background:linear-gradient(135deg,#833AB4,#E1306C,#F77737);border-color:transparent;color:white;transform:translateY(-2px);box-shadow:0 8px 24px rgba(225,48,108,0.4)}
+
+    .sbtn-mail{background:var(--bg-card);border-color:var(--border);color:var(--muted)}
+    .sbtn-mail:hover{color:var(--text);border-color:var(--border2);transform:translateY(-2px)}
 
     /* ── Stats ── */
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:860px;margin:0 auto;padding:0 24px 60px}
-    .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:22px 20px;text-align:center;transition:border-color 0.2s,transform 0.2s;cursor:default}
-    .stat-card:hover{border-color:rgba(249,115,22,0.3);transform:translateY(-3px)}
-    .stat-num{font-size:30px;font-weight:800;color:var(--accent);letter-spacing:-1px}
-    .stat-label{font-size:12px;color:var(--muted);margin-top:5px;font-weight:500}
+    .stats-wrap{max-width:860px;margin:0 auto;padding:0 24px 70px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .stat{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:24px 18px;text-align:center;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden}
+    .stat::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(249,115,22,0.04),transparent);opacity:0;transition:opacity 0.2s}
+    .stat:hover{border-color:rgba(249,115,22,0.3);transform:translateY(-4px)}
+    .stat:hover::before{opacity:1}
+    .stat-num{font-size:32px;font-weight:900;color:var(--accent);letter-spacing:-1.5px}
+    .stat-lbl{font-size:11.5px;color:var(--muted);margin-top:6px;font-weight:500;line-height:1.4}
+
+    /* ── Tech Stack logos ── */
+    .tech-wrap{max-width:860px;margin:0 auto;padding:0 24px 60px}
+    .tech-title{font-size:11px;font-weight:700;color:var(--faint);text-transform:uppercase;letter-spacing:0.14em;text-align:center;margin-bottom:20px}
+    .tech-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+    .tech-logo{display:flex;align-items:center;gap:7px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:7px 14px;font-size:12px;font-weight:600;color:var(--muted);transition:all 0.2s}
+    .tech-logo:hover{color:var(--text);border-color:var(--border2);transform:translateY(-2px)}
+    .tech-logo svg{width:16px;height:16px}
 
     /* ── Sections ── */
-    section{max-width:860px;margin:0 auto;padding:60px 24px}
-    .section-label{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px}
-    h2{font-size:26px;font-weight:700;letter-spacing:-0.5px;color:var(--text);margin-bottom:32px}
+    section{max-width:860px;margin:0 auto;padding:70px 24px}
+    .sec-label{font-size:10.5px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:8px}
+    h2{font-size:28px;font-weight:800;letter-spacing:-0.6px;color:var(--text);margin-bottom:36px}
+    .divider{border:none;border-top:1px solid var(--border);margin:0 24px}
 
     /* ── Experience ── */
-    .exp-list{display:flex;flex-direction:column;gap:24px}
-    .exp-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:28px 30px;position:relative;overflow:hidden;transition:border-color 0.2s,transform 0.2s}
-    .exp-card:hover{border-color:rgba(249,115,22,0.25);transform:translateY(-2px)}
-    .exp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#f97316,#ea580c);border-radius:0 2px 2px 0}
-    .exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:6px}
-    .exp-company{font-size:17px;font-weight:700;color:var(--text)}
-    .exp-period{font-size:12px;font-weight:600;color:var(--accent);background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);padding:3px 10px;border-radius:20px}
-    .exp-role{font-size:13.5px;color:var(--muted);font-weight:500;margin-bottom:16px}
-    .exp-bullets{list-style:none;display:flex;flex-direction:column;gap:8px}
-    .exp-bullets li{font-size:13.5px;color:var(--muted);padding-left:18px;position:relative;line-height:1.55}
-    .exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-weight:700}
+    .exp-list{display:flex;flex-direction:column;gap:20px}
+    .exp-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:28px 30px;position:relative;overflow:hidden;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s}
+    .exp-card:hover{border-color:rgba(249,115,22,0.25);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+    .exp-accent{position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#f97316,#ea580c)}
+    .exp-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+    .exp-co{font-size:17px;font-weight:800;color:var(--text)}
+    .exp-badge{font-size:11.5px;font-weight:600;color:var(--accent);background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);padding:3px 10px;border-radius:20px}
+    .exp-role{font-size:13px;color:var(--muted);font-weight:500;margin-bottom:18px}
+    .exp-ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .exp-ul li{font-size:13.5px;color:var(--muted);padding-left:20px;position:relative;line-height:1.6}
+    .exp-ul li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:11px;top:3px}
 
     /* ── Skills ── */
-    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .skill-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px 22px;transition:border-color 0.2s,transform 0.2s}
-    .skill-card:hover{border-color:rgba(249,115,22,0.25);transform:translateY(-2px)}
-    .skill-title{font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
-    .skill-tags{display:flex;flex-wrap:wrap;gap:7px}
-    .tag{font-size:12px;font-weight:600;color:var(--muted);background:rgba(255,255,255,0.04);border:1px solid var(--border);padding:4px 10px;border-radius:6px;transition:all 0.15s}
-    .tag:hover{color:var(--accent);border-color:rgba(249,115,22,0.3);background:rgba(249,115,22,0.05)}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .skill-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:20px 22px;transition:all 0.2s}
+    .skill-card:hover{border-color:rgba(249,115,22,0.25);transform:translateY(-3px)}
+    .skill-title{font-size:11.5px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px}
+    .tags{display:flex;flex-wrap:wrap;gap:7px}
+    .tag{font-size:12px;font-weight:600;color:var(--muted);background:rgba(255,255,255,0.04);border:1px solid var(--border);padding:4px 11px;border-radius:6px;transition:all 0.15s;cursor:default}
+    .tag:hover{color:var(--accent);border-color:rgba(249,115,22,0.35);background:rgba(249,115,22,0.06)}
+
+    /* ── Referral / Connect ── */
+    .connect-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .connect-info{display:flex;flex-direction:column;gap:16px}
+    .connect-point{display:flex;gap:14px;align-items:flex-start}
+    .connect-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .connect-icon.orange{background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2)}
+    .connect-icon.blue{background:rgba(10,102,194,0.1);border:1px solid rgba(10,102,194,0.2)}
+    .connect-icon.green{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)}
+    .connect-point-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px}
+    .connect-point-desc{font-size:13px;color:var(--muted);line-height:1.5}
+
+    .form-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:28px}
+    .form-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px}
+    .form-sub{font-size:13px;color:var(--muted);margin-bottom:22px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+    .form-group{margin-bottom:12px}
+    label.fl{font-size:12px;font-weight:600;color:var(--muted);display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.06em}
+    input.fi,select.fi,textarea.fi{width:100%;background:var(--bg-card2);border:1px solid var(--border);border-radius:8px;padding:10px 13px;font-size:13.5px;color:var(--text);font-family:inherit;transition:border-color 0.2s,box-shadow 0.2s;outline:none}
+    input.fi::placeholder,textarea.fi::placeholder{color:var(--faint)}
+    input.fi:focus,select.fi:focus,textarea.fi:focus{border-color:rgba(249,115,22,0.5);box-shadow:0 0 0 3px rgba(249,115,22,0.1)}
+    select.fi option{background:#0f0f18}
+    textarea.fi{resize:vertical;min-height:90px}
+    .form-type{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
+    .type-btn{padding:10px;border-radius:8px;border:1.5px solid var(--border);background:var(--bg-card2);color:var(--muted);font-size:13px;font-weight:600;cursor:pointer;transition:all 0.15s;text-align:center}
+    .type-btn.active,.type-btn:hover{border-color:rgba(249,115,22,0.5);color:var(--accent);background:rgba(249,115,22,0.06)}
+    .submit-btn{width:100%;padding:12px;background:linear-gradient(135deg,#f97316,#ea580c);color:white;font-weight:700;font-size:14px;border:none;border-radius:9px;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 16px rgba(249,115,22,0.3);margin-top:4px}
+    .submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,0.45)}
+    .form-success{display:none;text-align:center;padding:20px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:10px;color:#22c55e;font-weight:600;font-size:14px}
 
     /* ── Cert ── */
-    .cert-card{background:var(--bg-card);border:1px solid rgba(249,115,22,0.2);border-radius:14px;padding:26px 28px;display:flex;align-items:center;gap:20px;transition:transform 0.2s,box-shadow 0.2s}
+    .cert-card{background:var(--bg-card);border:1px solid rgba(249,115,22,0.2);border-radius:16px;padding:28px;display:flex;align-items:center;gap:20px;transition:all 0.2s}
     .cert-card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(249,115,22,0.1)}
-    .cert-icon{font-size:36px;flex-shrink:0}
-    .cert-name{font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px}
+    .cert-icon-wrap{width:60px;height:60px;border-radius:14px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;animation:float 4s ease infinite}
+    .cert-name{font-size:17px;font-weight:800;color:var(--text);margin-bottom:4px}
     .cert-sub{font-size:13px;color:var(--muted)}
 
     /* ── Contact ── */
-    .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .contact-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:14px;transition:border-color 0.2s,transform 0.2s}
-    .contact-card:hover{border-color:rgba(249,115,22,0.25);transform:translateY(-2px)}
-    .contact-icon{font-size:20px}
-    .contact-label{font-size:11px;color:var(--faint);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px}
-    .contact-value{font-size:13.5px;color:var(--text);font-weight:500}
+    .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .contact-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:18px;display:flex;align-items:center;gap:13px;transition:all 0.2s}
+    .contact-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+    .contact-ico{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+    .ci-li{background:rgba(10,102,194,0.12);border:1px solid rgba(10,102,194,0.2)}
+    .ci-ig{background:rgba(131,58,180,0.12);border:1px solid rgba(131,58,180,0.2)}
+    .ci-mail{background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2)}
+    .ci-ph{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)}
+    .ci-loc{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.2)}
+    .contact-lbl{font-size:10.5px;color:var(--faint);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px}
+    .contact-val{font-size:13px;color:var(--text);font-weight:500}
 
-    footer{border-top:1px solid var(--border);text-align:center;padding:28px 24px;font-size:12.5px;color:var(--faint)}
-    .divider{border:none;border-top:1px solid var(--border);margin:0 24px}
+    footer{border-top:1px solid var(--border);text-align:center;padding:32px 24px;font-size:12.5px;color:var(--faint)}
+    footer span{color:var(--accent)}
 
-    @media(max-width:640px){nav{padding:0 20px}.nav-links{gap:16px}.stats{grid-template-columns:repeat(2,1fr)}.skills-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.exp-card{padding:22px 20px}}
+    @media(max-width:700px){
+      nav{margin:8px 12px 0;padding:0 18px}
+      .nav-links .hide-sm{display:none}
+      h1{letter-spacing:-1.5px}
+      .stats-wrap{grid-template-columns:repeat(2,1fr)}
+      .skills-grid{grid-template-columns:1fr}
+      .connect-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr 1fr}
+      .form-row{grid-template-columns:1fr}
+      .exp-card{padding:22px 18px}
+    }
   </style>
 </head>
 <body>
 
-<nav class="anim-nav">
-  <div class="nav-brand">Nitin Tilwani</div>
+<!-- Scroll Progress -->
+<div id="progress"></div>
+
+<!-- Nav -->
+<nav class="a-nav">
+  <div class="nav-brand">NT</div>
   <div class="nav-links">
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-    <a href="https://www.linkedin.com/in/nitintilwani/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="#experience" class="hide-sm">Experience</a>
+    <a href="#skills" class="hide-sm">Skills</a>
+    <a href="#connect">Connect</a>
+    <a href="#connect" class="nav-hire">Referral? →</a>
   </div>
 </nav>
 
+<!-- Hero -->
 <div class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-badge anim-badge">🚀 Lead DevOps Engineer · Open to Opportunities</div>
-  <h1 class="anim-h1">Nitin <span>Tilwani</span></h1>
-  <p class="hero-sub anim-sub">Lead DevOps Engineer at <strong style="color:var(--text)">CARS24</strong> — building resilient cloud infrastructure, migrating large-scale systems to AWS &amp; Kubernetes, and driving engineering efficiency at scale.</p>
-  <div class="hero-links anim-btns">
-    <a href="https://www.linkedin.com/in/nitintilwani/" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn Profile ↗</a>
-    <a href="https://www.instagram.com/nitin.tilwani/" target="_blank" rel="noopener" class="btn btn-ghost">Instagram ↗</a>
-    <a href="mailto:nitin.edu476@gmail.com" class="btn btn-ghost">nitin.edu476@gmail.com</a>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
+  <div class="hero-badge a-badge">
+    <span class="dot"></span>
+    Available for referrals &amp; collaboration
+  </div>
+
+  <h1 class="a-h1">Nitin <span class="grad">Tilwani</span></h1>
+
+  <div class="hero-role a-role">
+    <span id="typewriter"></span><span class="cursor"></span>
+  </div>
+
+  <p class="hero-sub a-sub">
+    Building resilient cloud infrastructure at <strong>CARS24</strong> — migrating 200+ services to EKS, slashing costs by 40%, and engineering platforms that scale.
+  </p>
+
+  <div class="hero-btns a-btns">
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/nitintilwani/" target="_blank" rel="noopener" class="sbtn sbtn-li">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/_nitintilwani_/" target="_blank" rel="noopener" class="sbtn sbtn-ig">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      @_nitintilwani_
+    </a>
+    <!-- Email -->
+    <a href="mailto:nitin.edu476@gmail.com" class="sbtn sbtn-mail">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      Email Me
+    </a>
   </div>
 </div>
 
-<div class="stats">
-  <div class="stat-card anim-stat"><div class="stat-num">200+</div><div class="stat-label">Services migrated to EKS</div></div>
-  <div class="stat-card anim-stat"><div class="stat-num">20%+</div><div class="stat-label">AWS/GCP cost reduction</div></div>
-  <div class="stat-card anim-stat"><div class="stat-num">40%</div><div class="stat-label">Cost saved on RDS Graviton</div></div>
-  <div class="stat-card anim-stat"><div class="stat-num">4+</div><div class="stat-label">Years in DevOps</div></div>
+<!-- Stats -->
+<div class="stats-wrap">
+  <div class="stat a-stat"><div class="stat-num">200+</div><div class="stat-lbl">Services to EKS</div></div>
+  <div class="stat a-stat"><div class="stat-num">40%</div><div class="stat-lbl">Cost saved on Graviton</div></div>
+  <div class="stat a-stat"><div class="stat-num">20%+</div><div class="stat-lbl">AWS/GCP reduction</div></div>
+  <div class="stat a-stat"><div class="stat-num">4+</div><div class="stat-lbl">Years in DevOps</div></div>
+</div>
+
+<!-- Tech Stack -->
+<div class="tech-wrap reveal">
+  <div class="tech-title">Tech Stack</div>
+  <div class="tech-logos">
+    <div class="tech-logo">
+      <svg viewBox="0 0 24 24" fill="#FF9900"><path d="M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.064.056.128.056.184 0 .08-.048.16-.152.24l-.504.336a.383.383 0 01-.208.072c-.08 0-.16-.04-.24-.112a2.47 2.47 0 01-.288-.376 6.18 6.18 0 01-.248-.472c-.624.736-1.408 1.104-2.352 1.104-.672 0-1.208-.192-1.6-.576-.392-.384-.592-.896-.592-1.536 0-.68.24-1.232.728-1.648.488-.416 1.136-.624 1.96-.624.272 0 .552.024.848.064.296.04.6.104.92.176v-.584c0-.608-.128-1.032-.376-1.28-.256-.248-.688-.368-1.304-.368-.28 0-.568.032-.864.104-.296.072-.584.16-.864.28-.128.056-.224.088-.28.104-.056.016-.096.024-.128.024-.112 0-.168-.08-.168-.248v-.392c0-.128.016-.224.056-.28.04-.056.112-.112.224-.168.28-.144.616-.264 1.008-.36a4.81 4.81 0 011.232-.144c.936 0 1.624.216 2.072.648.44.432.664 1.08.664 1.952v2.56zm-3.24 1.208c.264 0 .536-.048.824-.144.288-.096.544-.272.76-.512.128-.152.224-.32.272-.512.048-.192.08-.424.08-.696v-.336a6.8 6.8 0 00-.736-.136 6.02 6.02 0 00-.752-.048c-.536 0-.928.104-1.192.32-.264.216-.392.52-.392.912 0 .368.096.648.296.832.192.192.464.32.84.32zm6.44.888c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.312L7.48 6.48a1.398 1.398 0 01-.072-.32c0-.128.064-.2.192-.2h.784c.152 0 .256.024.312.08.064.048.112.16.16.312l1.[(truncated for brevity - full AWS SVG)"/></svg>
+      AWS
+    </div>
+    <div class="tech-logo" style="color:#4285F4">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.19 2.38a9.344 9.344 0 00-9.234 6.893c.053-.02.09-.04.138-.06C4.547 8.336 6.679 7.5 9.136 7.5c.913 0 1.79.116 2.638.329C12.1 5.478 13.313 3.38 15.44 2.48a9.344 9.344 0 00-3.25-.1zM2.85 10.02a9.344 9.344 0 00-.35 2.48c0 5.154 4.176 9.33 9.33 9.33 1.64 0 3.18-.42 4.52-1.16l-2.38-4.12c-.3.1-.62.16-.94.16-1.76 0-3.2-1.44-3.2-3.2 0-.4.08-.78.21-1.13L2.85 10.02zm14.97 8.6c2.28-1.7 3.78-4.37 3.78-7.38 0-1.28-.26-2.5-.73-3.61l-4.13 2.39c.09.38.14.78.14 1.18 0 1.76-1.44 3.2-3.2 3.2-.34 0-.67-.06-.98-.16l-2.38 4.12c1.16.55 2.46.86 3.83.86 1.3 0 2.54-.27 3.66-.76l-.0-.84z"/></svg>
+      GCP
+    </div>
+    <div class="tech-logo" style="color:#326CE5">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10.204 14.35l.007.01-.999 2.413a5.171 5.171 0 01-2.075-2.597l2.578-.437.004.005.485.606zm-.833-2.129a.875.875 0 01.875-.875c.484 0 .875.391.875.875s-.391.875-.875.875a.875.875 0 01-.875-.875zm3.287-.875a.875.875 0 100 1.75.875.875 0 000-1.75zm-6.14 4.028l-.003-.004-.002-.001a5.285 5.285 0 01-.78-1.718 5.236 5.236 0 01-.118-1.483c.35.164.68.36.989.583l-.086 2.623zM12 6.696c.434 0 .854.037 1.26.109l-.576 2.554-.012-.003-.672 2.974a.875.875 0 01-.875.875.875.875 0 01-.875-.875L10.25 9.36l-.012.003-.576-2.555A5.328 5.328 0 0112 6.696zm4.703 6.958l-2.578-.437.005-.006.485-.607-.007.011.999-2.413a5.17 5.17 0 012.075 2.597l-2.578.437-.4-.582zm.923.87l.086 2.622a5.304 5.304 0 01-.989.584 5.236 5.236 0 01-1.483.118 5.285 5.285 0 01.78-1.718l.002-.002.003-.004 1.601-1.6zM12 4a8 8 0 100 16A8 8 0 0012 4z"/></svg>
+      Kubernetes
+    </div>
+    <div class="tech-logo" style="color:#2496ED">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.186.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.186.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.185v1.888c0 .102.084.185.186.185m-2.92 0h2.12a.186.186 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288z"/></svg>
+      Docker
+    </div>
+    <div class="tech-logo" style="color:#623CE4">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.822 9.993C1.822 9.993 0 11.025 0 12.496c0 1.47 1.822 2.503 1.822 2.503V9.993zm20.356 0v4.006S24 13.967 24 12.496c0-1.471-1.822-2.503-1.822-2.503zM12.207.033L6.03 3.637v4.009l6.177-3.604 6.178 3.604V3.637zM6.03 8.855L.756 11.895l5.274 3.04v-3.04l-.001-3.04zm11.941 0v6.08l5.274-3.04-5.274-3.04zM6.03 16.345l6.177 3.604 6.178-3.604-6.178-3.604z"/></svg>
+      Terraform
+    </div>
+    <div class="tech-logo" style="color:#2088FF">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub Actions
+    </div>
+    <div class="tech-logo" style="color:#D24939">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.613 14.382l-9.997-9.997c-.396-.396-1.039-.396-1.435 0L10.166 6.4l1.823 1.823c.423-.143.904-.047 1.239.289.338.338.433.824.283 1.249l1.757 1.757a1.014 1.014 0 011.249.283 1.014 1.014 0 010 1.435 1.017 1.017 0 01-1.438 0 1.02 1.02 0 01-.21-1.109l-1.638-1.638v4.308a1.016 1.016 0 01.268 1.631 1.016 1.016 0 01-1.437 0 1.014 1.014 0 010-1.435c.1-.1.215-.165.337-.21V9.872a1.018 1.018 0 01-.337-.21 1.022 1.022 0 01-.21-1.114L9.497 6.79.387 15.9a1.015 1.015 0 000 1.435l9.997 9.997c.396.396 1.039.396 1.435 0l11.794-11.794c.396-.396.396-1.038 0-1.156z"/></svg>
+      Jenkins
+    </div>
+    <div class="tech-logo" style="color:#E05243">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.316 14.629l.1-.034.083-.025c.034-.009.067-.019.1-.029l.1-.03.088-.027.075-.023c.034-.011.067-.021.1-.033l.091-.03.063-.022.091-.032c.032-.011.063-.023.094-.034l.069-.027.085-.032c.03-.012.061-.023.09-.035l.066-.026.088-.036c.028-.012.056-.023.083-.035l.066-.029.08-.034c.028-.013.055-.025.082-.038l.063-.03.08-.038c.026-.012.053-.025.079-.038l.059-.029.078-.038c.025-.013.051-.026.076-.039l.059-.031.072-.038c.024-.013.048-.025.072-.038l.056-.03.072-.04c.023-.012.046-.025.069-.038l.052-.029.069-.04c.022-.012.044-.025.065-.038l.05-.029.065-.04c.021-.012.042-.025.063-.038l.047-.029.063-.04c.02-.012.04-.025.06-.038l.046-.029.059-.04c.019-.012.039-.025.058-.038l.044-.029.056-.038c.018-.013.037-.025.056-.038l.043-.029.053-.038c.018-.012.035-.025.053-.038l.041-.029.051-.038c.017-.012.034-.025.051-.038l.04-.029.049-.038c.016-.012.033-.025.049-.038l.037-.029.048-.038c.016-.012.031-.025.047-.038l.037-.029.045-.037c.015-.013.03-.025.045-.038l.034-.029.043-.038c.014-.013.029-.025.043-.038l.033-.029.042-.038.011-.009V5.13L5.316 14.629z"/></svg>
+      Datadog
+    </div>
+    <div class="tech-logo" style="color:#F46800">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm3 3v2h12V6H6zm0 4v2h12v-2H6zm0 4v2h8v-2H6z"/></svg>
+      Helm
+    </div>
+  </div>
 </div>
 
 <hr class="divider" />
 
-<section id="experience" class="anim-section">
-  <div class="section-label">Career</div>
-  <h2>Experience</h2>
+<!-- Experience -->
+<section id="experience">
+  <div class="sec-label reveal">Career</div>
+  <h2 class="reveal">Experience</h2>
   <div class="exp-list">
 
-    <div class="exp-card anim-card">
-      <div class="exp-header">
-        <div class="exp-company">CARS24 Services Private Limited</div>
-        <div class="exp-period">Mar 2025 – Present</div>
+    <div class="exp-card reveal-card">
+      <div class="exp-accent"></div>
+      <div class="exp-head">
+        <div class="exp-co">CARS24 Services Pvt. Ltd.</div>
+        <div class="exp-badge">Mar 2025 – Present</div>
       </div>
       <div class="exp-role">Lead DevOps Engineer · Gurugram</div>
-      <ul class="exp-bullets">
-        <li>Built an in-house DevOps team, replacing third-party vendor entirely.</li>
-        <li>Led migration of CI/CD platforms (TeamCity, Jenkins, BuildPiper → GitHub Actions), unifying pipelines across 4 legacy systems.</li>
-        <li>Migrated core infrastructure from GCP to AWS with zero downtime, optimizing workloads across all services.</li>
-        <li>Migrated all RDS instances to Graviton, achieving 30–40% cost reduction and improved performance.</li>
-        <li>Migrated 200+ production services from ECS to EKS with no downtime, standardizing container orchestration.</li>
-        <li>Achieved &gt;20% AWS/GCP cost reduction in under 60 days through infra right-sizing and optimizations.</li>
-        <li>Enabled S3 Intelligent Tiering and introduced VPC Endpoints for Datadog to reduce egress costs.</li>
-        <li>Reduced container image sizes from 2.8GB → 300MB by switching from Ubuntu to Alpine base images.</li>
-        <li>Reduced EBS disk usage from 150GB → 50GB by implementing Docker log rotation.</li>
+      <ul class="exp-ul">
+        <li>Built in-house DevOps team, replacing third-party vendor entirely.</li>
+        <li>Led CI/CD migration — TeamCity, Jenkins, BuildPiper → GitHub Actions — across 4 legacy systems.</li>
+        <li>Migrated core infrastructure GCP → AWS with zero downtime.</li>
+        <li>Migrated all RDS to Graviton — 30–40% cost reduction with improved performance.</li>
+        <li>Migrated 200+ production services ECS → EKS with zero downtime.</li>
+        <li>Achieved &gt;20% AWS/GCP cost reduction in under 60 days via right-sizing.</li>
+        <li>Enabled S3 Intelligent Tiering + VPC Endpoints for Datadog — eliminated egress costs.</li>
+        <li>Shrank container images 2.8GB → 300MB (Ubuntu → Alpine).</li>
+        <li>Reduced EBS usage 150GB → 50GB via Docker log rotation.</li>
       </ul>
     </div>
 
-    <div class="exp-card anim-card">
-      <div class="exp-header">
-        <div class="exp-company">Nykaa E-Retail Private Limited</div>
-        <div class="exp-period">Jun 2023 – Feb 2025</div>
+    <div class="exp-card reveal-card">
+      <div class="exp-accent"></div>
+      <div class="exp-head">
+        <div class="exp-co">Nykaa E-Retail Pvt. Ltd.</div>
+        <div class="exp-badge">Jun 2023 – Feb 2025</div>
       </div>
       <div class="exp-role">Software Engineer I — DevOps · Gurugram</div>
-      <ul class="exp-bullets">
-        <li>Optimized web performance and caching by configuring and fine-tuning the Varnish server.</li>
-        <li>Streamlined infrastructure provisioning using Terraform to create and manage ECS React services.</li>
-        <li>Led migration of services to Graviton instances, optimizing resource utilization and reducing costs.</li>
-        <li>Routed all JavaScript chunks from CloudFront S3 to an ECS service, enhancing content delivery.</li>
+      <ul class="exp-ul">
+        <li>Optimized web performance via Varnish cache tuning.</li>
+        <li>Provisioned ECS React services using Terraform.</li>
+        <li>Led Graviton migration — reduced operational costs significantly.</li>
+        <li>Routed JS chunks from CloudFront S3 to ECS for improved delivery.</li>
       </ul>
     </div>
 
-    <div class="exp-card anim-card">
-      <div class="exp-header">
-        <div class="exp-company">Auriga IT Consulting Pvt. Ltd</div>
-        <div class="exp-period">Oct 2021 – Jun 2023</div>
+    <div class="exp-card reveal-card">
+      <div class="exp-accent"></div>
+      <div class="exp-head">
+        <div class="exp-co">Auriga IT Consulting Pvt. Ltd.</div>
+        <div class="exp-badge">Oct 2021 – Jun 2023</div>
       </div>
       <div class="exp-role">Associate Software Engineer · Jaipur</div>
-      <ul class="exp-bullets">
-        <li>Created UAT, development, and production environments, automating CI/CD pipelines in Bitbucket and GitHub.</li>
-        <li>Migrated the Salesforce PI database to Hadoop using Apache NiFi, resulting in cost savings and faster data processing.</li>
+      <ul class="exp-ul">
+        <li>Created UAT, dev, and prod environments with automated CI/CD on Bitbucket and GitHub.</li>
+        <li>Migrated Salesforce PI DB to Hadoop via Apache NiFi — cut costs, improved speed.</li>
       </ul>
     </div>
 
@@ -231,26 +397,28 @@
 
 <hr class="divider" />
 
-<section id="skills" class="anim-section">
-  <div class="section-label">Technical</div>
-  <h2>Skills</h2>
+<!-- Skills -->
+<section id="skills">
+  <div class="sec-label reveal">Technical</div>
+  <h2 class="reveal">Skills</h2>
   <div class="skills-grid">
-    <div class="skill-card anim-card"><div class="skill-title">Cloud Platforms</div><div class="skill-tags"><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">EKS</span><span class="tag">ECS</span><span class="tag">S3</span><span class="tag">RDS</span></div></div>
-    <div class="skill-card anim-card"><div class="skill-title">Containerization</div><div class="skill-tags"><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Helm</span><span class="tag">EKS</span><span class="tag">GKE</span></div></div>
-    <div class="skill-card anim-card"><div class="skill-title">CI / CD</div><div class="skill-tags"><span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">TeamCity</span><span class="tag">BuildPiper</span></div></div>
-    <div class="skill-card anim-card"><div class="skill-title">Infrastructure as Code</div><div class="skill-tags"><span class="tag">Terraform</span><span class="tag">Terragrunt</span><span class="tag">Helm Charts</span></div></div>
-    <div class="skill-card anim-card"><div class="skill-title">Scripting</div><div class="skill-tags"><span class="tag">Bash</span><span class="tag">Python</span><span class="tag">Groovy</span></div></div>
-    <div class="skill-card anim-card"><div class="skill-title">Observability</div><div class="skill-tags"><span class="tag">Datadog</span><span class="tag">Grafana</span><span class="tag">CloudWatch</span></div></div>
+    <div class="skill-card reveal-card"><div class="skill-title">Cloud</div><div class="tags"><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">EKS</span><span class="tag">ECS</span><span class="tag">S3</span><span class="tag">RDS</span></div></div>
+    <div class="skill-card reveal-card"><div class="skill-title">Containers</div><div class="tags"><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Helm</span><span class="tag">GKE</span></div></div>
+    <div class="skill-card reveal-card"><div class="skill-title">CI / CD</div><div class="tags"><span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">TeamCity</span><span class="tag">BuildPiper</span></div></div>
+    <div class="skill-card reveal-card"><div class="skill-title">IaC</div><div class="tags"><span class="tag">Terraform</span><span class="tag">Terragrunt</span><span class="tag">Helm Charts</span></div></div>
+    <div class="skill-card reveal-card"><div class="skill-title">Scripting</div><div class="tags"><span class="tag">Bash</span><span class="tag">Python</span><span class="tag">Groovy</span></div></div>
+    <div class="skill-card reveal-card"><div class="skill-title">Observability</div><div class="tags"><span class="tag">Datadog</span><span class="tag">Grafana</span><span class="tag">CloudWatch</span></div></div>
   </div>
 </section>
 
 <hr class="divider" />
 
-<section id="certifications" class="anim-section">
-  <div class="section-label">Certification</div>
-  <h2>Credentials</h2>
-  <div class="cert-card anim-card">
-    <div class="cert-icon">🎓</div>
+<!-- Certification -->
+<section id="certifications">
+  <div class="sec-label reveal">Credentials</div>
+  <h2 class="reveal">Certification</h2>
+  <div class="cert-card reveal-card">
+    <div class="cert-icon-wrap">🎓</div>
     <div>
       <div class="cert-name">Red Hat Certified Engineer (RHCE)</div>
       <div class="cert-sub">EX294 — Ansible Automation · Red Hat, Inc.</div>
@@ -260,45 +428,200 @@
 
 <hr class="divider" />
 
-<section id="contact" class="anim-section">
-  <div class="section-label">Get in touch</div>
-  <h2>Contact</h2>
+<!-- Connect / Referral -->
+<section id="connect">
+  <div class="sec-label reveal">Let's Talk</div>
+  <h2 class="reveal">Connect or Request a Referral</h2>
+  <div class="connect-grid reveal">
+    <div class="connect-info">
+      <div class="connect-point">
+        <div class="connect-icon orange">🚀</div>
+        <div>
+          <div class="connect-point-title">Referral Request</div>
+          <div class="connect-point-desc">Applying to CARS24 or Nykaa? I'm happy to refer strong candidates. Fill the form with your details and I'll get back to you.</div>
+        </div>
+      </div>
+      <div class="connect-point">
+        <div class="connect-icon blue">🤝</div>
+        <div>
+          <div class="connect-point-title">Collaboration</div>
+          <div class="connect-point-desc">Want to collaborate on open source, infra tooling, or cloud architecture? Let's connect.</div>
+        </div>
+      </div>
+      <div class="connect-point">
+        <div class="connect-icon green">💬</div>
+        <div>
+          <div class="connect-point-title">Just Say Hi</div>
+          <div class="connect-point-desc">DevOps questions, career advice, or just want to talk cloud infrastructure — always open to a conversation.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card reveal-card">
+      <div class="form-title">Send a Message</div>
+      <div class="form-sub">I'll respond within 24–48 hours.</div>
+
+      <div class="form-type">
+        <div class="type-btn active" onclick="setType(this,'Referral Request')">🎯 Referral</div>
+        <div class="type-btn" onclick="setType(this,'Collaboration')">🤝 Collaborate</div>
+        <div class="type-btn" onclick="setType(this,'Career Advice')">💡 Advice</div>
+        <div class="type-btn" onclick="setType(this,'Just Saying Hi')">👋 Say Hi</div>
+      </div>
+
+      <form id="connect-form" onsubmit="submitForm(event)">
+        <input type="hidden" id="msg-type" value="Referral Request" />
+        <div class="form-row">
+          <div>
+            <label class="fl">Your Name *</label>
+            <input class="fi" id="f-name" placeholder="John Doe" required />
+          </div>
+          <div>
+            <label class="fl">Your Email *</label>
+            <input class="fi" id="f-email" type="email" placeholder="you@company.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="fl">Company / Role (if referral)</label>
+          <input class="fi" id="f-company" placeholder="e.g. CARS24 — Backend Engineer" />
+        </div>
+        <div class="form-group">
+          <label class="fl">LinkedIn Profile</label>
+          <input class="fi" id="f-li" placeholder="linkedin.com/in/yourprofile" />
+        </div>
+        <div class="form-group">
+          <label class="fl">Message *</label>
+          <textarea class="fi" id="f-msg" placeholder="Tell me a bit about yourself and what you're looking for…" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message →</button>
+      </form>
+      <div class="form-success" id="form-success">✓ Message sent! I'll get back to you soon.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- Contact -->
+<section id="contact">
+  <div class="sec-label reveal">Get in touch</div>
+  <h2 class="reveal">Contact</h2>
   <div class="contact-grid">
-    <div class="contact-card anim-card"><div class="contact-icon">✉️</div><div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:nitin.edu476@gmail.com">nitin.edu476@gmail.com</a></div></div></div>
-    <div class="contact-card anim-card"><div class="contact-icon">📞</div><div><div class="contact-label">Primary Phone</div><div class="contact-value">+91 83020 27845</div></div></div>
-    <div class="contact-card anim-card"><div class="contact-icon">📱</div><div><div class="contact-label">Alternate Phone</div><div class="contact-value">+91 96728 27365</div></div></div>
-    <div class="contact-card anim-card"><div class="contact-icon">💼</div><div><div class="contact-label">LinkedIn</div><div class="contact-value"><a href="https://www.linkedin.com/in/nitintilwani/" target="_blank" rel="noopener">linkedin.com/in/nitintilwani</a></div></div></div>
-    <div class="contact-card anim-card"><div class="contact-icon">📸</div><div><div class="contact-label">Instagram</div><div class="contact-value"><a href="https://www.instagram.com/nitin.tilwani/" target="_blank" rel="noopener">@_nitintilwani_</a></div></div></div>
-    <div class="contact-card anim-card"><div class="contact-icon">📍</div><div><div class="contact-label">Location</div><div class="contact-value">Gurugram, India</div></div></div>
+    <a href="https://www.linkedin.com/in/nitintilwani/" target="_blank" rel="noopener" class="contact-card reveal-card" style="text-decoration:none">
+      <div class="contact-ico ci-li">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </div>
+      <div><div class="contact-lbl">LinkedIn</div><div class="contact-val">nitintilwani</div></div>
+    </a>
+    <a href="https://www.instagram.com/_nitintilwani_/" target="_blank" rel="noopener" class="contact-card reveal-card" style="text-decoration:none">
+      <div class="contact-ico ci-ig">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="url(#ig-grad)">
+          <defs><linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#F77737"/><stop offset="50%" style="stop-color:#E1306C"/><stop offset="100%" style="stop-color:#833AB4"/></linearGradient></defs>
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
+      </div>
+      <div><div class="contact-lbl">Instagram</div><div class="contact-val">@_nitintilwani_</div></div>
+    </a>
+    <a href="mailto:nitin.edu476@gmail.com" class="contact-card reveal-card" style="text-decoration:none">
+      <div class="contact-ico ci-mail">📧</div>
+      <div><div class="contact-lbl">Email</div><div class="contact-val">nitin.edu476@gmail.com</div></div>
+    </a>
+    <div class="contact-card reveal-card">
+      <div class="contact-ico ci-ph">📞</div>
+      <div><div class="contact-lbl">Primary</div><div class="contact-val">+91 83020 27845</div></div>
+    </div>
+    <div class="contact-card reveal-card">
+      <div class="contact-ico ci-ph">📱</div>
+      <div><div class="contact-lbl">Alternate</div><div class="contact-val">+91 96728 27365</div></div>
+    </div>
+    <div class="contact-card reveal-card">
+      <div class="contact-ico ci-loc">📍</div>
+      <div><div class="contact-lbl">Location</div><div class="contact-val">Gurugram, India</div></div>
+    </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Nitin Tilwani · Lead DevOps Engineer · Gurugram, India</p>
-  <p style="margin-top:6px">nitintilwani.com</p>
+  <p>Built with care by <span>Nitin Tilwani</span> · Lead DevOps Engineer · Gurugram</p>
+  <p style="margin-top:8px">nitintilwani.com</p>
 </footer>
 
 <script>
-  // Intersection Observer — animate sections and cards as they scroll into view
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        // Stagger cards inside sections
-        if (entry.target.classList.contains('anim-section')) {
-          entry.target.classList.add('visible')
-          const cards = entry.target.querySelectorAll('.anim-card')
-          cards.forEach((card, idx) => {
-            setTimeout(() => card.classList.add('visible'), idx * 120)
-          })
-        } else {
-          entry.target.classList.add('visible')
-        }
-        observer.unobserve(entry.target)
-      }
+  // ── Scroll progress bar ──
+  const bar = document.getElementById('progress')
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+    bar.style.width = Math.min(pct, 100) + '%'
+  }, { passive: true })
+
+  // ── Intersection Observer ──
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return
+      entry.target.classList.add('visible')
+      // Stagger children cards
+      const cards = entry.target.closest('section')?.querySelectorAll('.reveal-card') || []
+      cards.forEach((c, i) => setTimeout(() => c.classList.add('visible'), i * 100))
+      obs.unobserve(entry.target)
     })
   }, { threshold: 0.1 })
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el))
 
-  document.querySelectorAll('.anim-section').forEach(el => observer.observe(el))
+  const obsCard = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (!entry.isIntersecting) return
+      setTimeout(() => entry.target.classList.add('visible'), 80)
+      obsCard.unobserve(entry.target)
+    })
+  }, { threshold: 0.1 })
+  document.querySelectorAll('.reveal-card').forEach(el => obsCard.observe(el))
+
+  // ── Typewriter effect ──
+  const roles = [
+    'Lead DevOps Engineer @ CARS24',
+    'Cloud Infrastructure Architect',
+    'Kubernetes & EKS Specialist',
+    'Platform Engineering Lead',
+    'AWS & GCP Expert',
+  ]
+  let ri = 0, ci = 0, deleting = false
+  const tw = document.getElementById('typewriter')
+  function type() {
+    const word = roles[ri]
+    if (!deleting) {
+      tw.textContent = word.slice(0, ++ci)
+      if (ci === word.length) { deleting = true; setTimeout(type, 1800); return }
+    } else {
+      tw.textContent = word.slice(0, --ci)
+      if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length }
+    }
+    setTimeout(type, deleting ? 40 : 70)
+  }
+  setTimeout(type, 1000)
+
+  // ── Form type selector ──
+  function setType(btn, type) {
+    document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'))
+    btn.classList.add('active')
+    document.getElementById('msg-type').value = type
+  }
+
+  // ── Form submit → mailto ──
+  function submitForm(e) {
+    e.preventDefault()
+    const type = document.getElementById('msg-type').value
+    const name = document.getElementById('f-name').value
+    const email = document.getElementById('f-email').value
+    const company = document.getElementById('f-company').value
+    const li = document.getElementById('f-li').value
+    const msg = document.getElementById('f-msg').value
+    const subject = encodeURIComponent(`[${type}] from ${name}`)
+    const body = encodeURIComponent(
+      `Type: ${type}\nName: ${name}\nEmail: ${email}\nCompany/Role: ${company || 'N/A'}\nLinkedIn: ${li || 'N/A'}\n\nMessage:\n${msg}`
+    )
+    window.location.href = `mailto:nitin.edu476@gmail.com?subject=${subject}&body=${body}`
+    document.getElementById('connect-form').style.display = 'none'
+    document.getElementById('form-success').style.display = 'block'
+  }
 </script>
 
 </body>
