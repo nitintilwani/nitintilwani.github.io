@@ -1,31 +1,33 @@
-name: Deploy to GitHub Pages
+  name: Deploy to GitHub Pages
 
-on:
-  push:
-    branches: [master]
+  on:
+    push:
+      branches: [master]
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+  permissions:
+    contents: read
+    pages: write
+    id-token: write
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v4
+  jobs:
+    deploy:
+      runs-on: ubuntu-latest
+      environment:
+        name: github-pages
+        url: ${{ steps.deployment.outputs.page_url }}
+      steps:
+        - uses: actions/checkout@v4
 
-      - name: Inject QuizAPI key
-        run: sed -i 's/__QUIZAPI_KEY__/${{ secrets.QUIZAPI_KEY }}/g' quiz.html
+        - name: Inject QuizAPI key
+          env:
+            QUIZAPI_KEY: ${{ secrets.QUIZAPI_KEY }}
+          run: sed -i "s|__QUIZAPI_KEY__|${QUIZAPI_KEY}|g" quiz.html
 
-      - uses: actions/configure-pages@v5
+        - uses: actions/configure-pages@v5
 
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./
+        - uses: actions/upload-pages-artifact@v3
+          with:
+            path: ./
 
-      - id: deployment
-        uses: actions/deploy-pages@v4
+        - id: deployment
+          uses: actions/deploy-pages@v4
