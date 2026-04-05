@@ -182,15 +182,16 @@
     .connect-info-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:28px;display:flex;flex-direction:column}
     .connect-info-heading{font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px}
     .connect-info-sub{font-size:13px;color:var(--muted);margin-bottom:22px}
-    .connect-info{display:flex;flex-direction:column;gap:0;flex:1}
-    .connect-point{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border)}
-    .connect-point:last-child{border-bottom:none;padding-bottom:0}
-    .connect-point:first-child{padding-top:0}
-    .connect-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .connect-info{display:flex;flex-direction:column;gap:4px;flex:1}
+    .connect-point{display:flex;gap:14px;align-items:flex-start;padding:12px 14px;border-radius:10px;border:1px solid transparent;cursor:pointer;transition:background 0.18s,border-color 0.18s,transform 0.18s}
+    .connect-point:hover{background:rgba(249,115,22,0.06);border-color:rgba(249,115,22,0.28);transform:translateX(4px)}
+    .connect-point:hover .connect-point-title{color:var(--accent)}
+    .connect-point:hover .connect-icon{transform:scale(1.1);transition:transform 0.18s}
+    .connect-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;transition:transform 0.18s}
     .connect-icon.orange{background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2)}
     .connect-icon.blue{background:rgba(10,102,194,0.1);border:1px solid rgba(10,102,194,0.2)}
     .connect-icon.green{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)}
-    .connect-point-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px}
+    .connect-point-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;transition:color 0.18s}
     .connect-point-desc{font-size:13px;color:var(--muted);line-height:1.5}
     .connect-avail{display:flex;align-items:center;gap:7px;margin-bottom:14px}
     .avail-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0;box-shadow:0 0 0 3px rgba(34,197,94,0.18)}
@@ -636,28 +637,28 @@
       <div class="connect-info-heading">How I can help</div>
       <div class="connect-info-sub">Pick a topic on the right and send a message — I'll respond within 24–48 hours.</div>
       <div class="connect-info">
-        <div class="connect-point">
+        <div class="connect-point" onclick="activateType('referral')">
           <div class="connect-icon orange">🎯</div>
           <div>
             <div class="connect-point-title">CARS24 Referral</div>
             <div class="connect-point-desc">Applying to CARS24? I can refer strong candidates internally. Share your resume link and the role — I'll take it from there.</div>
           </div>
         </div>
-        <div class="connect-point">
+        <div class="connect-point" onclick="activateType('hr')">
           <div class="connect-icon blue">💼</div>
           <div>
             <div class="connect-point-title">HR / Recruiter</div>
             <div class="connect-point-desc">Interested in my profile for your team? Share the role details and company — open to the right opportunity.</div>
           </div>
         </div>
-        <div class="connect-point">
+        <div class="connect-point" onclick="activateType('advice')">
           <div class="connect-icon green">💡</div>
           <div>
             <div class="connect-point-title">Career Advice</div>
             <div class="connect-point-desc">DevOps career guidance, cloud certifications, switching from dev to infra — happy to share my experience.</div>
           </div>
         </div>
-        <div class="connect-point">
+        <div class="connect-point" onclick="activateType('freelance')">
           <div class="connect-icon orange">🔧</div>
           <div>
             <div class="connect-point-title">Freelance / Consulting</div>
@@ -988,6 +989,12 @@
       btn.textContent = 'Failed — try again'
       btn.disabled = false
     }
+  }
+
+  // ── Connect point → activate form tab ──
+  function activateType(type) {
+    const btn = [...document.querySelectorAll('.type-btn')].find(b => b.getAttribute('onclick').includes("'" + type + "'"))
+    if (btn) setType(btn, type)
   }
 
   // ── Form type selector ──
