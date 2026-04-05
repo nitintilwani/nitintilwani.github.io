@@ -940,14 +940,24 @@
     f.classList.toggle('open')
   }
 
-  function submitTesti() {
+  async function submitTesti() {
     const name = document.getElementById('t-name').value.trim()
     const role = document.getElementById('t-role').value.trim()
     const msg = document.getElementById('t-msg').value.trim()
     if (!name || !msg) { alert('Please fill in your name and testimonial.'); return }
-    const subject = `[Testimonial] from ${name}`
-    const body = `Name: ${name}\nRole: ${role || 'N/A'}\n\nTestimonial:\n${msg}`
-    window.location.href = `mailto:nitin.edu476@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    const btn = document.querySelector('#testimonials .submit-btn')
+    btn.textContent = 'Sending…'; btn.disabled = true
+    try {
+      await fetch('https://formspree.io/f/mreoorva', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ _subject: `[Testimonial] from ${name}`, name, role: role || 'N/A', testimonial: msg })
+      })
+      btn.textContent = 'Sent! Thank you ✓'
+    } catch {
+      btn.textContent = 'Failed — try again'
+      btn.disabled = false
+    }
   }
 
   // ── Form type selector ──
@@ -960,43 +970,53 @@
     if (fg) fg.classList.add('active')
   }
 
-  // ── Form submit → mailto ──
-  function submitForm(e) {
+  // ── Form submit → Formspree ──
+  async function submitForm(e) {
     e.preventDefault()
     const type = document.getElementById('msg-type').value
     const name = document.getElementById('f-name').value
     const email = document.getElementById('f-email').value
-    let subject = '', body = ''
+    const btn = document.querySelector('#connect-form .submit-btn')
+    let payload = { name, email, type }
 
     if (type === 'referral') {
-      const role = document.getElementById('f-role').value
-      const resumeLink = document.getElementById('f-resume-link').value
-      const li = document.getElementById('f-li').value
-      const why = document.getElementById('f-why').value
-      subject = `[CARS24 Referral] ${name} — ${role}`
-      body = `Type: CARS24 Referral\nName: ${name}\nEmail: ${email}\nRole: ${role}\nResume: ${resumeLink}\nLinkedIn: ${li || 'N/A'}\n\nWhy refer:\n${why}`
+      payload._subject = `[CARS24 Referral] ${name} — ${document.getElementById('f-role').value}`
+      payload.role = document.getElementById('f-role').value
+      payload.resume = document.getElementById('f-resume-link').value
+      payload.linkedin = document.getElementById('f-li').value || 'N/A'
+      payload.why = document.getElementById('f-why').value
     } else if (type === 'hr') {
-      const company = document.getElementById('f-company').value
-      const jd = document.getElementById('f-jd').value
-      const msg = document.getElementById('f-hr-msg').value
-      subject = `[HR Opportunity] ${company} — ${jd}`
-      body = `Type: HR/Recruiter\nName: ${name}\nEmail: ${email}\nCompany: ${company}\nRole/JD: ${jd}\n\nMessage:\n${msg}`
+      payload._subject = `[HR Opportunity] ${document.getElementById('f-company').value} — ${document.getElementById('f-jd').value}`
+      payload.company = document.getElementById('f-company').value
+      payload.role_jd = document.getElementById('f-jd').value
+      payload.message = document.getElementById('f-hr-msg').value
     } else if (type === 'advice') {
-      const currentRole = document.getElementById('f-current-role').value
-      const adviceMsg = document.getElementById('f-advice-msg').value
-      subject = `[Career Advice] from ${name}`
-      body = `Type: Career Advice\nName: ${name}\nEmail: ${email}\nCurrent Role: ${currentRole || 'N/A'}\n\nQuestion:\n${adviceMsg}`
+      payload._subject = `[Career Advice] from ${name}`
+      payload.current_role = document.getElementById('f-current-role').value || 'N/A'
+      payload.question = document.getElementById('f-advice-msg').value
     } else if (type === 'freelance') {
-      const project = document.getElementById('f-project').value
-      const budget = document.getElementById('f-budget').value
-      const timeline = document.getElementById('f-timeline').value
-      subject = `[Freelance] ${name}`
-      body = `Type: Freelance/Consulting\nName: ${name}\nEmail: ${email}\nBudget: ${budget || 'N/A'}\nTimeline: ${timeline || 'N/A'}\n\nProject:\n${project}`
+      payload._subject = `[Freelance] from ${name}`
+      payload.project = document.getElementById('f-project').value
+      payload.budget = document.getElementById('f-budget').value || 'N/A'
+      payload.timeline = document.getElementById('f-timeline').value || 'N/A'
     }
 
-    window.location.href = `mailto:nitin.edu476@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    document.getElementById('connect-form').style.display = 'none'
-    document.getElementById('form-success').style.display = 'block'
+    btn.textContent = 'Sending…'; btn.disabled = true
+    try {
+      const res = await fetch('https://formspree.io/f/mreoorva', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      if (res.ok) {
+        document.getElementById('connect-form').style.display = 'none'
+        document.getElementById('form-success').style.display = 'block'
+      } else {
+        btn.textContent = 'Failed — try again'; btn.disabled = false
+      }
+    } catch {
+      btn.textContent = 'Failed — try again'; btn.disabled = false
+    }
   }
 </script>
 

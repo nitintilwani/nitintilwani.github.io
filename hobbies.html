@@ -238,7 +238,26 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
       Currently listening: whatever hits right
     </div>
-    <a href="mailto:nitin.edu476@gmail.com?subject=Song%20Suggestion%20for%20Nitin%20%F0%9F%8E%B5&body=Hey%20Nitin%2C%0A%0AHere's%20a%20song%20I%20think%20you'll%20love%3A%0A%0ASong%3A%0AArtist%3A%0AWhy%20you'll%20like%20it%3A%0A" class="cta-btn cta-purple">🎧 Suggest me a song →</a>
+    <button class="cta-btn cta-purple" onclick="document.getElementById('song-form').style.display='block';this.style.display='none'">🎧 Suggest me a song →</button>
+    <div id="song-form" style="display:none;margin-top:16px;display:none">
+      <input id="song-name" placeholder="Song name" style="width:100%;padding:10px 14px;border-radius:9px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:inherit;font-size:14px;margin-bottom:8px;font-family:inherit">
+      <input id="song-artist" placeholder="Artist" style="width:100%;padding:10px 14px;border-radius:9px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:inherit;font-size:14px;margin-bottom:8px;font-family:inherit">
+      <button onclick="sendSong(this)" class="cta-btn cta-purple" style="width:100%">Send Suggestion →</button>
+    </div>
+    <script>
+    async function sendSong(btn) {
+      const song = document.getElementById('song-name').value.trim()
+      const artist = document.getElementById('song-artist').value.trim()
+      if (!song) { alert('Enter a song name'); return }
+      btn.textContent = 'Sending…'; btn.disabled = true
+      await fetch('https://formspree.io/f/mreoorva', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ _subject: `[Song Suggestion] ${song} — ${artist}`, song, artist: artist || 'N/A' })
+      })
+      document.getElementById('song-form').innerHTML = '<p style="color:#a855f7;font-weight:600">Thanks! Added to the rotation 🎵</p>'
+    }
+    </script>
   </div>
   <div class="feature-visual">
     <div class="music-visual">
