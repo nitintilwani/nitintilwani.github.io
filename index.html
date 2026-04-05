@@ -287,11 +287,15 @@
     /* ── Contact ── */
     .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .contact-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:18px;display:flex;align-items:center;gap:13px;transition:all 0.2s}
+    .contact-card .contact-ico{transition:background 0.2s,border-color 0.2s}
+    .contact-card .contact-val{transition:color 0.2s}
     .contact-card:hover{transform:translateY(-3px)}
-    .contact-card.ci-card-li:hover{border-color:rgba(10,102,194,0.6);background:rgba(10,102,194,0.1);box-shadow:0 6px 24px rgba(10,102,194,0.2)}
-    .contact-card.ci-card-li:hover .contact-lbl{color:#0A66C2}
-    .contact-card.ci-card-ig:hover{border-color:rgba(225,48,108,0.6);background:rgba(225,48,108,0.08);box-shadow:0 6px 24px rgba(225,48,108,0.2)}
-    .contact-card.ci-card-ig:hover .contact-lbl{color:#E1306C}
+    .contact-card.ci-card-li:hover{background:#0A66C2;border-color:#0A66C2;box-shadow:0 6px 24px rgba(10,102,194,0.4)}
+    .contact-card.ci-card-li:hover .contact-lbl,.contact-card.ci-card-li:hover .contact-val{color:white}
+    .contact-card.ci-card-li:hover .contact-ico{background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.2)}
+    .contact-card.ci-card-ig:hover{background:linear-gradient(135deg,#833AB4,#E1306C,#F77737);border-color:transparent;box-shadow:0 6px 24px rgba(225,48,108,0.4)}
+    .contact-card.ci-card-ig:hover .contact-lbl,.contact-card.ci-card-ig:hover .contact-val{color:white}
+    .contact-card.ci-card-ig:hover .contact-ico{background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.2)}
     .contact-card.ci-card-mail:hover{border-color:rgba(249,115,22,0.6);background:rgba(249,115,22,0.08);box-shadow:0 6px 24px rgba(249,115,22,0.2)}
     .contact-card.ci-card-mail:hover .contact-lbl{color:var(--accent)}
     .contact-card.ci-card-ph:hover{border-color:rgba(34,197,94,0.5);background:rgba(34,197,94,0.08);box-shadow:0 6px 24px rgba(34,197,94,0.16)}
