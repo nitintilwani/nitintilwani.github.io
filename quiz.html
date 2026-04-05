@@ -480,38 +480,47 @@ async function fetchQuestions(category) {
   const key = getKey()
   const tag = CAT_TAGS[category]
   const params = new URLSearchParams({
-    apiKey: key,
-    limit: 15,           // fetch 15, pick best 10 after filtering
+    api_key: key,
+    limit: 15,
   })
   if (tag) params.set('tags', tag)
 
   const res = await fetch(`${API_BASE}?${params}`)
   if (!res.ok) throw new Error(`HTTP ${res.status}`)
-  const data = await res.json()
+  const json = await res.json()
+  const data = json.data || json   // handle both new {data:[]} and old [] formats
   if (!Array.isArray(data) || !data.length) throw new Error('No questions returned')
   return data
 }
 
 // ── Map QuizAPI question to our format ──
 function mapQuestion(raw) {
-  const keys = ['answer_a','answer_b','answer_c','answer_d','answer_e','answer_f']
   const opts = []
   let correctIdx = 0
 
-  keys.forEach(k => {
-    const val = raw.answers?.[k]
-    if (val !== null && val !== undefined && String(val).trim()) {
-      const isCorrect = raw.correct_answers?.[k + '_correct'] === 'true'
-      if (isCorrect && opts.length < 4) correctIdx = opts.length
-      if (opts.length < 4) opts.push(String(val).trim())
-    }
-  })
+  if (Array.isArray(raw.answers)) {
+    // New API format: answers is [{id, text, isCorrect}]
+    raw.answers.slice(0, 4).forEach((a, i) => {
+      opts.push(String(a.text).trim())
+      if (a.isCorrect) correctIdx = i
+    })
+  } else {
+    // Old API format: answers is {answer_a, answer_b, ...}
+    const keys = ['answer_a','answer_b','answer_c','answer_d']
+    keys.forEach(k => {
+      const val = raw.answers?.[k]
+      if (val !== null && val !== undefined && String(val).trim()) {
+        const isCorrect = raw.correct_answers?.[k + '_correct'] === 'true'
+        if (isCorrect) correctIdx = opts.length
+        opts.push(String(val).trim())
+      }
+    })
+  }
 
-  // Need at least 2 options
   if (opts.length < 2) return null
 
   return {
-    q: raw.question,
+    q: raw.text || raw.question,
     opts,
     ans: correctIdx,
     exp: raw.explanation || `Category: ${raw.category || '—'} · Difficulty: ${raw.difficulty || '—'}`,
