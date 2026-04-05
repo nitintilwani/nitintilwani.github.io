@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DevOps Quiz Arena — Nitin Tilwani</title>
-  <meta name="description" content="Test your DevOps knowledge — Linux, AWS, Terraform, GCP, Kubernetes, Networking, Docker, CI/CD." />
+  <title>Tech Quiz Arena — Nitin Tilwani</title>
+  <meta name="description" content="Test your tech knowledge — DevOps, Cloud, Programming, Databases and more. Live questions from QuizAPI." />
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
@@ -47,8 +47,8 @@
     .nav-right{display:flex;align-items:center;gap:8px}
     .nav-back{font-size:12px;font-weight:600;color:var(--muted);background:var(--bg-card);border:1px solid var(--border);padding:5px 12px;border-radius:8px;transition:all 0.2s}
     .nav-back:hover{color:var(--text);border-color:var(--border2)}
-    .theme-btn,.key-btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--bg-card);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
-    .theme-btn:hover,.key-btn:hover{border-color:var(--accent);transform:scale(1.15)}
+    .theme-btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--bg-card);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+    .theme-btn:hover{border-color:var(--accent);transform:scale(1.15)}
     .theme-btn.pop{animation:btnPop 0.3s ease both}
     .key-btn{font-size:13px}
 
@@ -204,10 +204,9 @@
 
 <nav>
   <a href="index.html" class="nav-brand">NT</a>
-  <div class="nav-center">DevOps <span>Quiz Arena</span></div>
+  <div class="nav-center">Tech <span>Quiz Arena</span></div>
   <div class="nav-right">
     <a href="index.html" class="nav-back">← Portfolio</a>
-    <button class="key-btn" onclick="showKeyModal()" title="Change API Key">🔑</button>
     <button class="theme-btn" id="theme-btn" onclick="toggleTheme()">☀️</button>
   </div>
 </nav>
@@ -721,7 +720,10 @@ function showScreen(id) {
 // ── Init ──
 window.addEventListener('DOMContentLoaded', () => {
   showScreen('s-landing')
-  loadCategories()
+  loadCategories().catch(err => {
+    document.getElementById('cat-sections-wrap').innerHTML =
+      `<p style="color:var(--muted);text-align:center;padding:20px">Failed to load categories: ${err.message}</p>`
+  })
 })
 </script>
 
