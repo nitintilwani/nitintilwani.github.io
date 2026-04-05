@@ -1,21 +1,38 @@
-[
-  { "id": "linux",        "tag": "linux",         "label": "Linux",         "icon": "🐧", "color": "#22c55e", "group": "DevOps & Cloud" },
-  { "id": "networking",   "tag": "networking",    "label": "Networking",    "icon": "🌐", "color": "#3b82f6", "group": "DevOps & Cloud" },
-  { "id": "aws",          "tag": "AWS",           "label": "AWS",           "icon": "☁️", "color": "#f97316", "group": "DevOps & Cloud" },
-  { "id": "terraform",    "tag": "Terraform",     "label": "Terraform",     "icon": "🏗️", "color": "#a855f7", "group": "DevOps & Cloud" },
-  { "id": "gcp",          "tag": "GCP",           "label": "GCP",           "icon": "🔵", "color": "#4285f4", "group": "DevOps & Cloud" },
-  { "id": "kubernetes",   "tag": "kubernetes",    "label": "Kubernetes",    "icon": "⚓", "color": "#326ce5", "group": "DevOps & Cloud" },
-  { "id": "docker",       "tag": "docker",        "label": "Docker",        "icon": "🐳", "color": "#2496ed", "group": "DevOps & Cloud" },
-  { "id": "cicd",         "tag": "cicd",          "label": "CI / CD",       "icon": "🔄", "color": "#fbbf24", "group": "DevOps & Cloud" },
-  { "id": "javascript",   "tag": "javascript",    "label": "JavaScript",    "icon": "🟨", "color": "#f7df1e", "group": "Programming" },
-  { "id": "react",        "tag": "react",         "label": "React",         "icon": "⚛️", "color": "#61dafb", "group": "Programming" },
-  { "id": "python",       "tag": "python",        "label": "Python",        "icon": "🐍", "color": "#3776ab", "group": "Programming" },
-  { "id": "typescript",   "tag": "typescript",    "label": "TypeScript",    "icon": "📘", "color": "#3178c6", "group": "Programming" },
-  { "id": "sql",          "tag": "sql",           "label": "SQL",           "icon": "🗄️", "color": "#e48e00", "group": "Database & General" },
-  { "id": "mongodb",      "tag": "mongodb",       "label": "MongoDB",       "icon": "🍃", "color": "#47a248", "group": "Database & General" },
-  { "id": "git",          "tag": "git",           "label": "Git & GitHub",  "icon": "🔀", "color": "#f05032", "group": "Database & General" },
-  { "id": "systemdesign", "tag": "system-design", "label": "System Design", "icon": "🏛️", "color": "#8b5cf6", "group": "Database & General" },
-  { "id": "api",          "tag": "api",           "label": "API Design",    "icon": "🔌", "color": "#ec4899", "group": "Database & General" },
-  { "id": "security",     "tag": "security",      "label": "Web Security",  "icon": "🔐", "color": "#ef4444", "group": "Database & General" },
-  { "id": "agile",        "tag": "agile",         "label": "Agile & Scrum", "icon": "🏃", "color": "#10b981", "group": "Database & General" }
-]
+{
+  "_instructions": {
+    "how_to_add_a_new_category": [
+      "1. Go to https://quizapi.io/quizzes/templates — find the new template",
+      "2. The TAGS shown below the template card (e.g. 'redis', 'k8s') — use the first one as 'tag'",
+      "3. Copy any existing entry below and change the values",
+      "4. Fields explained:",
+      "   id    → unique key, lowercase, no spaces (e.g. 'redis')",
+      "   tag   → tag shown on QuizAPI template card — MUST match exactly (e.g. 'redis')",
+      "   label → display name shown on the quiz card (e.g. 'Redis')",
+      "   icon  → any emoji (e.g. '🔴')",
+      "   color → hex color for the card glow (e.g. '#dc2626')",
+      "   group → section heading — use one of: 'DevOps & Cloud' | 'Programming' | 'Database & General'",
+      "5. Commit the file — quiz updates automatically, no code changes needed"
+    ]
+  },
+  "categories": [
+    { "id": "linux",        "tag": "linux",         "label": "Linux",         "icon": "🐧", "color": "#22c55e", "group": "DevOps & Cloud" },
+    { "id": "networking",   "tag": "networking",    "label": "Networking",    "icon": "🌐", "color": "#3b82f6", "group": "DevOps & Cloud" },
+    { "id": "aws",          "tag": "AWS",           "label": "AWS",           "icon": "☁️", "color": "#f97316", "group": "DevOps & Cloud" },
+    { "id": "terraform",    "tag": "Terraform",     "label": "Terraform",     "icon": "🏗️", "color": "#a855f7", "group": "DevOps & Cloud" },
+    { "id": "gcp",          "tag": "GCP",           "label": "GCP",           "icon": "🔵", "color": "#4285f4", "group": "DevOps & Cloud" },
+    { "id": "kubernetes",   "tag": "kubernetes",    "label": "Kubernetes",    "icon": "⚓", "color": "#326ce5", "group": "DevOps & Cloud" },
+    { "id": "docker",       "tag": "docker",        "label": "Docker",        "icon": "🐳", "color": "#2496ed", "group": "DevOps & Cloud" },
+    { "id": "cicd",         "tag": "cicd",          "label": "CI / CD",       "icon": "🔄", "color": "#fbbf24", "group": "DevOps & Cloud" },
+    { "id": "javascript",   "tag": "javascript",    "label": "JavaScript",    "icon": "🟨", "color": "#f7df1e", "group": "Programming" },
+    { "id": "react",        "tag": "react",         "label": "React",         "icon": "⚛️", "color": "#61dafb", "group": "Programming" },
+    { "id": "python",       "tag": "python",        "label": "Python",        "icon": "🐍", "color": "#3776ab", "group": "Programming" },
+    { "id": "typescript",   "tag": "typescript",    "label": "TypeScript",    "icon": "📘", "color": "#3178c6", "group": "Programming" },
+    { "id": "sql",          "tag": "sql",           "label": "SQL",           "icon": "🗄️", "color": "#e48e00", "group": "Database & General" },
+    { "id": "mongodb",      "tag": "mongodb",       "label": "MongoDB",       "icon": "🍃", "color": "#47a248", "group": "Database & General" },
+    { "id": "git",          "tag": "git",           "label": "Git & GitHub",  "icon": "🔀", "color": "#f05032", "group": "Database & General" },
+    { "id": "systemdesign", "tag": "system-design", "label": "System Design", "icon": "🏛️", "color": "#8b5cf6", "group": "Database & General" },
+    { "id": "api",          "tag": "api",           "label": "API Design",    "icon": "🔌", "color": "#ec4899", "group": "Database & General" },
+    { "id": "security",     "tag": "security",      "label": "Web Security",  "icon": "🔐", "color": "#ef4444", "group": "Database & General" },
+    { "id": "agile",        "tag": "agile",         "label": "Agile & Scrum", "icon": "🏃", "color": "#10b981", "group": "Database & General" }
+  ]
+}

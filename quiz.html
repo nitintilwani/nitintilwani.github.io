@@ -406,7 +406,8 @@ async function loadCategories() {
   const countEl = document.getElementById('cat-total-count')
 
   const res = await fetch('categories.json')
-  const CATEGORIES = await res.json()
+  const json = await res.json()
+  const CATEGORIES = json.categories
 
   // Build lookup maps
   CATEGORIES.forEach(c => {
