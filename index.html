@@ -9,6 +9,7 @@
   <meta name="author" content="Nitin Tilwani" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://nitintilwani.com/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23f97316'/><text y='.9em' font-size='68' font-family='system-ui,sans-serif' font-weight='900' fill='white' x='50%' text-anchor='middle' dominant-baseline='hanging'>N</text></svg>" />
   <meta property="og:type" content="profile" />
   <meta property="og:title" content="Nitin Tilwani — Lead DevOps Engineer" />
   <meta property="og:description" content="Lead DevOps Engineer at CARS24 specializing in AWS, Kubernetes, Terraform, and large-scale cloud infrastructure." />
@@ -187,10 +188,11 @@
     .connect-quick-label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px}
     .connect-quick-links{display:flex;gap:10px}
     .cq-link{display:flex;align-items:center;justify-content:center;gap:7px;padding:9px 12px;border-radius:8px;border:1px solid var(--border);background:var(--bg-card2);color:var(--text);font-size:13px;font-weight:500;text-decoration:none;flex:1;transition:all 0.2s}
-    .cq-link-li{background:#0A66C2;border-color:#0A66C2;color:white;box-shadow:0 4px 14px rgba(10,102,194,0.35)}
-    .cq-link-li svg{color:white}
-    .cq-link-li:hover{background:#0856a8;border-color:#0856a8;box-shadow:0 6px 20px rgba(10,102,194,0.55);transform:translateY(-2px)}
-    .cq-link-mail:hover{background:linear-gradient(135deg,#f97316,#ea580c);border-color:transparent;color:white;box-shadow:0 4px 14px rgba(249,115,22,0.4)}
+    .cq-link-li{background:rgba(10,102,194,0.1);border-color:rgba(10,102,194,0.3);color:#60a5fa}
+    .cq-link-li svg{color:#60a5fa;transition:color 0.2s}
+    .cq-link-li:hover{background:#0A66C2;border-color:#0A66C2;color:white;box-shadow:0 8px 24px rgba(10,102,194,0.4);transform:translateY(-2px)}
+    .cq-link-li:hover svg{color:white}
+    .cq-link-mail:hover{background:linear-gradient(135deg,#f97316,#ea580c);border-color:transparent;color:white;box-shadow:0 8px 24px rgba(249,115,22,0.4);transform:translateY(-2px)}
 
     .form-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:28px}
     .form-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px}
@@ -290,12 +292,12 @@
     .contact-card .contact-ico{transition:background 0.2s,border-color 0.2s}
     .contact-card .contact-val{transition:color 0.2s}
     .contact-card:hover{transform:translateY(-3px)}
-    .contact-card.ci-card-li:hover{background:#0A66C2;border-color:#0A66C2;box-shadow:0 6px 24px rgba(10,102,194,0.4)}
+    .contact-card.ci-card-li:hover{background:#0A66C2;border-color:#0A66C2;box-shadow:0 8px 24px rgba(10,102,194,0.4)}
     .contact-card.ci-card-li:hover .contact-lbl,.contact-card.ci-card-li:hover .contact-val{color:white}
-    .contact-card.ci-card-li:hover .contact-ico{background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.2)}
-    .contact-card.ci-card-ig:hover{background:linear-gradient(135deg,#833AB4,#E1306C,#F77737);border-color:transparent;box-shadow:0 6px 24px rgba(225,48,108,0.4)}
+    .contact-card.ci-card-li:hover .contact-ico{background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.25)}
+    .contact-card.ci-card-ig:hover{background:linear-gradient(135deg,#833AB4,#E1306C,#F77737);border-color:transparent;box-shadow:0 8px 24px rgba(225,48,108,0.4)}
     .contact-card.ci-card-ig:hover .contact-lbl,.contact-card.ci-card-ig:hover .contact-val{color:white}
-    .contact-card.ci-card-ig:hover .contact-ico{background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.2)}
+    .contact-card.ci-card-ig:hover .contact-ico{background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.25)}
     .contact-card.ci-card-mail:hover{border-color:rgba(249,115,22,0.6);background:rgba(249,115,22,0.08);box-shadow:0 6px 24px rgba(249,115,22,0.2)}
     .contact-card.ci-card-mail:hover .contact-lbl{color:var(--accent)}
     .contact-card.ci-card-ph:hover{border-color:rgba(34,197,94,0.5);background:rgba(34,197,94,0.08);box-shadow:0 6px 24px rgba(34,197,94,0.16)}
@@ -317,15 +319,30 @@
     @media(max-width:700px){
       nav{margin:8px 12px 0;padding:0 18px}
       .nav-links .hide-sm{display:none}
-      h1{letter-spacing:-1.5px}
+      h1{font-size:clamp(32px,9vw,52px);letter-spacing:-1.5px}
+      .hero{padding:80px 20px 60px}
+      .hero-sub{font-size:14px}
+      .hero-btns{gap:8px}
+      .sbtn{padding:10px 16px;font-size:13px}
 
+      .pillars-grid{gap:8px}
+      .pillar{padding:11px 14px}
+      .pillar-label{font-size:13px}
+
+      section{padding:50px 20px}
       .skills-grid{grid-template-columns:repeat(2,1fr)}
+      .edu-grid{grid-template-columns:1fr}
       .hobby-grid{grid-template-columns:1fr}
       .testi-grid{grid-template-columns:1fr}
-      .connect-grid{grid-template-columns:1fr}.connect-info-card{padding:22px 18px}
-      .contact-grid{grid-template-columns:1fr 1fr}
+      .connect-grid{grid-template-columns:1fr}.connect-info-card{padding:20px 16px}
+      .form-type{grid-template-columns:1fr 1fr}
+      .contact-grid{grid-template-columns:1fr}
       .form-row{grid-template-columns:1fr}
-      .exp-card{padding:22px 18px}
+      .exp-card{padding:20px 16px}
+      .resume-wrap{flex-direction:column;text-align:center;gap:16px}
+      .resume-btn{width:100%;justify-content:center}
+      .connect-quick-links{flex-direction:column}
+      .cert-card{flex-direction:column;gap:12px}
     }
   </style>
 </head>
@@ -497,12 +514,12 @@
       <div class="edu-meta">Jaipur, Rajasthan · Aug 2018 – Aug 2022 · CGPA: 8.06</div>
     </div>
     <div class="edu-card reveal-card">
-      <div class="edu-degree">Intermediate (12th)</div>
+      <div class="edu-degree">Senior Secondary (11th – 12th)</div>
       <div class="edu-name">Samrat Public School</div>
       <div class="edu-meta">Ajmer, Rajasthan · 2016 – 2018</div>
     </div>
     <div class="edu-card reveal-card">
-      <div class="edu-degree">Matriculation (10th)</div>
+      <div class="edu-degree">Secondary (9th – 10th)</div>
       <div class="edu-name">Maheshwari Public School</div>
       <div class="edu-meta">Ajmer, Rajasthan · 2014 – 2016</div>
     </div>
