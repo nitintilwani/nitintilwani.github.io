@@ -557,13 +557,8 @@ async function startQuiz(category) {
   } catch(err) {
     console.error('QuizAPI error:', err)
     // Check if key issue
-    if (err.message.includes('401') || err.message.includes('403')) {
-      alert('Could not load questions. QuizAPI may be temporarily unavailable — try again in a moment.')
-      showScreen('s-landing')
-    } else {
-      alert(`Could not load questions: ${err.message}\n\nCheck your internet connection or API key.`)
-      showScreen('s-landing')
-    }
+    alert(`Could not load questions: ${err.message}`)
+    showScreen('s-landing')
   }
 }
 
