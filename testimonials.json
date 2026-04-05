@@ -1,26 +1,15 @@
-[
-  {
-    "name": "Sahil M.",
-    "role": "Engineering Manager · CARS24",
-    "text": "Nitin single-handedly transformed our DevOps culture. The ECS to EKS migration was flawless — zero downtime, zero drama. That's rare.",
-    "approved": true
+{
+  "_instructions": {
+    "how_to_approve_a_testimonial": [
+      "When someone submits from your site, you get an email via Formspree.",
+      "To approve: add an entry to the 'testimonials' array below and set 'approved' to true, then push.",
+      "To reject: simply don't add it.",
+      "Fields:",
+      "  name     → full name (e.g. 'Rahul K.')",
+      "  role     → job title and company (e.g. 'Senior Engineer · CARS24')",
+      "  text     → their message — do NOT include quotes, they are added automatically",
+      "  approved → true to show on site, false to hide"
+    ]
   },
-  {
-    "name": "Rahul K.",
-    "role": "Senior Backend Engineer · CARS24",
-    "text": "The guy obsesses over cost optimization like it's a sport. Cut our AWS bill by 20% in under 60 days. I've never seen someone move that fast on infra.",
-    "approved": true
-  },
-  {
-    "name": "Priya S.",
-    "role": "DevOps Engineer · Nykaa",
-    "text": "Got my Nykaa offer because Nitin gave me brutally honest interview prep advice. He doesn't sugarcoat, and that's exactly what you need.",
-    "approved": true
-  },
-  {
-    "name": "Aman T.",
-    "role": "SRE · CARS24",
-    "text": "Best TT player in the office — and somehow also the guy who fixes your CI pipeline at 2am. I don't know how he does it.",
-    "approved": true
-  }
-]
+  "testimonials": []
+}

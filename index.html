@@ -881,8 +881,8 @@
     try {
       const res = await fetch('testimonials.json?_=' + Date.now())
       if (!res.ok) throw new Error('not found')
-      const all = await res.json()
-      const approved = all.filter(t => t.approved)
+      const json = await res.json()
+      const approved = (json.testimonials || json).filter(t => t.approved)
       if (!approved.length) {
         grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:24px;color:var(--faint);font-size:14px">No testimonials yet — be the first! 👇</div>'
         return
