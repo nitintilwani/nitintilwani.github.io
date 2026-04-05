@@ -403,22 +403,25 @@ function hexToRgba(hex, a) {
 
 // Categories from QuizAPI templates — add new ones here as QuizAPI grows
 const CATEGORIES = [
-  { id:'linux',        tag:'linux',         label:'Linux',         icon:'🐧', color:'#22c55e', group:'DevOps & Cloud' },
-  { id:'networking',   tag:'networking',    label:'Networking',    icon:'🌐', color:'#3b82f6', group:'DevOps & Cloud' },
-  { id:'aws',          tag:'AWS',           label:'AWS',           icon:'☁️', color:'#f97316', group:'DevOps & Cloud' },
-  { id:'terraform',    tag:'Terraform',     label:'Terraform',     icon:'🏗️', color:'#a855f7', group:'DevOps & Cloud' },
-  { id:'gcp',          tag:'GCP',           label:'GCP',           icon:'🔵', color:'#4285f4', group:'DevOps & Cloud' },
-  { id:'kubernetes',   tag:'Kubernetes',    label:'Kubernetes',    icon:'⚓', color:'#326ce5', group:'DevOps & Cloud' },
-  { id:'docker',       tag:'Docker',        label:'Docker',        icon:'🐳', color:'#2496ed', group:'DevOps & Cloud' },
-  { id:'cicd',         tag:'CICD',          label:'CI / CD',       icon:'🔄', color:'#fbbf24', group:'DevOps & Cloud' },
-  { id:'javascript',   tag:'javascript',    label:'JavaScript',    icon:'🟨', color:'#f7df1e', group:'Programming' },
-  { id:'react',        tag:'react',         label:'React',         icon:'⚛️', color:'#61dafb', group:'Programming' },
-  { id:'python',       tag:'python',        label:'Python',        icon:'🐍', color:'#3776ab', group:'Programming' },
-  { id:'typescript',   tag:'typescript',    label:'TypeScript',    icon:'📘', color:'#3178c6', group:'Programming' },
-  { id:'sql',          tag:'sql',           label:'SQL',           icon:'🗄️', color:'#e48e00', group:'Database & General' },
-  { id:'mongodb',      tag:'mongodb',       label:'MongoDB',       icon:'🍃', color:'#47a248', group:'Database & General' },
-  { id:'git',          tag:'git',           label:'Git',           icon:'🔀', color:'#f05032', group:'Database & General' },
-  { id:'systemdesign', tag:'system-design', label:'System Design', icon:'🏛️', color:'#8b5cf6', group:'Database & General' },
+  { id:'linux',        tag:'linux',            label:'Linux',              icon:'🐧', color:'#22c55e', group:'DevOps & Cloud' },
+  { id:'networking',   tag:'networking',       label:'Networking',         icon:'🌐', color:'#3b82f6', group:'DevOps & Cloud' },
+  { id:'aws',          tag:'AWS',              label:'AWS',                icon:'☁️', color:'#f97316', group:'DevOps & Cloud' },
+  { id:'terraform',    tag:'Terraform',        label:'Terraform',          icon:'🏗️', color:'#a855f7', group:'DevOps & Cloud' },
+  { id:'gcp',          tag:'GCP',              label:'GCP',                icon:'🔵', color:'#4285f4', group:'DevOps & Cloud' },
+  { id:'kubernetes',   tag:'kubernetes',       label:'Kubernetes',         icon:'⚓', color:'#326ce5', group:'DevOps & Cloud' },
+  { id:'docker',       tag:'docker',           label:'Docker',             icon:'🐳', color:'#2496ed', group:'DevOps & Cloud' },
+  { id:'cicd',         tag:'cicd',             label:'CI / CD',            icon:'🔄', color:'#fbbf24', group:'DevOps & Cloud' },
+  { id:'javascript',   tag:'javascript',       label:'JavaScript',         icon:'🟨', color:'#f7df1e', group:'Programming' },
+  { id:'react',        tag:'react',            label:'React',              icon:'⚛️', color:'#61dafb', group:'Programming' },
+  { id:'python',       tag:'python',           label:'Python',             icon:'🐍', color:'#3776ab', group:'Programming' },
+  { id:'typescript',   tag:'typescript',       label:'TypeScript',         icon:'📘', color:'#3178c6', group:'Programming' },
+  { id:'sql',          tag:'sql',              label:'SQL',                icon:'🗄️', color:'#e48e00', group:'Database & General' },
+  { id:'mongodb',      tag:'mongodb',          label:'MongoDB',            icon:'🍃', color:'#47a248', group:'Database & General' },
+  { id:'git',          tag:'git',              label:'Git & GitHub',       icon:'🔀', color:'#f05032', group:'Database & General' },
+  { id:'systemdesign', tag:'system-design',    label:'System Design',      icon:'🏛️', color:'#8b5cf6', group:'Database & General' },
+  { id:'api',          tag:'api',              label:'API Design',         icon:'🔌', color:'#ec4899', group:'Database & General' },
+  { id:'security',     tag:'security',         label:'Web Security',       icon:'🔐', color:'#ef4444', group:'Database & General' },
+  { id:'agile',        tag:'agile',            label:'Agile & Scrum',      icon:'🏃', color:'#10b981', group:'Database & General' },
 ]
 
 function loadCategories() {
@@ -524,8 +527,7 @@ function mapQuestion(raw) {
     opts,
     ans: correctIdx,
     exp: raw.explanation || `Category: ${raw.category || '—'} · Difficulty: ${raw.difficulty || '—'}`,
-    difficulty: raw.difficulty || '',
-    _cat: category
+    difficulty: raw.difficulty || ''
   }
 }
 
