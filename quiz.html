@@ -92,14 +92,8 @@
     .cat-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity 0.25s}
     .cat-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,0.3)}
     .cat-card:hover::before{opacity:1}
-    .cc-linux::before{background:linear-gradient(135deg,rgba(34,197,94,0.07),transparent)} .cc-linux:hover{border-color:rgba(34,197,94,0.4)}
-    .cc-networking::before{background:linear-gradient(135deg,rgba(59,130,246,0.07),transparent)} .cc-networking:hover{border-color:rgba(59,130,246,0.4)}
-    .cc-aws::before{background:linear-gradient(135deg,rgba(249,115,22,0.07),transparent)} .cc-aws:hover{border-color:rgba(249,115,22,0.4)}
-    .cc-terraform::before{background:linear-gradient(135deg,rgba(168,85,247,0.07),transparent)} .cc-terraform:hover{border-color:rgba(168,85,247,0.4)}
-    .cc-gcp::before{background:linear-gradient(135deg,rgba(66,133,244,0.07),transparent)} .cc-gcp:hover{border-color:rgba(66,133,244,0.4)}
-    .cc-kubernetes::before{background:linear-gradient(135deg,rgba(50,108,229,0.07),transparent)} .cc-kubernetes:hover{border-color:rgba(50,108,229,0.4)}
-    .cc-docker::before{background:linear-gradient(135deg,rgba(36,150,237,0.07),transparent)} .cc-docker:hover{border-color:rgba(36,150,237,0.4)}
-    .cc-cicd::before{background:linear-gradient(135deg,rgba(251,191,36,0.07),transparent)} .cc-cicd:hover{border-color:rgba(251,191,36,0.4)}
+    .cat-card::before{background:linear-gradient(135deg,color-mix(in srgb,var(--cc-color,#f97316) 7%,transparent),transparent)}
+    .cat-card:hover{border-color:var(--cc-border,rgba(249,115,22,0.4))}
     .cat-icon{font-size:32px;margin-bottom:10px}
     .cat-name{font-size:14px;font-weight:800;color:var(--text);margin-bottom:4px}
     .cat-count{font-size:11px;color:var(--faint)}
@@ -242,29 +236,19 @@
 <!-- ══════ LANDING SCREEN ══════ -->
 <div id="s-landing" class="screen">
   <div class="landing-hero">
-    <div class="landing-badge">🎮 DevOps Quiz Arena <span class="api-status"><span class="api-dot"></span>QuizAPI Live</span></div>
-    <h1 class="landing-h1">Test Your <span class="grad">DevOps</span> Knowledge</h1>
+    <div class="landing-badge">🎮 Tech Quiz Arena <span class="api-status"><span class="api-dot"></span>QuizAPI Live</span></div>
+    <h1 class="landing-h1">Test Your <span class="grad">Tech</span> Knowledge</h1>
     <p class="landing-sub">10 questions · 30 seconds each · Live from QuizAPI</p>
     <div class="landing-stats">
-      <div class="ls"><strong>8</strong> categories</div>
+      <div class="ls"><strong id="cat-total-count">—</strong> categories</div>
       <div class="ls">·</div>
       <div class="ls"><strong>Fresh</strong> questions every round</div>
       <div class="ls">·</div>
       <div class="ls"><strong>5</strong> grade tiers</div>
     </div>
   </div>
-  <div class="cat-section-label">Choose a category</div>
-  <div class="cat-grid">
-    <div class="cat-card cc-linux"      onclick="startQuiz('linux')">      <div class="cat-icon">🐧</div><div class="cat-name">Linux</div>      <div class="cat-count">Live from API</div></div>
-    <div class="cat-card cc-networking" onclick="startQuiz('networking')"> <div class="cat-icon">🌐</div><div class="cat-name">Networking</div> <div class="cat-count">Live from API</div></div>
-    <div class="cat-card cc-aws"        onclick="startQuiz('aws')">        <div class="cat-icon">☁️</div><div class="cat-name">AWS</div>        <div class="cat-count">Live from API</div></div>
-    <div class="cat-card cc-terraform"  onclick="startQuiz('terraform')">  <div class="cat-icon">🏗️</div><div class="cat-name">Terraform</div>  <div class="cat-count">Live from API</div></div>
-    <div class="cat-card cc-gcp"        onclick="startQuiz('gcp')">        <div class="cat-icon">🔵</div><div class="cat-name">GCP</div>        <div class="cat-count">Live from API</div></div>
-    <div class="cat-card cc-kubernetes" onclick="startQuiz('kubernetes')"> <div class="cat-icon">⚓</div><div class="cat-name">Kubernetes</div> <div class="cat-count">Live from API</div></div>
-    <div class="cat-card cc-docker"     onclick="startQuiz('docker')">     <div class="cat-icon">🐳</div><div class="cat-name">Docker</div>     <div class="cat-count">Live from API</div></div>
-    <div class="cat-card cc-cicd"       onclick="startQuiz('cicd')">       <div class="cat-icon">🔄</div><div class="cat-name">CI / CD</div>    <div class="cat-count">Live from API</div></div>
-  </div>
-  <button class="random-btn" onclick="startQuiz('random')">🎲 Random Mix — All 8 Topics</button>
+  <div id="cat-sections-wrap"></div>
+  <button class="random-btn" id="random-btn" onclick="startQuiz('random')" style="display:none">🎲 Random Mix</button>
 </div>
 
 <!-- ══════ LOADING SCREEN ══════ -->
@@ -382,29 +366,79 @@ const playComplete = () => [0,160,320,520].forEach((d,i)=>setTimeout(()=>makeSou
 // ── QuizAPI config ──
 const API_BASE = 'https://quizapi.io/api/v1/questions'
 
-// category → QuizAPI tag
-const CAT_TAGS = {
-  linux:      'linux',
-  networking: 'networking',
-  aws:        'AWS',
-  terraform:  'Terraform',
-  gcp:        'GCP',
-  kubernetes: 'Kubernetes',
-  docker:     'Docker',
-  cicd:       'CICD',
-  random:     ''            // no tag filter → broad DevOps pool
+// Loaded dynamically from QuizAPI
+let CAT_TAGS = {}
+let CAT_META  = {}
+
+// Icon + color for known tags — add more here as QuizAPI grows
+const TAG_STYLE = {
+  linux:         { icon:'🐧', color:'#22c55e' },
+  networking:    { icon:'🌐', color:'#3b82f6' },
+  aws:           { icon:'☁️', color:'#f97316' },
+  terraform:     { icon:'🏗️', color:'#a855f7' },
+  gcp:           { icon:'🔵', color:'#4285f4' },
+  kubernetes:    { icon:'⚓', color:'#326ce5' },
+  k8s:           { icon:'⚓', color:'#326ce5' },
+  docker:        { icon:'🐳', color:'#2496ed' },
+  cicd:          { icon:'🔄', color:'#fbbf24' },
+  devops:        { icon:'⚙️', color:'#f97316' },
+  javascript:    { icon:'🟨', color:'#f7df1e' },
+  react:         { icon:'⚛️', color:'#61dafb' },
+  python:        { icon:'🐍', color:'#3776ab' },
+  typescript:    { icon:'📘', color:'#3178c6' },
+  sql:           { icon:'🗄️', color:'#e48e00' },
+  database:      { icon:'🗄️', color:'#e48e00' },
+  mongodb:       { icon:'🍃', color:'#47a248' },
+  git:           { icon:'🔀', color:'#f05032' },
+  'system-design':{ icon:'🏛️', color:'#8b5cf6' },
+  api:           { icon:'🔌', color:'#ec4899' },
+  default:       { icon:'💡', color:'#94a3b8' },
 }
 
-const CAT_META = {
-  linux:      { label:'🐧 Linux',       color:'#22c55e', border:'rgba(34,197,94,0.4)',   icon:'🐧' },
-  networking: { label:'🌐 Networking',  color:'#3b82f6', border:'rgba(59,130,246,0.4)',  icon:'🌐' },
-  aws:        { label:'☁️ AWS',         color:'#f97316', border:'rgba(249,115,22,0.4)',  icon:'☁️' },
-  terraform:  { label:'🏗️ Terraform',  color:'#a855f7', border:'rgba(168,85,247,0.4)',  icon:'🏗️' },
-  gcp:        { label:'🔵 GCP',         color:'#4285f4', border:'rgba(66,133,244,0.4)',  icon:'🔵' },
-  kubernetes: { label:'⚓ Kubernetes',  color:'#326ce5', border:'rgba(50,108,229,0.4)',  icon:'⚓' },
-  docker:     { label:'🐳 Docker',      color:'#2496ed', border:'rgba(36,150,237,0.4)',  icon:'🐳' },
-  cicd:       { label:'🔄 CI / CD',     color:'#fbbf24', border:'rgba(251,191,36,0.4)',  icon:'🔄' },
-  random:     { label:'🎲 Random Mix',  color:'#f97316', border:'rgba(249,115,22,0.4)',  icon:'🎲' },
+function hexToRgba(hex, a) {
+  const r = parseInt(hex.slice(1,3),16)
+  const g = parseInt(hex.slice(3,5),16)
+  const b = parseInt(hex.slice(5,7),16)
+  return `rgba(${r},${g},${b},${a})`
+}
+
+async function loadCategories() {
+  const key  = getKey()
+  const wrap = document.getElementById('cat-sections-wrap')
+  const countEl = document.getElementById('cat-total-count')
+
+  // QuizAPI returns array of category objects: [{name:"Linux"}, ...]
+  const res  = await fetch(`https://quizapi.io/api/v1/questions/categories?apiKey=${encodeURIComponent(key)}`)
+  if (!res.ok) { wrap.innerHTML = '<p style="color:var(--muted);text-align:center">Could not load categories.</p>'; return }
+  const data = await res.json()   // [{name: "Linux"}, ...]
+
+  // Build lookup maps + render one flat grid (QuizAPI doesn't group them)
+  const cats = data.map(c => {
+    const id    = c.name.toLowerCase().replace(/\s+/g,'-')
+    const tag   = c.name   // use the name as the API tag param
+    const style = TAG_STYLE[id] || TAG_STYLE[c.name.toLowerCase()] || TAG_STYLE.default
+    const border = hexToRgba(style.color.startsWith('#') ? style.color : '#94a3b8', 0.4)
+    CAT_TAGS[id] = tag
+    CAT_META[id] = { label:`${style.icon} ${c.name}`, color:style.color, border, icon:style.icon }
+    return { id, label:c.name, icon:style.icon, color:style.color, border }
+  })
+  CAT_META.random = { label:'🎲 Random Mix', color:'#f97316', border:'rgba(249,115,22,0.4)', icon:'🎲' }
+
+  wrap.innerHTML = `
+    <div class="cat-grid">
+      ${cats.map(c => `
+        <div class="cat-card" onclick="startQuiz('${c.id}')"
+          style="--cc-color:${c.color};--cc-border:${c.border}">
+          <div class="cat-icon">${c.icon}</div>
+          <div class="cat-name">${c.label}</div>
+          <div class="cat-count">Live from API</div>
+        </div>`).join('')}
+    </div>`
+
+  if (countEl) countEl.textContent = cats.length
+  const randomBtn = document.getElementById('random-btn')
+  randomBtn.textContent = `🎲 Random Mix — All ${cats.length} Topics`
+  randomBtn.style.display = ''
 }
 
 const GRADES = [
@@ -687,6 +721,7 @@ function showScreen(id) {
 // ── Init ──
 window.addEventListener('DOMContentLoaded', () => {
   showScreen('s-landing')
+  loadCategories()
 })
 </script>
 
