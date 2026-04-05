@@ -1,15 +1,23 @@
 {
   "_instructions": {
-    "how_to_approve_a_testimonial": [
-      "When someone submits from your site, you get an email via Formspree.",
-      "To approve: add an entry to the 'testimonials' array below and set 'approved' to true, then push.",
-      "To reject: simply don't add it.",
-      "Fields:",
-      "  name     → full name (e.g. 'Rahul K.')",
-      "  role     → job title and company (e.g. 'Senior Engineer · CARS24')",
-      "  text     → their message — do NOT include quotes, they are added automatically",
-      "  approved → true to show on site, false to hide"
-    ]
+    "STEP 1 — Someone submits the form on your site": "You get an email at nitin.edu476@gmail.com with their name, role, and message.",
+    "STEP 2 — You decide to approve it": "Copy the example entry from '_example' below into the 'testimonials' array. Fill in their details.",
+    "STEP 3 — Set approved to true": "Change 'approved' from false to true. If you want to hide it temporarily, set it to false.",
+    "STEP 4 — Save and push": "Run: git add testimonials.json && git commit -m 'add testimonial' && git push origin master",
+    "STEP 5 — It appears live": "GitHub Actions deploys in ~2 minutes. The card shows up on your site automatically.",
+    "TO REJECT": "Simply don't add the entry. Or add it with 'approved': false — it won't show on the site.",
+    "FIELDS EXPLAINED": {
+      "name": "Person's full name — e.g. 'Rahul K.'",
+      "role": "Their title and company — e.g. 'Senior Engineer · CARS24'",
+      "text": "Their message — do NOT add quotes, the site adds them automatically",
+      "approved": "true = show on site | false = hide from site"
+    }
+  },
+  "_example": {
+    "name": "Rahul K.",
+    "role": "Senior Engineer · CARS24",
+    "text": "Paste their exact message here. No need to add quotes.",
+    "approved": false
   },
   "testimonials": []
 }
