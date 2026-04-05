@@ -401,42 +401,58 @@ function hexToRgba(hex, a) {
   return `rgba(${r},${g},${b},${a})`
 }
 
-async function loadCategories() {
-  const key  = getKey()
+// Categories from QuizAPI templates — add new ones here as QuizAPI grows
+const CATEGORIES = [
+  { id:'linux',        tag:'linux',         label:'Linux',         icon:'🐧', color:'#22c55e', group:'DevOps & Cloud' },
+  { id:'networking',   tag:'networking',    label:'Networking',    icon:'🌐', color:'#3b82f6', group:'DevOps & Cloud' },
+  { id:'aws',          tag:'AWS',           label:'AWS',           icon:'☁️', color:'#f97316', group:'DevOps & Cloud' },
+  { id:'terraform',    tag:'Terraform',     label:'Terraform',     icon:'🏗️', color:'#a855f7', group:'DevOps & Cloud' },
+  { id:'gcp',          tag:'GCP',           label:'GCP',           icon:'🔵', color:'#4285f4', group:'DevOps & Cloud' },
+  { id:'kubernetes',   tag:'Kubernetes',    label:'Kubernetes',    icon:'⚓', color:'#326ce5', group:'DevOps & Cloud' },
+  { id:'docker',       tag:'Docker',        label:'Docker',        icon:'🐳', color:'#2496ed', group:'DevOps & Cloud' },
+  { id:'cicd',         tag:'CICD',          label:'CI / CD',       icon:'🔄', color:'#fbbf24', group:'DevOps & Cloud' },
+  { id:'javascript',   tag:'javascript',    label:'JavaScript',    icon:'🟨', color:'#f7df1e', group:'Programming' },
+  { id:'react',        tag:'react',         label:'React',         icon:'⚛️', color:'#61dafb', group:'Programming' },
+  { id:'python',       tag:'python',        label:'Python',        icon:'🐍', color:'#3776ab', group:'Programming' },
+  { id:'typescript',   tag:'typescript',    label:'TypeScript',    icon:'📘', color:'#3178c6', group:'Programming' },
+  { id:'sql',          tag:'sql',           label:'SQL',           icon:'🗄️', color:'#e48e00', group:'Database & General' },
+  { id:'mongodb',      tag:'mongodb',       label:'MongoDB',       icon:'🍃', color:'#47a248', group:'Database & General' },
+  { id:'git',          tag:'git',           label:'Git',           icon:'🔀', color:'#f05032', group:'Database & General' },
+  { id:'systemdesign', tag:'system-design', label:'System Design', icon:'🏛️', color:'#8b5cf6', group:'Database & General' },
+]
+
+function loadCategories() {
   const wrap = document.getElementById('cat-sections-wrap')
   const countEl = document.getElementById('cat-total-count')
 
-  // QuizAPI returns array of category objects: [{name:"Linux"}, ...]
-  const res  = await fetch(`https://quizapi.io/api/v1/questions/categories?apiKey=${encodeURIComponent(key)}`)
-  if (!res.ok) { wrap.innerHTML = '<p style="color:var(--muted);text-align:center">Could not load categories.</p>'; return }
-  const data = await res.json()   // [{name: "Linux"}, ...]
-
-  // Build lookup maps + render one flat grid (QuizAPI doesn't group them)
-  const cats = data.map(c => {
-    const id    = c.name.toLowerCase().replace(/\s+/g,'-')
-    const tag   = c.name   // use the name as the API tag param
-    const style = TAG_STYLE[id] || TAG_STYLE[c.name.toLowerCase()] || TAG_STYLE.default
-    const border = hexToRgba(style.color.startsWith('#') ? style.color : '#94a3b8', 0.4)
-    CAT_TAGS[id] = tag
-    CAT_META[id] = { label:`${style.icon} ${c.name}`, color:style.color, border, icon:style.icon }
-    return { id, label:c.name, icon:style.icon, color:style.color, border }
+  // Build lookup maps
+  CATEGORIES.forEach(c => {
+    const border = hexToRgba(c.color, 0.4)
+    CAT_TAGS[c.id] = c.tag
+    CAT_META[c.id] = { label:`${c.icon} ${c.label}`, color:c.color, border, icon:c.icon }
   })
   CAT_META.random = { label:'🎲 Random Mix', color:'#f97316', border:'rgba(249,115,22,0.4)', icon:'🎲' }
 
-  wrap.innerHTML = `
+  // Group and render
+  const groups = {}
+  CATEGORIES.forEach(c => { if (!groups[c.group]) groups[c.group] = []; groups[c.group].push(c) })
+
+  wrap.innerHTML = Object.entries(groups).map(([group, cats]) => `
+    <div class="cat-section-label" style="margin-top:20px">${group}</div>
     <div class="cat-grid">
-      ${cats.map(c => `
-        <div class="cat-card" onclick="startQuiz('${c.id}')"
-          style="--cc-color:${c.color};--cc-border:${c.border}">
+      ${cats.map(c => {
+        const border = hexToRgba(c.color, 0.4)
+        return `<div class="cat-card" onclick="startQuiz('${c.id}')" style="--cc-color:${c.color};--cc-border:${border}">
           <div class="cat-icon">${c.icon}</div>
           <div class="cat-name">${c.label}</div>
           <div class="cat-count">Live from API</div>
-        </div>`).join('')}
-    </div>`
+        </div>`
+      }).join('')}
+    </div>`).join('')
 
-  if (countEl) countEl.textContent = cats.length
+  if (countEl) countEl.textContent = CATEGORIES.length
   const randomBtn = document.getElementById('random-btn')
-  randomBtn.textContent = `🎲 Random Mix — All ${cats.length} Topics`
+  randomBtn.textContent = `🎲 Random Mix — All ${CATEGORIES.length} Topics`
   randomBtn.style.display = ''
 }
 
@@ -720,10 +736,7 @@ function showScreen(id) {
 // ── Init ──
 window.addEventListener('DOMContentLoaded', () => {
   showScreen('s-landing')
-  loadCategories().catch(err => {
-    document.getElementById('cat-sections-wrap').innerHTML =
-      `<p style="color:var(--muted);text-align:center;padding:20px">Failed to load categories: ${err.message}</p>`
-  })
+  loadCategories()
 })
 </script>
 
