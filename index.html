@@ -192,6 +192,14 @@
     .connect-icon.green{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)}
     .connect-point-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px}
     .connect-point-desc{font-size:13px;color:var(--muted);line-height:1.5}
+    .connect-avail{display:flex;align-items:center;gap:7px;margin-bottom:14px}
+    .avail-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0;box-shadow:0 0 0 3px rgba(34,197,94,0.18)}
+    .connect-avail span{font-size:12px;font-weight:600;color:#22c55e;letter-spacing:0.03em}
+    .connect-quick{margin-top:auto;padding-top:18px;border-top:1px solid var(--border)}
+    .connect-quick-label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px}
+    .connect-quick-links{display:flex;gap:10px}
+    .cq-link{display:flex;align-items:center;justify-content:center;gap:7px;padding:9px 12px;border-radius:8px;border:1px solid var(--border);background:var(--bg-card2);color:var(--text);font-size:13px;font-weight:500;text-decoration:none;flex:1;transition:all 0.15s}
+    .cq-link:hover{border-color:rgba(249,115,22,0.4);color:var(--accent)}
 
     .form-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:28px}
     .form-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px}
@@ -624,6 +632,7 @@
   <h2 class="reveal">Connect or Request a Referral</h2>
   <div class="connect-grid reveal">
     <div class="connect-info-card">
+      <div class="connect-avail"><div class="avail-dot"></div><span>Open to connect</span></div>
       <div class="connect-info-heading">How I can help</div>
       <div class="connect-info-sub">Pick a topic on the right and send a message — I'll respond within 24–48 hours.</div>
       <div class="connect-info">
@@ -654,6 +663,18 @@
             <div class="connect-point-title">Freelance / Consulting</div>
             <div class="connect-point-desc">Need help with cloud infra, Kubernetes setup, CI/CD pipelines, or cost optimization? Let's discuss your project.</div>
           </div>
+        </div>
+      </div>
+      <div class="connect-quick">
+        <div class="connect-quick-label">Or reach me directly</div>
+        <div class="connect-quick-links">
+          <a href="https://www.linkedin.com/in/nitintilwani/" target="_blank" rel="noopener" class="cq-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:nitin.edu476@gmail.com" class="cq-link">
+            <span style="font-size:15px">📧</span> Email
+          </a>
         </div>
       </div>
     </div>
