@@ -1,0 +1,75 @@
+{
+  "_instructions": {
+    "how_to_add_or_edit_skills": [
+      "1. Add a new object to the 'skills' array below",
+      "2. Fields:",
+      "   id    → unique key, lowercase, no spaces (e.g. 'cloud')",
+      "   title → heading shown on the card (e.g. 'Cloud')",
+      "   icon  → emoji shown next to the title (e.g. '☁️')",
+      "   tags  → list of skill names. Two formats supported:",
+      "           - Plain string: \"AWS\"",
+      "           - Object with note: { \"label\": \"Logchef\", \"note\": \"in-house OSS\" }",
+      "3. Save the file — the website re-renders automatically, no code changes needed"
+    ]
+  },
+  "skills": [
+    {
+      "id": "cloud",
+      "title": "Cloud",
+      "icon": "☁️",
+      "tags": ["AWS", "GCP"]
+    },
+    {
+      "id": "containers",
+      "title": "Containers & Orchestration",
+      "icon": "🐳",
+      "tags": ["Docker", "Kubernetes", "ECS", "EKS", "GKE", "Helm", "ArgoCD"]
+    },
+    {
+      "id": "cicd",
+      "title": "CI / CD",
+      "icon": "🔄",
+      "tags": ["GitHub Actions", "Jenkins", "TeamCity", "Bitbucket CI/CD"]
+    },
+    {
+      "id": "iac",
+      "title": "Infrastructure as Code & Automation",
+      "icon": "🏗️",
+      "tags": ["Terraform", "Terragrunt", "Ansible", "Helm Charts"]
+    },
+    {
+      "id": "scripting",
+      "title": "Scripting & Tools",
+      "icon": "🖥️",
+      "tags": ["Bash", "Python", "Groovy", "YAML", "Makefile"]
+    },
+    {
+      "id": "observability",
+      "title": "Observability & Monitoring",
+      "icon": "📊",
+      "tags": [
+        "Datadog", "Grafana", "Prometheus", "CloudWatch",
+        { "label": "Logchef", "note": "in-house OSS" },
+        "incident.io", "RCA", "SLA tracking"
+      ]
+    },
+    {
+      "id": "networking",
+      "title": "Networking & Security",
+      "icon": "🔐",
+      "tags": ["NLB", "ALB", "Route53", "CloudFront", "WAF", "Nginx", "Varnish", "SSL/TLS", "Cloudflare", "Cloudflare Tunnel", "Zero Trust / ZTNA"]
+    },
+    {
+      "id": "cost",
+      "title": "Cost Optimization & Performance",
+      "icon": "💰",
+      "tags": ["Cloud cost optimization", "Kubernetes right-sizing", "RDS/ElastiCache optimization"]
+    },
+    {
+      "id": "collab",
+      "title": "Collaboration & Productivity",
+      "icon": "🤝",
+      "tags": ["Jira", "GitHub Projects", "Internal tools deployment", "Audit compliance"]
+    }
+  ]
+}

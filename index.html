@@ -500,17 +500,8 @@
 <!-- Skills -->
 <section id="skills">
   <div class="sec-label reveal">Technical</div>
-  <h2 class="reveal">Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-card reveal-card"><div class="skill-title">Cloud Platforms</div><div class="tags"><span class="tag">AWS</span><span class="tag">GCP</span></div></div>
-    <div class="skill-card reveal-card"><div class="skill-title">Compute &amp; Data</div><div class="tags"><span class="tag">EC2</span><span class="tag">EKS</span><span class="tag">ECS</span><span class="tag">Lambda</span><span class="tag">S3</span><span class="tag">RDS</span><span class="tag">Aurora</span></div></div>
-    <div class="skill-card reveal-card"><div class="skill-title">Containers</div><div class="tags"><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Helm</span><span class="tag">GKE</span><span class="tag">ArgoCD</span></div></div>
-    <div class="skill-card reveal-card"><div class="skill-title">CI / CD</div><div class="tags"><span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">TeamCity</span><span class="tag">BuildPiper</span><span class="tag">Bitbucket CI/CD</span></div></div>
-    <div class="skill-card reveal-card"><div class="skill-title">IaC &amp; Automation</div><div class="tags"><span class="tag">Terraform</span><span class="tag">Terragrunt</span><span class="tag">Ansible</span><span class="tag">Helm Charts</span></div></div>
-    <div class="skill-card reveal-card"><div class="skill-title">Scripting</div><div class="tags"><span class="tag">Bash</span><span class="tag">Python</span><span class="tag">Groovy</span><span class="tag">YAML</span><span class="tag">Makefile</span></div></div>
-    <div class="skill-card reveal-card"><div class="skill-title">Observability</div><div class="tags"><span class="tag">Datadog</span><span class="tag">Grafana</span><span class="tag">Prometheus</span><span class="tag">CloudWatch</span><span class="tag">Logchef <span style="font-size:10px;opacity:0.6">(in-house OSS)</span></span></div></div>
-    <div class="skill-card reveal-card"><div class="skill-title">Networking &amp; Security</div><div class="tags"><span class="tag">NLB</span><span class="tag">ALB</span><span class="tag">Route53</span><span class="tag">CloudFront</span><span class="tag">Nginx</span><span class="tag">Varnish</span><span class="tag">WAF</span><span class="tag">SSL/TLS</span></div></div>
-  </div>
+  <h2 class="reveal">Tech Stack</h2>
+  <div class="skills-grid" id="skills-grid"></div>
 </section>
 
 <hr class="divider" />
@@ -890,6 +881,28 @@
     })
   }, { threshold: 0.1 })
   document.querySelectorAll('.reveal-card').forEach(el => obsCard.observe(el))
+
+  // ── Skills loader ──
+  async function loadSkills() {
+    try {
+      const res = await fetch('skills.json')
+      const json = await res.json()
+      const grid = document.getElementById('skills-grid')
+      if (!grid || !json.skills) return
+      grid.innerHTML = json.skills.map(group => {
+        const tags = group.tags.map(t => {
+          if (typeof t === 'string') return `<span class="tag">${t}</span>`
+          return `<span class="tag">${t.label} <span style="font-size:10px;opacity:0.6">(${t.note})</span></span>`
+        }).join('')
+        const title = group.icon ? `${group.icon} ${group.title}` : group.title
+        return `<div class="skill-card reveal-card"><div class="skill-title">${title}</div><div class="tags">${tags}</div></div>`
+      }).join('')
+      grid.querySelectorAll('.reveal-card').forEach(el => obsCard.observe(el))
+    } catch(e) {
+      console.warn('Could not load skills.json', e)
+    }
+  }
+  loadSkills()
 
   // ── Typewriter effect ──
   const roles = [
